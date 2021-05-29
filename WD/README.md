@@ -18,7 +18,7 @@
 - clone the repo to your local machine
 - pull all the data
 - set up the missing information from [.gitignore] (https://miro.com/app/board/o9J_lGXaB7k=/)
-  - node_module -> installation
+  - node_module -> installation "yarn install"
   - key.js -> ask Steffi for database information
 
 ## What shall I do regulary to be set up for Web Dev?
