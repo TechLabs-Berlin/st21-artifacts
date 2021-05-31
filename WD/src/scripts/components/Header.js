@@ -12,27 +12,37 @@ export default class Header extends React.Component {
     return (
       <header>
         <div className="container-header">
-          <h1>Artifacts</h1>
-          <div className="container-nav">
-            <NavLink to="/" activeClassName="is-active" exact={true}>
+          <h1>
+            <NavLink
+              className="home"
+              to="/"
+              activeClassName="is-active"
+              exact={true}
+            >
               Home
             </NavLink>
-            <NavLink to="/search" activeClassName="is-active">
-              Search Page
-            </NavLink>
-            <NavLink to="/page1" activeClassName="is-active">
-              Page 1
-            </NavLink>
-            <NavLink to="/page2" activeClassName="is-active">
-              Page 2
-            </NavLink>
-          </div>
+          </h1>
           <div className="container-buttons">
-            <button onClick={this.startLogin}>Login</button>
-            <button onClick={this.startLogout}>Logout</button>
+            <div>
+              <button onClick={this.startLogin}>Login</button>
+              <button onClick={this.startLogout}>Logout</button>
+            </div>
+            <div>
+              <NavLink to="/messenger" activeClassName="is-active">
+                <img src="../../../public/images/mail.png" />
+              </NavLink>
+              <NavLink to="/fav" activeClassName="is-active">
+                <img src="../../../public/images/heart.png" />
+              </NavLink>
+              <NavLink to="/search" activeClassName="is-active">
+                <img src="../../../public/images/search.png" />
+              </NavLink>
+              <NavLink to="/profile" activeClassName="is-active">
+                <img src="../../../public/images/face.png" />
+              </NavLink>
+            </div>
           </div>
         </div>
-        <br />
       </header>
     );
   }

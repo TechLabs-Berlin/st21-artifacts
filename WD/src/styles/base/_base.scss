@@ -1,7 +1,9 @@
 body {
-  background: #8357c5;
-  color: #333745;
+  background: $background;
+  color: $color;
   font-family: Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  width: 90%;
 }
 
 button {

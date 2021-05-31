@@ -4,9 +4,10 @@ import createHistory from "history/createBrowserHistory";
 import Header from "../components/Header";
 import LandingPage from "../components/LandingPage";
 import NotFoundPage from "../components/NotFoundPage";
-import Page1 from "../components/Page1";
-import Page2 from "../components/Page2";
 import SearchPage from "../components/SearchPage";
+import Messenger from "../components/Messenger";
+import Fav from "../components/Favorites";
+import Profile from "../components/Profile";
 
 // dynamic routing with :id
 
@@ -18,9 +19,10 @@ const AppRouter = () => (
       <Header />
       <Switch>
         <Route path="/" component={LandingPage} exact={true} />
-        <Route path="/page1" component={Page1} />
-        <Route path="/page2" component={Page2} />
         <Route path="/search" component={SearchPage} />
+        <Route path="/messenger" component={Messenger} />
+        <Route path="/fav" component={Fav} />
+        <Route path="/profile" component={Profile} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

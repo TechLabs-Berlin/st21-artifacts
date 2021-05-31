@@ -1,21 +1,21 @@
 .container-header {
+  border: 1px solid $lines;
   display: flex;
   justify-content: space-between;
+  margin: 0;
+  padding: 10px;
 }
 
 .container-header > h1 {
-  flex-grow: 2;
   margin: 0;
+}
+
+.home {
+  text-decoration: inherit;
+  color: inherit;
 }
 
 .container-buttons {
   display: flex;
   flex-direction: row-reverse;
-  flex-grow: 2;
-}
-
-.container-nav {
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
 }
