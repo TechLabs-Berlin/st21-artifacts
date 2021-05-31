@@ -1,6 +1,6 @@
 [See README-Syntax here] (https://guides.github.com/features/mastering-markdown/)
 
-# Initial Push by Steffi 24.05.21
+# Documentation
 
 ## What did Steffi do?
 
@@ -15,16 +15,29 @@
 
 ## What shall I do initially to be set up for Web Dev?
 
-- clone the repo to your local machine
-- pull all the data
-- set up the missing information from [.gitignore] (https://miro.com/app/board/o9J_lGXaB7k=/)
-  - node_module -> installation "yarn install"
-  - key.js -> ask Steffi for database information
+Git Bash on a new folder:
+
+- clone the repo to your local machine: **git clone https://github.com/TechLabs-Berlin/st21-artifacts.git**
+
+Git Bash on Artifacts-folder:
+
+- pull all the data: **git pull**
+
+Git Bash on WD-folder:
+
+- set up the missing information from .gitignore
+  - installation of all packages (node_module): **yarn install**
+  - key.js -> ask Steffi for database information and store the document in the WD-folder
 
 ## What shall I do regulary to be set up for Web Dev?
 
-- pull the latest data
-- run Git Bash on folder **WD** with **yarn run dev-server**
+Git Bash on Artifacts-folder:
+
+- pull the latest data: **git pull**
+
+Git Bash on WD-folder:
+
+- run Git Bash on folder **WD** with: **yarn run dev-server**
 - open Chrome or Firefox and visit **localhost:8080**
 - open **WD** in your _VS Code_
 - have fun ^^

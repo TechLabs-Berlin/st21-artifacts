@@ -15,6 +15,7 @@
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
     "firebase": "4.2.0",
+    "history": "4.7.2",
     "live-server": "^1.2.1",
     "node-sass": "6.0.0",
     "normalize.css": "7.0.0",

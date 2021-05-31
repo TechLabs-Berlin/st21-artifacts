@@ -1,0 +1,21 @@
+.container-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-header > h1 {
+  flex-grow: 2;
+  margin: 0;
+}
+
+.container-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-grow: 2;
+}
+
+.container-nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
