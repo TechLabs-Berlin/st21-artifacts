@@ -1,4 +1,5 @@
 .search-bar {
+  background-color: rgb(93, 30, 134);
   border: 1px solid $lines;
   border-top: none;
   display: flex;
@@ -7,14 +8,16 @@
   padding: 10px;
 }
 
-.search-bar > div {
-  border-radius: 40px;
+.search-bar > button {
+  background-color: rgb(93, 30, 134);
+  border: none;
+  color: white;
   padding: 10px;
   text-align: center;
 }
 
-.search-bar > div:hover {
-  background-color: rgb(73, 27, 73);
-  color: white;
-  font-size: larger;
+.search-bar > button:hover {
+  background-color: $background;
+  border-radius: 40px;
+  color: $color;
 }
