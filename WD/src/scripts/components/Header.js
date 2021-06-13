@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { firebase, googleAuthProvider } from "../firebase/firebase";
+import SearchBar from "../components/SearchBar";
+
 export default class Header extends React.Component {
   startLogin = () => {
     firebase.auth().signInWithPopup(googleAuthProvider);
@@ -19,9 +21,10 @@ export default class Header extends React.Component {
               activeClassName="is-active"
               exact={true}
             >
-              Home
+              Artifacts
             </NavLink>
           </h1>
+          <SearchBar />
           <div className="container-buttons-header">
             <button onClick={this.startLogout} className="button-header">
               Logout
@@ -30,32 +33,7 @@ export default class Header extends React.Component {
               Login
             </button>
             <NavLink to="/profile" activeClassName="is-active">
-              <img
-                src="https://image.flaticon.com/icons/png/512/633/633780.png"
-                className="icon-header"
-                alt="Profile icon"
-              />
-            </NavLink>
-            <NavLink to="/search" activeClassName="is-active">
-              <img
-                src="https://image.flaticon.com/icons/png/512/751/751463.png"
-                className="icon-header"
-                alt="Search icon"
-              />
-            </NavLink>
-            <NavLink to="/fav" activeClassName="is-active">
-              <img
-                src="https://image.flaticon.com/icons/png/512/812/812327.png"
-                className="icon-header"
-                alt="Favorite icon"
-              />
-            </NavLink>
-            <NavLink to="/messenger" activeClassName="is-active">
-              <img
-                src="https://image.flaticon.com/icons/png/512/1334/1334110.png"
-                className="icon-header"
-                alt="Messenge icon"
-              />
+              <i className="icofont-ui-user"></i>
             </NavLink>
           </div>
         </div>
@@ -63,3 +41,11 @@ export default class Header extends React.Component {
     );
   }
 }
+
+/*             <NavLink to="/messenger" activeClassName="is-active">
+              <i className="icofont-mail"></i>
+            </NavLink> */
+
+/* <NavLink to="/fav" activeClassName="is-active">
+  <i className="icofont-heart"></i>
+</NavLink>; */

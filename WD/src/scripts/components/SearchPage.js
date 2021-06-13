@@ -1,11 +1,23 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
+import ItemCard from "./ItemCard";
 
 const SearchPage = () => (
-  <div>
-    <SearchBar />
-    <div className="search-page">
-      <p>Hi Eunice, I´m your playground.</p>
+  <div className="search-page">
+    <div>
+      <p>Search page follows here.</p>
+    </div>
+    <div className="search-page-results">
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
+      <ItemCard />
     </div>
   </div>
 );

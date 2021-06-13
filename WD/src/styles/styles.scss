@@ -1,10 +1,9 @@
 @import "./base/settings";
 @import "./base/base";
 @import "./components/header";
+@import "./components/itemCard";
 @import "./components/landing-page";
-@import "./components/search-page";
-@import "./components/search-bar";
+@import "./components/offerArtifact";
 @import "./components/profile";
-
-//sass reference functions
-//BEM naming conventions!
+@import "./components/search-bar";
+@import "./components/search-page";

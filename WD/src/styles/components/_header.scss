@@ -6,23 +6,31 @@
   margin: 5px;
 }
 
+.button-header:hover {
+  background: $color;
+  color: $background;
+}
+
 .container-buttons-header {
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
+  flex-grow: 1;
 }
 
 .container-header {
   align-items: center;
-  border: 1px solid $lines;
+  /* border: 1px solid $lines; */
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 10px;
+  padding: 0;
 }
 
 .container-header > h1 {
-  margin: 0;
+  flex-grow: 1;
+  margin: 0 0 0 5px;
+  padding: 0;
 }
 
 .home-header {
@@ -30,8 +38,13 @@
   text-decoration: inherit;
 }
 
-.icon-header {
-  height: 30px;
+i {
+  color: $color;
+  font-size: 25px;
   margin: 5px;
   object-fit: cover;
+}
+
+a {
+  text-decoration: none;
 }

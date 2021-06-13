@@ -2291,11 +2291,6 @@ evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
     md5.js "^1.3.4"
     safe-buffer "^5.1.1"
 
-exenv@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.0.tgz#3835f127abf075bfe082d0aed4484057c78e3c89"
-  integrity sha1-ODXxJ6vwdb/ggtCu1EhAV8eOPIk=
-
 expand-brackets@^0.1.4:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
@@ -4879,7 +4874,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5015,11 +5010,6 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom-factories@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
-  integrity sha1-63cFxNs2+1AbOqOP91lhaqD/luA=
-
 react-dom@16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
@@ -5034,15 +5024,6 @@ react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
-react-modal@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-2.2.2.tgz#4bbf98bc506e61c446c9f57329c7a488ea7d504b"
-  integrity sha512-tdgyEyfbyfzDUj40XtWldAQe7e+yhJDUtVSlsQ9AQCGifzWck6v1XTtIVGViVftOsEA3cBWCZCjF3rq6FPJzMg==
-  dependencies:
-    exenv "1.2.0"
-    prop-types "^15.5.10"
-    react-dom-factories "^1.0.0"
 
 react-router-dom@4.2.2:
   version "4.2.2"

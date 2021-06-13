@@ -1,23 +1,31 @@
 .search-bar {
-  background-color: rgb(93, 30, 134);
-  border: 1px solid $lines;
-  border-top: none;
+  align-items: center;
   display: flex;
+  flex-grow: 4;
   justify-content: space-between;
-  margin: 0;
-  padding: 10px;
+  margin: 5px;
+  padding: 0;
 }
 
-.search-bar > button {
-  background-color: rgb(93, 30, 134);
+.search-bar-button {
+  background: $background;
   border: none;
-  color: white;
-  padding: 10px;
+  /*   margin: 0 40px; */
+  padding: 10px 25px;
   text-align: center;
 }
 
-.search-bar > button:hover {
-  background-color: $background;
+.search-bar-button:hover {
+  background-color: $highlight;
   border-radius: 40px;
-  color: $color;
+}
+
+.search-bar-button:focus {
+  background-color: $highlight;
+  border-radius: 40px;
+}
+
+.search-bar-I {
+  margin: 0;
+  padding: 0;
 }

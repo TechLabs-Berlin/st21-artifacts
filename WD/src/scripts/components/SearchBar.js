@@ -1,11 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 export default class SearchBar extends React.Component {
-  handleFindArtifact = () => {
-    alert("Functionality not available.");
-  };
-  handleOfferArtifact = () => {
-    alert("Functionality not available.");
-  };
   handleFindService = () => {
     alert("Functionality not available.");
   };
@@ -15,30 +10,37 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <div className="search-bar">
-        <button
-          onClick={this.handleFindArtifact}
-          className="find-artifact-search-bar"
+        <NavLink
+          to="/search"
+          activeClassName="is-active"
+          className="search-bar-nav"
         >
-          find an Artifact
-        </button>
-        <button
-          onClick={this.handleOfferArtifact}
-          className="offer-artifact-search-bar"
+          <button className="search-bar-button">find Artifacts</button>
+        </NavLink>
+        <NavLink
+          to="/offerArtifact"
+          activeClassName="is-active"
+          className="search-bar-nav"
         >
-          offer an Artifact
-        </button>
-        <button
-          onClick={this.handleFindService}
-          className="find-service-search-bar"
-        >
-          offer a service/collaboration
-        </button>
-        <button
-          onClick={this.handleOfferService}
-          className="offer-service-search-bar"
-        >
-          find a service/collaboration
-        </button>
+          <button className="search-bar-button">offer Artifacts</button>
+        </NavLink>
+        <h2 className="search-bar-I">I</h2>
+        <NavLink to="" activeClassName="is-active" className="search-bar-nav">
+          <button
+            onClick={this.handleOfferService}
+            className="search-bar-button"
+          >
+            find services
+          </button>
+        </NavLink>
+        <NavLink to="" activeClassName="is-active" className="search-bar-nav">
+          <button
+            onClick={this.handleFindService}
+            className="search-bar-button"
+          >
+            offer services
+          </button>
+        </NavLink>
       </div>
     );
   }
