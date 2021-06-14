@@ -1,47 +1,6 @@
 .landing-page {
-  border: 1px solid $lines;
-  border-top: none;
-  color: White;
+  border: none;
+  margin: 20px auto;
   padding: 10px;
-}
-
-.container-actions {
-    margin: auto;
-    width: 80%;
-}
-
-.action {
-    box-sizing: border-box;
-    float: left;
-    width: 100%;
-    padding: 15px;
-}
-
-.action-content {
-    box-sizing: border-box;
-    width: 100%;
-    padding-top: 66%;
-    position: relative;
-    color: black;
-    background-color: white;
-}
-
-.action-content a {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 50%;
-    font-size: 20pt;
-}
-
-.boldItalic {
-    font-weight: bold;
-    font-style: italic;
-}
-
-@media only screen and (min-width: 768px) {
-    .action {
-        width: 50%;
-    }
+  width: 94%;
 }
