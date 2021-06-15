@@ -1,26 +1,26 @@
 import React from "react";
-import { currentItem } from "./Datasets";
+import { itemInformation } from "./Datasets";
 
-const ItemCard = () => (
+const ItemCard = (props) => (
   <div className="item-card">
     <div className="card-header">
       <div>
-        <img src={currentItem.itemOwnerPicture} />
-        <h5>{currentItem.itemOwnerName}</h5>
+        <img src={props.ownerPicture} />
+        <h5>{props.ownerName}</h5>
       </div>
-      <p>{currentItem.itemOwnerReview}</p>
+      <p>{props.ownerReview}</p>
     </div>
     <div className="card-body">
-      <img src={currentItem.itemPicture} />
+      <img src={props.itemPicture} />
       <i className="icofont-heart"></i>
     </div>
     <div className="card-bottom">
-      <h5>{currentItem.itemName}</h5>
+      <h5>{props.itemName}</h5>
       <div>
-        <p>{currentItem.itemPrice}€</p>
+        <p>{props.itemPrice}€</p>
         <div>
           <i className="icofont-heart"></i>
-          <p>{currentItem.itemFans}</p>
+          <p>{props.itemFans}</p>
         </div>
       </div>
     </div>

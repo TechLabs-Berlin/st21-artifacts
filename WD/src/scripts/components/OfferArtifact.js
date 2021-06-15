@@ -11,25 +11,30 @@ export default class OfferArtifact extends React.Component {
   offerArtifact(
     e,
     itemCategory,
+    itemCondition,
+    itemDescription,
     itemName,
     itemPicture,
-    itemDescription,
     itemPrice,
-    userLocation,
-    itemCondition
+    ownerLocation
   ) {
     e.preventDefault();
     database
-      .ref(`${userInformation.UID}`)
+      .ref()
       .child("items")
       .push({
         itemCategory: itemCategory,
+        itemCondition: itemCondition,
+        itemDescription: itemDescription,
+        itemFans: "0",
         itemName: itemName,
         itemPicture: itemPicture,
-        itemDescription: itemDescription,
         itemPrice: itemPrice,
-        userLocation: userLocation,
-        itemCondition: itemCondition,
+        ownerKey: userInformation.UID,
+        ownerLocation: ownerLocation,
+        ownerName: userInformation.name,
+        ownerPicture: userInformation.profilePicture,
+        ownerReview: "4.5",
       })
       .then(() => {
         console.log("Item is saved");
@@ -77,12 +82,12 @@ export default class OfferArtifact extends React.Component {
               this.offerArtifact(
                 e,
                 document.getElementById("itemCategory").value,
+                document.getElementById("itemCondition").value,
+                document.getElementById("itemDescription").value,
                 document.getElementById("itemName").value,
                 document.getElementById("itemPicture").value,
-                document.getElementById("itemDescription").value,
                 document.getElementById("itemPrice").value,
-                document.getElementById("userLocation").value,
-                document.getElementById("itemCondition").value
+                document.getElementById("ownerLocation").value
               )
             }
           >
@@ -148,7 +153,7 @@ export default class OfferArtifact extends React.Component {
                 </div>
                 <div className="item-edit-flex">
                   <label className="item-edit-label2">Location: </label>
-                  <select className="item-edit-input2" id="userLocation">
+                  <select className="item-edit-input2" id="ownerLocation">
                     <option value="Mitte">Berlin Mitte</option>
                     <option value="Charlottenburg">
                       Berlin Charlottenburg

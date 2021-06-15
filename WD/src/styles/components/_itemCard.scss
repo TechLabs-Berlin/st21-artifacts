@@ -33,6 +33,8 @@
 .card-header > div > h5 {
   margin: 0 0 0 5px;
   padding: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card-header > p {
