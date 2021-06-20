@@ -30,6 +30,9 @@ export default class SearchPage extends React.Component {
         });
       });
   };
+  presentPopover = (item) => {
+
+  };
   render() {
     return (
       <div className="search-page">
@@ -42,8 +45,8 @@ export default class SearchPage extends React.Component {
           </button>
         </div>
         <div className="search-page-results">
-          {this.state.items.map((item) => (
-            <ItemCard
+            {this.state.items.map((item) => (
+            <button onClick={this.presentPopover(item)}><ItemCard
               itemFans={item.itemFans}
               itemName={item.itemName}
               itemPicture={item.itemPicture}
@@ -51,7 +54,7 @@ export default class SearchPage extends React.Component {
               ownerName={item.ownerName}
               ownerPicture={item.ownerPicture}
               ownerReview={item.ownerReview}
-            />
+            /></button>
           ))}
         </div>
       </div>
