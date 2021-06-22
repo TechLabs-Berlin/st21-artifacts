@@ -5,8 +5,6 @@ import Header from "../components/Header";
 import LandingPage from "../components/LandingPage";
 import NotFoundPage from "../components/NotFoundPage";
 import SearchPage from "../components/SearchPage";
-import Messenger from "../components/Messenger";
-import Fav from "../components/Favorites";
 import Profile from "../components/Profile";
 import OfferArtifact from "../components/OfferArtifact";
 import { firebase } from "../firebase/firebase";
@@ -39,8 +37,6 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" component={LandingPage} exact={true} />
         <PrivateRoute path="/search" component={SearchPage} />
-        <PrivateRoute path="/messenger" component={Messenger} />
-        <PrivateRoute path="/fav" component={Fav} />
         <PrivateRoute path="/profile" component={Profile} />
         <PrivateRoute path="/offerArtifact" component={OfferArtifact} />
         <Route component={NotFoundPage} />

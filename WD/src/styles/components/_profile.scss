@@ -3,7 +3,7 @@
   grid-template-columns: 40% 60%;
   grid-template-rows: 300px 1fr;
   margin: 20px auto 10px auto;
-  width: 94%;
+  /*  width: 94%; */
 }
 
 .user-header {
@@ -149,4 +149,17 @@
   margin: 0 auto;
   text-align: center;
   width: 80%;
+}
+
+.list-artifacts-services {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  justify-content: flex-start;
+  overflow-y: scroll;
+}
+
+.profile-about-me {
+  white-space: pre-line;
 }

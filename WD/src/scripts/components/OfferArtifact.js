@@ -154,37 +154,11 @@ export default class OfferArtifact extends React.Component {
                 <div className="item-edit-flex">
                   <label className="item-edit-label2">Location: </label>
                   <select className="item-edit-input2" id="ownerLocation">
-                    <option value="Mitte">Berlin Mitte</option>
-                    <option value="Charlottenburg">
-                      Berlin Charlottenburg
-                    </option>
-                    <option value="Friedrichshain">
-                      Berlin Friedrichshain
-                    </option>
-                    <option value="Lichtenberg">Berlin Lichtenberg</option>
-                    <option value="Kreuzberg">Berlin Kreuzberg</option>
-                    <option value="Hellersdorf">Berlin Hellersdorf</option>
-                    <option value="Hohenschönhausen">
-                      Berlin Hohenschönhausen
-                    </option>
-                    <option value="Köpenick">Berlin Köpenick</option>
-                    <option value="Marzahn">Berlin Marzahn</option>
-                    <option value="Neuköln">Berlin Neuköln</option>
-                    <option value="Pankow">Berlin Pankow</option>
-                    <option value="Prenzlauer Berg">
-                      Berlin Prenzlauer Berg
-                    </option>
-                    <option value="Reinickendorf">Berlin Reinickendorf</option>
-                    <option value="Schöneberg">Berlin Schöneberg</option>
-                    <option value="Spandau">Berlin Spandau</option>
-                    <option value="Steglitz">Berlin Steglitz</option>
-                    <option value="Tempelhof">Berlin Tempelhof</option>
-                    <option value="Tiergarten">Berlin Tiergarten</option>
-                    <option value="Treptow">Berlin Treptow</option>
-                    <option value="Wedding">Berlin Wedding</option>
-                    <option value="Weißensee">Berlin Weißensee</option>
-                    <option value="Wilmersdorf">Berlin Wilmersdorf</option>
-                    <option value="Zehlendorf">Berlin Zehlendorf</option>
+                    <option value="Mitte">Mitte</option>
+                    <option value="Charlottenburg">Charlottenburg</option>
+                    <option value="Friedrichshain">Friedrichshain</option>
+                    <option value="Lichtenberg">Lichtenberg</option>
+                    <option value="Kreuzberg">Kreuzberg</option>
                   </select>
                 </div>
                 <div className="item-edit-flex">
@@ -207,3 +181,27 @@ export default class OfferArtifact extends React.Component {
     );
   }
 }
+
+/*   <option value="Hellersdorf">Berlin Hellersdorf</option>
+                    <option value="Hohenschönhausen">
+                      Berlin Hohenschönhausen
+                    </option>
+                    <option value="Köpenick">Berlin Köpenick</option>
+                    <option value="Marzahn">Berlin Marzahn</option>
+                    <option value="Neuköln">Berlin Neuköln</option>
+                    <option value="Pankow">Berlin Pankow</option>
+                    <option value="Prenzlauer Berg">
+                      Berlin Prenzlauer Berg
+                    </option>
+                    <option value="Reinickendorf">Berlin Reinickendorf</option>
+                    <option value="Schöneberg">Berlin Schöneberg</option>
+                    <option value="Spandau">Berlin Spandau</option>
+                    <option value="Steglitz">Berlin Steglitz</option>
+                    <option value="Tempelhof">Berlin Tempelhof</option>
+                    <option value="Tiergarten">Berlin Tiergarten</option>
+                    <option value="Treptow">Berlin Treptow</option>
+                    <option value="Wedding">Berlin Wedding</option>
+                    <option value="Weißensee">Berlin Weißensee</option>
+                    <option value="Wilmersdorf">Berlin Wilmersdorf</option>
+                    <option value="Zehlendorf">Berlin Zehlendorf</option>
+ */

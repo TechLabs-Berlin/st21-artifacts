@@ -1,4 +1,5 @@
 import React from "react";
+import userInformation from "./Datasets";
 
 export default class AboutMe extends React.Component {
   constructor(props) {
@@ -6,14 +7,7 @@ export default class AboutMe extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h2 className="user-h2">About Me:</h2>
-        <p>Next steps:</p>
-        <p>Testemonials/Reviewing Users</p>
-        <p>About Me</p>
-        <p>Artifacts&Services</p>
-        <p>Favorites</p>
-      </div>
+      <div className="profile-about-me">{userInformation.description}</div>
     );
   }
 }

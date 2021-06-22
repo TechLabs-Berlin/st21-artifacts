@@ -1,5 +1,7 @@
 const userInformation = {
   banner: "default",
+  description: "No further information.",
+  favorites: [],
   headline: "default",
   link: "default",
   mail: "default",
@@ -8,7 +10,6 @@ const userInformation = {
   UID: "default",
 };
 
-// dataset to try out woring with items ... this will be updated soon
 const itemInformation = {
   itemCategory: "default",
   itemCondition: "default",

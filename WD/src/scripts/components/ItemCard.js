@@ -1,8 +1,11 @@
 import React from "react";
-import { itemInformation } from "./Datasets";
+
+function Hallo() {
+  console.log("Hallo");
+}
 
 const ItemCard = (props) => (
-  <div className="item-card">
+  <div onClick={Hallo} className="item-card">
     <div className="card-header">
       <div>
         <img src={props.ownerPicture} />

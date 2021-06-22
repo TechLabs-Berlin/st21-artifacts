@@ -8,12 +8,13 @@ export default class EditingUserInformation extends React.Component {
     super(props);
     this.editInformation = this.editInformation.bind(this);
   }
-  editInformation(e, banner, headline, link, name, picture) {
+  editInformation(e, banner, headline, link, name, picture, description) {
     e.preventDefault();
     database
       .ref(`${userInformation.UID}`)
       .set({
         banner: banner,
+        description: description,
         headline: headline,
         link: link,
         name: name,
@@ -27,6 +28,7 @@ export default class EditingUserInformation extends React.Component {
         console.log("This failed", e);
       });
     userInformation.banner = banner;
+    userInformation.description = description;
     userInformation.headline = headline;
     userInformation.link = link;
     userInformation.name = name;
@@ -45,7 +47,8 @@ export default class EditingUserInformation extends React.Component {
               document.getElementById("headline").value,
               document.getElementById("link").value,
               document.getElementById("name").value,
-              document.getElementById("picture").value
+              document.getElementById("picture").value,
+              document.getElementById("description").value
             )
           }
         >
@@ -98,6 +101,16 @@ export default class EditingUserInformation extends React.Component {
               /*  name="" */
               defaultValue={userInformation.banner}
             ></input>
+          </div>
+          <div className="user-edit-flex">
+            <label className="user-edit-label">About Me: </label>
+            <textarea
+              className="user-edit-input"
+              type="text"
+              id="description"
+              /* name="" */
+              defaultValue={userInformation.description}
+            ></textarea>
           </div>
           <button type="submit" className="user-edit-button">
             Edit

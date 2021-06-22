@@ -6,8 +6,6 @@ import "normalize.css/normalize.css";
 import "../styles/styles.scss";
 import userInformation from "./components/Datasets";
 
-ReactDOM.render(<AppRouter />, document.getElementById("app"));
-
 // initial LogIn: initializes dataset in database ... regular LogIn: loads information from database ... LogOut
 
 let getInfo = (UID, info) => {
@@ -16,7 +14,7 @@ let getInfo = (UID, info) => {
     .once("value")
     .then((snapshot) => {
       userInformation[`${info}`] = snapshot.val();
-      //console.log(userInformation[`${info}`]);
+      console.log(userInformation[`${info}`]);
     })
     .catch((e) => {
       "Error fetching data", e;
@@ -27,24 +25,29 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     console.log("Logged in.");
     database
-      .ref(`${user.uid}/name`)
+      .ref(`${user.uid}`)
       .once("value")
       .then((snapshot) => {
         if (snapshot.exists()) {
           userInformation.UID = user.uid;
+          console.log(snapshot.val());
           //console.log(userInformation.UID);
           getInfo(userInformation.UID, "banner");
+          getInfo(userInformation.UID, "description");
           getInfo(userInformation.UID, "headline");
           getInfo(userInformation.UID, "link");
           getInfo(userInformation.UID, "mail");
           getInfo(userInformation.UID, "name");
           getInfo(userInformation.UID, "profilePicture");
+          userInformation.favorites = Object.values(snapshot.val().favorites);
+          console.log(userInformation.favorites);
         } else {
           database
             .ref(`${user.uid}`)
             .set({
               banner:
                 "https://images.pexels.com/photos/3953119/pexels-photo-3953119.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+              description: "No further information.",
               headline: "default",
               link: "https://www.google.de",
               mail: `mailto:${user.email}`,
@@ -55,6 +58,7 @@ firebase.auth().onAuthStateChanged((user) => {
             .then(() => {
               userInformation.UID = user.uid;
               getInfo(userInformation.UID, "banner");
+              getInfo(userInformation.UID, "description");
               getInfo(userInformation.UID, "headline");
               getInfo(userInformation.UID, "link");
               getInfo(userInformation.UID, "mail");
@@ -75,11 +79,15 @@ firebase.auth().onAuthStateChanged((user) => {
     history.push("/");
     console.log("Logged out.");
     userInformation.banner = "default";
+    userInformation.description = "default";
     userInformation.headline = "default";
     userInformation.link = "default";
     userInformation.mail = "default";
     userInformation.name = "default";
     userInformation.profilePicture = "default";
     userInformation.UID = "default";
+    userInformation.favorites = [];
   }
 });
+
+ReactDOM.render(<AppRouter />, document.getElementById("app"));

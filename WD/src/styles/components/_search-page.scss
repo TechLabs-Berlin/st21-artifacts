@@ -1,13 +1,24 @@
 .search-page {
   border: none;
-  margin: 20px auto;
-  padding: 10px;
-  width: 94%;
+  margin: 10px auto 0 auto;
+  padding: 0px;
+  /* width: 94%; */
 }
 
 .search-page-results {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.search-results-scroll {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.search-button-container {
+  align-items: center;
+  display: flex;
   justify-content: center;
 }
 
@@ -15,23 +26,134 @@
   background: $highlight;
   border: 2px solid $lines;
   border-radius: 100%;
-  display: block;
   font-size: 20px;
   height: 100px;
-
-  margin: 0 auto;
+  margin: 0 5px 10px 0;
   text-align: center;
   width: 100px;
 }
 
 .search-button:hover {
-  background: $highlight;
   border: 2px dotted $lines;
-  border-radius: 100%;
-  display: block;
   font-size: 25px;
   height: 100px;
-  margin: 0 auto;
-  text-align: center;
   width: 100px;
+}
+
+.clear-button {
+  background: $background;
+  border: 1px solid $lines;
+  border-radius: 100%;
+  font-size: 15px;
+  height: 75px;
+  margin: 0 5px;
+  text-align: center;
+  width: 75px;
+}
+
+.clear-button:hover {
+  border: 1px dotted $lines;
+  font-size: 20px;
+  height: 75px;
+  width: 75px;
+}
+
+.all-filter-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-container > input {
+  background: $background;
+  border: 1px solid $lines;
+  border-radius: 15px;
+  padding: 8px 300px;
+  text-align: center;
+  font-style: italic;
+}
+
+.one-filter-container {
+  margin: 0 0.5% 10px 0.5%;
+  min-width: 19%;
+}
+
+.all-filter-input {
+  border: 1px solid $lines;
+  border-radius: 15px;
+  height: 150px;
+  padding: 15px 10px 10px 10px;
+}
+
+.all-price-input {
+  display: flex;
+  border: 1px solid $lines;
+  border-radius: 15px;
+  flex-direction: column;
+  height: 150px;
+  padding: 15px 10px 10px 10px;
+}
+
+/* .all-filter-input > button {
+  background: $background;
+  border: 1px solid $lines;
+  border-radius: 10px;
+  margin: 20px 0 0 0;
+  padding: 5px 10px;
+} */
+
+.one-filter-input > input {
+  border: 1px solid $lines;
+  margin: 10px 5px 0 0;
+}
+
+.one-filter-headline {
+  border: 1px solid $lines;
+  border-radius: 15px;
+  font-size: 15px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.price-bar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.price-bar > input {
+  border-radius: 10px;
+  padding: 5px 0;
+  text-align: center;
+  width: 25%;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.price-bar > p {
+  margin: 0;
+  padding: 0;
+}
+
+.price-label-bar {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 55px 30px 20px;
+  margin: 0;
+}
+
+.price-label-bar > p {
+  padding: 0;
+  margin: 0;
+}
+
+.freeStuffOnly-label {
+  padding: 0 5px 0 0;
 }

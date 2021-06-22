@@ -1,9 +1,9 @@
 import React from "react";
 import userInformation from "./Datasets";
 import EditingUserInformation from "./EditingUserInformation";
-import Favorites from "./Favorites";
-import ListArtifactsServices from "./ListArtifactsServices";
 import AboutMe from "./AboutMe";
+import database from "../firebase/firebase";
+import ItemCard from "./ItemCard";
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -13,6 +13,8 @@ export default class Profile extends React.Component {
       artifactsServices: false,
       favorites: false,
       editProfile: false,
+      items: [],
+      favItems: [],
     };
     this.handleAboutMe = this.handleAboutMe.bind(this);
     this.handleArtifactsServices = this.handleArtifactsServices.bind(this);
@@ -33,7 +35,24 @@ export default class Profile extends React.Component {
       artifactsServices: true,
       favorites: false,
       editProfile: false,
+      items: [],
     });
+    database
+      .ref("items")
+      .once("value")
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          if (childSnapshot.val().ownerKey === userInformation.UID) {
+            const item = childSnapshot.val();
+            item.key = childSnapshot.key;
+            /* console.log(item); */
+            this.setState((prevState) => ({
+              items: [...prevState.items, item],
+            }));
+            /*  console.log(this.state.items); */
+          }
+        });
+      });
   };
   handleFavorites = () => {
     this.setState({
@@ -41,6 +60,21 @@ export default class Profile extends React.Component {
       artifactsServices: false,
       favorites: true,
       editProfile: false,
+      favItems: [],
+    });
+    userInformation.favorites.map((fav) => {
+      /* console.log(fav); */
+      database
+        .ref(`items/${fav}`)
+        .once("value")
+        .then((snapshot) => {
+          const favorite = snapshot.val();
+          /* console.log(favorite); */
+          this.setState((prevState) => ({
+            favItems: [...prevState.favItems, favorite],
+          }));
+          /* console.log(this.state.favItems); */
+        });
     });
   };
   handleEditProfile = () => {
@@ -99,8 +133,36 @@ export default class Profile extends React.Component {
           <div className="user-main-context">
             {this.state.editProfile && <EditingUserInformation />}
             {this.state.aboutMe && <AboutMe />}
-            {this.state.artifactsServices && <ListArtifactsServices />}
-            {this.state.favorites && <Favorites />}
+            {this.state.artifactsServices && (
+              <div className="list-artifacts-services">
+                {this.state.items.map((item) => (
+                  <ItemCard
+                    itemFans={item.itemFans}
+                    itemName={item.itemName}
+                    itemPicture={item.itemPicture}
+                    itemPrice={item.itemPrice}
+                    ownerName={item.ownerName}
+                    ownerPicture={item.ownerPicture}
+                    ownerReview={item.ownerReview}
+                  />
+                ))}
+              </div>
+            )}
+            {this.state.favorites && (
+              <div className="list-artifacts-services">
+                {this.state.favItems.map((item) => (
+                  <ItemCard
+                    itemFans={item.itemFans}
+                    itemName={item.itemName}
+                    itemPicture={item.itemPicture}
+                    itemPrice={item.itemPrice}
+                    ownerName={item.ownerName}
+                    ownerPicture={item.ownerPicture}
+                    ownerReview={item.ownerReview}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
