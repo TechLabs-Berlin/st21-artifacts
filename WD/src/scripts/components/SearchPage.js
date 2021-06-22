@@ -8,7 +8,11 @@ export default class SearchPage extends React.Component {
       items: [],
     };
     this.renderCards = this.renderCards.bind(this);
+    this.presentPopover = this.presentPopover.bind(this);
   }
+    presentPopover = (item) => {
+
+  };
   renderCards = (
     e,
     photo,
@@ -493,7 +497,7 @@ export default class SearchPage extends React.Component {
         <div className="search-results-scroll">
           <div className="search-page-results">
             {this.state.items.map((item) => (
-              <ItemCard
+              <button onClick={this.presentPopover(item)}><ItemCard
                 itemFans={item.itemFans}
                 /*  itemKey={item.key} */
                 itemName={item.itemName}
@@ -502,7 +506,7 @@ export default class SearchPage extends React.Component {
                 ownerName={item.ownerName}
                 ownerPicture={item.ownerPicture}
                 ownerReview={item.ownerReview}
-              />
+              /></button>
             ))}
           </div>
         </div>
