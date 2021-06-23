@@ -499,7 +499,7 @@ export default class SearchPage extends React.Component {
             {this.state.items.map((item) => (
               <button onClick={this.presentPopover(item)}><ItemCard
                 itemFans={item.itemFans}
-                /*  itemKey={item.key} */
+                itemKey={item.key}
                 itemName={item.itemName}
                 itemPicture={item.itemPicture}
                 itemPrice={item.itemPrice}

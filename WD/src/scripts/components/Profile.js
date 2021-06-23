@@ -69,6 +69,7 @@ export default class Profile extends React.Component {
         .once("value")
         .then((snapshot) => {
           const favorite = snapshot.val();
+          favorite.key = fav;
           /* console.log(favorite); */
           this.setState((prevState) => ({
             favItems: [...prevState.favItems, favorite],
@@ -139,6 +140,7 @@ export default class Profile extends React.Component {
                   <ItemCard
                     itemFans={item.itemFans}
                     itemName={item.itemName}
+                    itemKey={item.key}
                     itemPicture={item.itemPicture}
                     itemPrice={item.itemPrice}
                     ownerName={item.ownerName}
@@ -154,6 +156,7 @@ export default class Profile extends React.Component {
                   <ItemCard
                     itemFans={item.itemFans}
                     itemName={item.itemName}
+                    itemKey={item.key}
                     itemPicture={item.itemPicture}
                     itemPrice={item.itemPrice}
                     ownerName={item.ownerName}

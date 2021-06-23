@@ -56,7 +56,19 @@
   width: 230px;
 }
 
-.card-body > i {
+/* .card-body > i {
+} */
+
+.item-heart-button {
+  border-radius: 100%;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
+
+.item-heart-button-active {
+  background: rgb(211, 65, 65);
+  border-radius: 100%;
   position: absolute;
   top: 3px;
   right: 5px;
