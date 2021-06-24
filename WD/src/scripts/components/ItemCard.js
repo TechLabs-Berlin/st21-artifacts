@@ -1,128 +1,85 @@
-import React from "react";
-import userInformation from "./Datasets";
+import React, { useCallback, useState } from "react";
 import database from "../firebase/firebase";
-export default class ItemCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFavorite: userInformation.favorites.indexOf(this.props.itemKey) >= 0,
-      isMine: userInformation.UID == this.props.ownerKey,
-    };
-    this.handleFavorites = this.handleFavorites.bind(this);
-    this.handleDeletion = this.handleDeletion.bind(this);
-  }
-  handleDeletion = () => {
-    database.ref(`items/${this.props.itemKey}`).remove();
-  };
-  handleFavorites = () => {
-    if (this.state.isFavorite) {
-      const index = userInformation.favorites.indexOf(this.props.itemKey);
-      userInformation.favorites.splice(index, 1);
-      this.setState({
-        isFavorite: false,
-      });
+import { useUserInformation } from "../context/user-context/UserContext";
+
+const ItemCard = ({ item, onClick }) => {
+  const { userInformation, setUserInformation } = useUserInformation();
+  const [isFavorite, setIsFavorite] = useState(
+    userInformation.favorites.some((favItem) => item.key === favItem.key)
+  );
+  const handleFavorites = () => {
+    if (isFavorite) {
       database
         .ref(`${userInformation.UID}/favorites`)
         .once("value")
         .then((snapshot) => {
           snapshot.forEach((childSnapshot) => {
-            if (childSnapshot.val() === this.props.itemKey) {
+            if (childSnapshot.val().key === item.key) {
+              setIsFavorite(false);
+              const newUserInformation = Object.assign({}, userInformation);
+              newUserInformation.favorites =
+                newUserInformation.favorites.filter(
+                  (favItem) => favItem.key !== item.key
+                );
+              setUserInformation(newUserInformation);
               database
                 .ref(`${userInformation.UID}/favorites/${childSnapshot.key}`)
-                .set(null);
+                .remove();
             }
           });
-        });
+        })
+        .catch(console.error);
     } else {
-      this.setState({
-        isFavorite: true,
-      });
       database
         .ref(`${userInformation.UID}/favorites`)
-        .push(this.props.itemKey)
-        .then(userInformation.favorites.push(this.props.itemKey));
+        .push(item)
+        .then(() => {
+          const newUserInformation = Object.assign({}, userInformation);
+          newUserInformation.favorites.push(item);
+          setUserInformation(newUserInformation);
+          setIsFavorite(true);
+        });
     }
   };
-  render() {
-    return (
-      <div className="item-card">
-        <div className="card-header">
-          <div>
-            <img src={this.props.ownerPicture} />
-            <h5>{this.props.ownerName}</h5>
-          </div>
-          <p>{this.props.ownerReview}</p>
-        </div>
-        <div className="card-body">
-          <img src={this.props.itemPicture} />
-          {this.state.isMine && (
-            <button
-              onClick={this.handleDeletion}
-              className="item-delete-button"
-            >
-              X
-            </button>
-          )}
-          {!this.state.isFavorite && (
-            <button
-              onClick={this.handleFavorites}
-              className="item-heart-button"
-            >
-              <i className="icofont-heart"></i>
-            </button>
-          )}
-          {this.state.isFavorite && (
-            <button
-              onClick={this.handleFavorites}
-              className="item-heart-button-active"
-            >
-              <i className="icofont-heart"></i>
-            </button>
-          )}
-        </div>
-        <div className="card-bottom">
-          <h5>{this.props.itemName}</h5>
-          <div>
-            <p>{this.props.itemPrice}€</p>
-            <div>
-              <i className="icofont-heart"></i>
-              <p>{this.props.itemFans}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
 
-// old React component:
+  const onClickItem = useCallback(() => {
+    if (onClick) {
+      onClick(item);
+    }
+  }, [item, onClick]);
 
-/* const ItemCard = (props) => (
-  <div /*onClick={Hallo}
-    <div className="card-header">
-      <div>
-        <img src={props.ownerPicture} />
-        <h5>{props.ownerName}</h5>
-      </div>
-      <p>{props.ownerReview}</p>
-    </div>
-    <div className="card-body">
-      <img src={props.itemPicture} />
-      <button onClick={handleFavorites} className="item-heart-button">
-      <i className="icofont-heart"></i>
-      </button>
-    </div>
-    <div className="card-bottom">
-      <h5>{props.itemName}</h5>
-      <div>
-        <p>{props.itemPrice}€</p>
+  return (
+    <div className={`item-card ${onClick ? "link" : ""}`} onClick={onClickItem}>
+      <div className="card-header">
         <div>
+          <img src={item.ownerPicture} />
+          <h5>{item.ownerName}</h5>
+        </div>
+        <p>{item.ownerReview}</p>
+      </div>
+      <div className="card-body">
+        <img src={item.itemPicture} />
+        <button
+          onClick={handleFavorites}
+          className={
+            isFavorite ? "item-heart-button-active" : "item-heart-button"
+          }
+        >
           <i className="icofont-heart"></i>
-          <p>{props.itemFans}</p>
+        </button>
+      </div>
+      <div className="card-bottom">
+        <h5>{item.itemName}</h5>
+        <div>
+          <p>{item.itemPrice}€</p>
+          <div>
+            <i className="icofont-heart"></i>
+            <p>{item.itemFans}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-export default ItemCard; */
+export default ItemCard;

@@ -1,56 +1,45 @@
-import React from "react";
-import userInformation from "./Datasets";
+import React, { useState } from "react";
 import database from "../firebase/firebase";
 import { NavLink } from "react-router-dom";
+import { useUserInformation } from "../context/user-context/UserContext";
 
-export default class EditingUserInformation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.editInformation = this.editInformation.bind(this);
-  }
-  editInformation(e, banner, headline, link, name, picture, description) {
+const EditingUserInformation = () => {
+  const { userInformation, setUserInformation } = useUserInformation()
+  const [banner, setBanner] = useState(userInformation.banner)
+  const [headline, setHeadline] = useState(userInformation.headline)
+  const [link, setLink] = useState(userInformation.link)
+  const [name, setName] = useState(userInformation.name)
+  const [picture, setPicture] = useState(userInformation.profilePicture)
+  const [description, setDescription] = useState(userInformation.description)
+  const editInformation = (e) => {
     e.preventDefault();
+    const newUserInformation = {
+      banner,
+      description,
+      headline,
+      link,
+      name,
+      profilePicture: picture,
+      mail: userInformation.mail,
+    }
     database
       .ref(`${userInformation.UID}`)
-      .set({
-        banner: banner,
-        description: description,
-        headline: headline,
-        link: link,
-        name: name,
-        profilePicture: picture,
-        mail: userInformation.mail,
-      })
+      .set(newUserInformation)
       .then(() => {
+        newUserInformation.UID = userInformation.UID;
+        setUserInformation(newUserInformation)
         console.log("Data is edited");
       })
       .catch((e) => {
         console.log("This failed", e);
       });
-    userInformation.banner = banner;
-    userInformation.description = description;
-    userInformation.headline = headline;
-    userInformation.link = link;
-    userInformation.name = name;
-    userInformation.profilePicture = picture;
-  }
-  render() {
+  };
     return (
       <div>
         <h2 className="user-h2">Please edit your user information here:</h2>
         <form
           className="user-edit"
-          onSubmit={(e) =>
-            this.editInformation(
-              e,
-              document.getElementById("banner").value,
-              document.getElementById("headline").value,
-              document.getElementById("link").value,
-              document.getElementById("name").value,
-              document.getElementById("picture").value,
-              document.getElementById("description").value
-            )
-          }
+          onSubmit={editInformation}
         >
           <div className="user-edit-flex">
             <label className="user-edit-label">Name: </label>
@@ -59,8 +48,9 @@ export default class EditingUserInformation extends React.Component {
               type="text"
               id="name"
               /* name="" */
-              defaultValue={userInformation.name}
-            ></input>
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
           </div>
           <div className="user-edit-flex">
             <label className="user-edit-label">Headline: </label>
@@ -68,9 +58,9 @@ export default class EditingUserInformation extends React.Component {
               className="user-edit-input"
               type="text"
               id="headline"
-              /* name="" */
-              defaultValue={userInformation.headline}
-            ></input>
+              value={headline}
+              onChange={(event) => setHeadline(event.target.value)}
+            />
           </div>
           <div className="user-edit-flex">
             <label className="user-edit-label">Link: </label>
@@ -78,9 +68,9 @@ export default class EditingUserInformation extends React.Component {
               className="user-edit-input"
               type="url"
               id="link"
-              /* name="" */
-              defaultValue={userInformation.link}
-            ></input>
+              value={link}
+              onChange={(event) => setLink(event.target.value)}
+            />
           </div>
           <div className="user-edit-flex">
             <label className="user-edit-label">Picture: </label>
@@ -88,9 +78,9 @@ export default class EditingUserInformation extends React.Component {
               className="user-edit-input"
               type="url"
               id="picture"
-              /* name="" */
-              defaultValue={userInformation.profilePicture}
-            ></input>
+              value={picture}
+              onChange={(event) => setPicture(event.target.value)}
+            />
           </div>
           <div className="user-edit-flex">
             <label className="user-edit-label">Banner: </label>
@@ -98,9 +88,9 @@ export default class EditingUserInformation extends React.Component {
               className="user-edit-input"
               type="url"
               id="banner"
-              /*  name="" */
-              defaultValue={userInformation.banner}
-            ></input>
+              value={banner}
+              onChange={(event) => setBanner(event.target.value)}
+            />
           </div>
           <div className="user-edit-flex">
             <label className="user-edit-label">About Me: </label>
@@ -108,9 +98,9 @@ export default class EditingUserInformation extends React.Component {
               className="user-edit-input"
               type="text"
               id="description"
-              /* name="" */
-              defaultValue={userInformation.description}
-            ></textarea>
+              onChange={(event) => setDescription(event.target.value)}
+              value={description}
+            />
           </div>
           <button type="submit" className="user-edit-button">
             Edit
@@ -121,5 +111,6 @@ export default class EditingUserInformation extends React.Component {
         </form>
       </div>
     );
-  }
 }
+
+export default EditingUserInformation

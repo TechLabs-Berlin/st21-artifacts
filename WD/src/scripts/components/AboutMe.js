@@ -1,13 +1,11 @@
 import React from "react";
-import userInformation from "./Datasets";
+import { useUserInformation } from "../context/user-context/UserContext";
 
-export default class AboutMe extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div className="profile-about-me">{userInformation.description}</div>
-    );
-  }
+const AboutMe = () => {
+  const { userInformation } = useUserInformation()
+  return (
+    <div className="profile-about-me">{userInformation.description}</div>
+  );
 }
+
+export default AboutMe

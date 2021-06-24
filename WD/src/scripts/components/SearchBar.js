@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { NavLink } from "react-router-dom";
-export default class SearchBar extends React.Component {
-  handleFindService = () => {
+
+const SearchBar = () => {
+  const handleFindService = useCallback(() => {
     alert("Functionality not available.");
-  };
-  handleOfferService = () => {
+  });
+  const handleOfferService = useCallback(() => {
     alert("Functionality not available.");
-  };
-  render() {
-    return (
+  });
+
+  return (
       <div className="search-bar">
         <NavLink
           to="/search"
@@ -27,7 +28,7 @@ export default class SearchBar extends React.Component {
         <h2 className="search-bar-I">I</h2>
         <NavLink to="" activeClassName="is-active" className="search-bar-nav">
           <button
-            onClick={this.handleOfferService}
+            onClick={handleOfferService}
             className="search-bar-button"
           >
             find services
@@ -35,7 +36,7 @@ export default class SearchBar extends React.Component {
         </NavLink>
         <NavLink to="" activeClassName="is-active" className="search-bar-nav">
           <button
-            onClick={this.handleFindService}
+            onClick={handleFindService}
             className="search-bar-button"
           >
             offer services
@@ -43,5 +44,6 @@ export default class SearchBar extends React.Component {
         </NavLink>
       </div>
     );
-  }
 }
+
+export default SearchBar
