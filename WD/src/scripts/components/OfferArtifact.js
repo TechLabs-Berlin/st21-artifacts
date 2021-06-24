@@ -1,37 +1,31 @@
-import React from "react";
-import userInformation from "./Datasets";
+import React, { useState } from "react";
 import database from "../firebase/firebase";
+import { useUserInformation } from "../context/user-context/UserContext";
 
-export default class OfferArtifact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.offerArtifact = this.offerArtifact.bind(this);
-  }
-  offerArtifact(
-    e,
-    itemCategory,
-    itemCondition,
-    itemDescription,
-    itemName,
-    itemPicture,
-    itemPrice,
-    ownerLocation
-  ) {
-    e.preventDefault();
+const OfferArtifact = () => {
+  const { userInformation } = useUserInformation()
+  const [itemCategory, setItemCategory] = useState("photography & film equipment")
+  const [itemDescription, setItemDescription] = useState("")
+  const [itemPicture, setItemPicture] = useState("")
+  const [itemName, setItemName] = useState("")
+  const [itemPrice, setItemPrice] = useState("0")
+  const [itemCondition, setItemCondition] = useState("new")
+  const [ownerLocation, setOwnerLocation] = useState("Mitte")
+  const offerArtifact = (e) => {
+    e.preventDefault()
     database
       .ref()
       .child("items")
       .push({
-        itemCategory: itemCategory,
-        itemCondition: itemCondition,
-        itemDescription: itemDescription,
+        itemCategory,
+        itemCondition,
+        itemDescription,
         itemFans: "0",
-        itemName: itemName,
-        itemPicture: itemPicture,
-        itemPrice: itemPrice,
+        itemName,
+        itemPicture,
+        itemPrice,
         ownerKey: userInformation.UID,
-        ownerLocation: ownerLocation,
+        ownerLocation,
         ownerName: userInformation.name,
         ownerPicture: userInformation.profilePicture,
         ownerReview: "4.5",
@@ -44,8 +38,8 @@ export default class OfferArtifact extends React.Component {
       });
     location.reload();
   }
-  render() {
-    return (
+
+  return (
       <div className="item-offer-container">
         <div className="item-offer-header">
           <img
@@ -78,18 +72,7 @@ export default class OfferArtifact extends React.Component {
         </div>
         <div className="item-offer-main">
           <form
-            onSubmit={(e) =>
-              this.offerArtifact(
-                e,
-                document.getElementById("itemCategory").value,
-                document.getElementById("itemCondition").value,
-                document.getElementById("itemDescription").value,
-                document.getElementById("itemName").value,
-                document.getElementById("itemPicture").value,
-                document.getElementById("itemPrice").value,
-                document.getElementById("ownerLocation").value
-              )
-            }
+            onSubmit={offerArtifact}
           >
             <div className="item-offer-main-headline">
               <button className="item-offer-main-headline-button">
@@ -99,7 +82,7 @@ export default class OfferArtifact extends React.Component {
             <div className="item-offer-context">
               <div className="item-edit-flex">
                 <label className="item-edit-label">Category: </label>
-                <select className="item-edit-input" id="itemCategory">
+                <select className="item-edit-input" id="itemCategory" onChange={e => setItemCategory(e.target.value)} value={itemCategory}>
                   <option value="photography & film equipment">
                     photography & film equipment
                   </option>
@@ -118,7 +101,9 @@ export default class OfferArtifact extends React.Component {
                   type="text"
                   id="itemName"
                   placeholder="please insert the items name"
-                ></input>
+                  value={itemName}
+                  onChange={e => setItemName(e.target.value)}
+                />
               </div>
               <div className="item-edit-flex">
                 <label className="item-edit-label">Picture: </label>
@@ -127,7 +112,9 @@ export default class OfferArtifact extends React.Component {
                   type="url"
                   id="itemPicture"
                   placeholder="please insert a URL for items picture"
-                ></input>
+                  value={itemPicture}
+                  onChange={e => setItemPicture(e.target.value)}
+                />
               </div>
               <div className="item-edit-flex">
                 <label className="item-edit-label">Description: </label>
@@ -136,7 +123,9 @@ export default class OfferArtifact extends React.Component {
                   type="text"
                   id="itemDescription"
                   placeholder="please insert a description here"
-                ></input>
+                  value={itemDescription}
+                  onChange={e => setItemDescription(e.target.value)}
+                />
               </div>
               <div className="item-edit-container">
                 <div className="item-edit-flex">
@@ -146,14 +135,15 @@ export default class OfferArtifact extends React.Component {
                     type="number"
                     step="any"
                     min="0"
-                    defaultValue="0"
                     placeholder="€"
                     id="itemPrice"
-                  ></input>
+                    value={itemPrice}
+                    onChange={e => setItemPrice(e.target.value)}
+                  />
                 </div>
                 <div className="item-edit-flex">
                   <label className="item-edit-label2">Location: </label>
-                  <select className="item-edit-input2" id="ownerLocation">
+                  <select className="item-edit-input2" id="ownerLocation" onChange={e => setOwnerLocation(e.target.value)} value={ownerLocation}>
                     <option value="Mitte">Mitte</option>
                     <option value="Charlottenburg">Charlottenburg</option>
                     <option value="Friedrichshain">Friedrichshain</option>
@@ -163,7 +153,7 @@ export default class OfferArtifact extends React.Component {
                 </div>
                 <div className="item-edit-flex">
                   <label className="item-edit-label2">Condition: </label>
-                  <select className="item-edit-input2" id="itemCondition">
+                  <select className="item-edit-input2" id="itemCondition" onChange={e => setItemCondition(e.target.value)} value={itemCondition}>
                     <option value="new">new</option>
                     <option value="very good">very good</option>
                     <option value="good">good</option>
@@ -179,8 +169,10 @@ export default class OfferArtifact extends React.Component {
         </div>
       </div>
     );
-  }
 }
+
+export default OfferArtifact;
+
 
 /*   <option value="Hellersdorf">Berlin Hellersdorf</option>
                     <option value="Hohenschönhausen">
