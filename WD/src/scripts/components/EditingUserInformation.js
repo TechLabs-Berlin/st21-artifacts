@@ -27,10 +27,16 @@ const EditingUserInformation = () => {
       .once("value")
       .then((snapshot) => {
         const value = snapshot.val()
-        database.ref(`${userInformation.UID}`).set(Object.assign({}, newUserInformation, { favorites: value.favorites }))
+        database.ref(`${userInformation.UID}`).set({
+          ...newUserInformation,
+          favorites: value.favorites
+        })
           .then(() => {
             newUserInformation.UID = userInformation.UID;
-            setUserInformation(newUserInformation)
+            setUserInformation({
+              ...userInformation,
+              ...newUserInformation,
+            })
             console.log("Data is edited");
           }).catch((e) => {
             console.log("This failed", e);
