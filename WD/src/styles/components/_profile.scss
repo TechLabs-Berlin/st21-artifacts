@@ -160,6 +160,15 @@
   overflow-y: scroll;
 }
 
+.user-main-context {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  justify-content: flex-start;
+  overflow-y: scroll;
+}
+
 .profile-about-me {
   white-space: pre-line;
 }

@@ -7,6 +7,7 @@ const ItemCard = ({ item, onClick }) => {
   const [isFavorite, setIsFavorite] = useState(
     userInformation.favorites.some((favItem) => item.key === favItem.key)
   );
+  const isMine = userInformation.UID == item.ownerKey;
   const handleFavorites = () => {
     if (isFavorite) {
       database
@@ -42,6 +43,10 @@ const ItemCard = ({ item, onClick }) => {
     }
   };
 
+  const handleDeletion = () => {
+    database.ref(`items/${item.key}`).remove();
+  };
+
   const onClickItem = useCallback(() => {
     if (onClick) {
       onClick(item);
@@ -67,6 +72,11 @@ const ItemCard = ({ item, onClick }) => {
         >
           <i className="icofont-heart"></i>
         </button>
+        {isMine && (
+          <button onClick={handleDeletion} className="item-delete-button">
+            X
+          </button>
+        )}
       </div>
       <div className="card-bottom">
         <h5>{item.itemName}</h5>
