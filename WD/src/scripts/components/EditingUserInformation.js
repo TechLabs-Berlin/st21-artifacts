@@ -26,6 +26,19 @@ const EditingUserInformation = () => {
       .ref(`${userInformation.UID}`)
       .once("value")
       .then((snapshot) => {
+<<<<<<< HEAD
+        const value = snapshot.val()
+        database.ref(`${userInformation.UID}`).set({
+          ...newUserInformation,
+          favorites: value.favorites
+        })
+          .then(() => {
+            newUserInformation.UID = userInformation.UID;
+            setUserInformation({
+              ...userInformation,
+              ...newUserInformation,
+            })
+=======
         const value = snapshot.val();
         database
           .ref(`${userInformation.UID}`)
@@ -37,6 +50,7 @@ const EditingUserInformation = () => {
           .then(() => {
             newUserInformation.UID = userInformation.UID;
             setUserInformation(newUserInformation);
+>>>>>>> 4ec94b89f018bbecb5d89ce9fd6da8513972d54c
             console.log("Data is edited");
           })
           .catch((e) => {
