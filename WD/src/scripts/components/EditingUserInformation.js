@@ -48,7 +48,7 @@ const EditingUserInformation = () => {
       });
   };
   return (
-    <div>
+    <div className="edit-component">
       <h2 className="user-h2">Please edit your user information here:</h2>
       <form className="user-edit" onSubmit={editInformation}>
         <div className="user-edit-flex">
