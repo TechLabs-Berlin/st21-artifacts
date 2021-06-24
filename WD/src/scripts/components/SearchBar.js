@@ -1,49 +1,49 @@
-import React, { useCallback } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useCallback } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const SearchBar = () => {
   const handleFindService = useCallback(() => {
-    alert("Functionality not available.");
+    alert('Functionality not available.');
   });
   const handleOfferService = useCallback(() => {
-    alert("Functionality not available.");
+    alert('Functionality not available.');
   });
 
   return (
-      <div className="search-bar">
-        <NavLink
-          to="/search"
-          activeClassName="is-active"
-          className="search-bar-nav"
+    <div className="search-bar">
+      <NavLink
+        to="/search"
+        activeClassName="is-active"
+        className="search-bar-nav"
+      >
+        <button className="search-bar-button">find Artifacts</button>
+      </NavLink>
+      <NavLink
+        to="/offerArtifact"
+        activeClassName="is-active"
+        className="search-bar-nav"
+      >
+        <button className="search-bar-button">offer Artifacts</button>
+      </NavLink>
+      <h2 className="search-bar-I">I</h2>
+      <NavLink to="" activeClassName="is-active" className="search-bar-nav">
+        <button
+          onClick={handleOfferService}
+          className="search-bar-button"
         >
-          <button className="search-bar-button">find Artifacts</button>
-        </NavLink>
-        <NavLink
-          to="/offerArtifact"
-          activeClassName="is-active"
-          className="search-bar-nav"
-        >
-          <button className="search-bar-button">offer Artifacts</button>
-        </NavLink>
-        <h2 className="search-bar-I">I</h2>
-        <NavLink to="" activeClassName="is-active" className="search-bar-nav">
-          <button
-            onClick={handleOfferService}
-            className="search-bar-button"
-          >
             find services
-          </button>
-        </NavLink>
-        <NavLink to="" activeClassName="is-active" className="search-bar-nav">
-          <button
-            onClick={handleFindService}
-            className="search-bar-button"
-          >
+        </button>
+      </NavLink>
+      <NavLink to="" activeClassName="is-active" className="search-bar-nav">
+        <button
+          onClick={handleFindService}
+          className="search-bar-button"
+        >
             offer services
-          </button>
-        </NavLink>
-      </div>
-    );
-}
+        </button>
+      </NavLink>
+    </div>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

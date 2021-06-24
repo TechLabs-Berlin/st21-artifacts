@@ -1,45 +1,45 @@
-import React, { useCallback, useState } from "react";
-import database from "../firebase/firebase";
-import { useUserInformation } from "../context/user-context/UserContext";
+import React, { useCallback, useState } from 'react';
+import database from '../firebase/firebase';
+import { useUserInformation } from '../context/user-context/UserContext';
 
 const ItemCard = ({ item, onClick }) => {
   const { userInformation, setUserInformation } = useUserInformation();
-  const [isFavorite, setIsFavorite] = useState(
-    userInformation.favorites.some((favItem) => item.key === favItem.key)
+  const [ isFavorite, setIsFavorite ] = useState(
+      userInformation.favorites.some((favItem) => item.key === favItem.key),
   );
   const isMine = userInformation.UID == item.ownerKey;
   const handleFavorites = () => {
     if (isFavorite) {
       database
-        .ref(`${userInformation.UID}/favorites`)
-        .once("value")
-        .then((snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            if (childSnapshot.val().key === item.key) {
-              setIsFavorite(false);
-              const newUserInformation = { ...userInformation };
-              newUserInformation.favorites =
+          .ref(`${userInformation.UID}/favorites`)
+          .once('value')
+          .then((snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+              if (childSnapshot.val().key === item.key) {
+                setIsFavorite(false);
+                const newUserInformation = { ...userInformation };
+                newUserInformation.favorites =
                 newUserInformation.favorites.filter(
-                  (favItem) => favItem.key !== item.key
+                    (favItem) => favItem.key !== item.key,
                 );
-              setUserInformation(newUserInformation);
-              database
-                .ref(`${userInformation.UID}/favorites/${childSnapshot.key}`)
-                .remove();
-            }
-          });
-        })
-        .catch(console.error);
+                setUserInformation(newUserInformation);
+                database
+                    .ref(`${userInformation.UID}/favorites/${childSnapshot.key}`)
+                    .remove();
+              }
+            });
+          })
+          .catch(console.error);
     } else {
       database
-        .ref(`${userInformation.UID}/favorites`)
-        .push(item)
-        .then(() => {
-          const newUserInformation = { ...userInformation };
-          newUserInformation.favorites.push(item);
-          setUserInformation(newUserInformation);
-          setIsFavorite(true);
-        });
+          .ref(`${userInformation.UID}/favorites`)
+          .push(item)
+          .then(() => {
+            const newUserInformation = { ...userInformation };
+            newUserInformation.favorites.push(item);
+            setUserInformation(newUserInformation);
+            setIsFavorite(true);
+          });
     }
   };
 
@@ -51,10 +51,10 @@ const ItemCard = ({ item, onClick }) => {
     if (onClick) {
       onClick(item);
     }
-  }, [item, onClick]);
+  }, [ item, onClick ]);
 
   return (
-    <div className={`item-card ${onClick ? "link" : ""}`} onClick={onClickItem}>
+    <div className={`item-card ${onClick ? 'link' : ''}`} onClick={onClickItem}>
       <div className="card-header">
         <div>
           <img src={item.ownerPicture} />
@@ -67,7 +67,7 @@ const ItemCard = ({ item, onClick }) => {
         <button
           onClick={handleFavorites}
           className={
-            isFavorite ? "item-heart-button-active" : "item-heart-button"
+            isFavorite ? 'item-heart-button-active' : 'item-heart-button'
           }
         >
           <i className="icofont-heart"></i>

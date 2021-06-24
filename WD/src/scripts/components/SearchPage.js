@@ -1,6 +1,6 @@
-import React from "react";
-import ItemsContainer from "./ItemsContainer";
-import database from "../firebase/firebase";
+import React from 'react';
+import ItemsContainer from './ItemsContainer';
+import database from '../firebase/firebase';
 export default class SearchPage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,33 +10,33 @@ export default class SearchPage extends React.Component {
     this.renderCards = this.renderCards.bind(this);
     this.presentPopover = this.presentPopover.bind(this);
   }
-  presentPopover = (item) => {};
-  renderCards = (
-    e,
-    photo,
-    costumes,
-    music,
-    art,
-    others,
-    mitte,
-    charlottenburg,
-    friedrichshain,
-    lichtenberg,
-    kreuzberg,
-    newCond,
-    veryGood,
-    good,
-    satisfactory,
-    star5,
-    star4,
-    star3,
-    star2,
-    star1,
-    priceMin,
-    priceMax,
-    freeStuff,
-    search
-  ) => {
+  presentPopover(item) {};
+  renderCards(
+      e,
+      photo,
+      costumes,
+      music,
+      art,
+      others,
+      mitte,
+      charlottenburg,
+      friedrichshain,
+      lichtenberg,
+      kreuzberg,
+      newCond,
+      veryGood,
+      good,
+      satisfactory,
+      star5,
+      star4,
+      star3,
+      star2,
+      star1,
+      priceMin,
+      priceMax,
+      freeStuff,
+      search,
+  ) {
     e.preventDefault();
     const checkedDataCategory = [
       (photo.checked && photo).value,
@@ -136,71 +136,71 @@ export default class SearchPage extends React.Component {
       shotGunPrice = true;
     }
 
-    let checkedDataSearch = search.value.toLowerCase().split(" ");
+    const checkedDataSearch = search.value.toLowerCase().split(' ');
 
     this.setState(() => ({
       items: [],
     }));
     database
-      .ref("items")
-      .once("value")
-      .then((snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          const filterCategory = checkedDataCategory.indexOf(
-            childSnapshot.val().itemCategory
-          );
-          const filterLocation = checkedDataLocation.indexOf(
-            childSnapshot.val().ownerLocation
-          );
-          const filterCondition = checkedDataCondition.indexOf(
-            childSnapshot.val().itemCondition
-          );
+        .ref('items')
+        .once('value')
+        .then((snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const filterCategory = checkedDataCategory.indexOf(
+                childSnapshot.val().itemCategory,
+            );
+            const filterLocation = checkedDataLocation.indexOf(
+                childSnapshot.val().ownerLocation,
+            );
+            const filterCondition = checkedDataCondition.indexOf(
+                childSnapshot.val().itemCondition,
+            );
 
-          let filterRating = false;
+            let filterRating = false;
 
-          checkedDataRating.map((star) => {
-            if (parseFloat(childSnapshot.val().ownerReview) >= star) {
-              filterRating = true;
-            }
-          });
+            checkedDataRating.map((star) => {
+              if (parseFloat(childSnapshot.val().ownerReview) >= star) {
+                filterRating = true;
+              }
+            });
 
-          let filterPrice = false;
+            let filterPrice = false;
 
-          if (
-            childSnapshot.val().itemPrice >= checkedDataPriceMin &&
+            if (
+              childSnapshot.val().itemPrice >= checkedDataPriceMin &&
             childSnapshot.val().itemPrice <= checkedDataPriceMax
-          ) {
-            filterPrice = true;
-          } else {
-            filterPrice = false;
-          }
-
-          let searchTitle = false;
-
-          checkedDataSearch.map((word) => {
-            const n = childSnapshot.val().itemName.toLowerCase().indexOf(word);
-            if (n >= 0) {
-              searchTitle = true;
+            ) {
+              filterPrice = true;
+            } else {
+              filterPrice = false;
             }
-          });
 
-          if (
-            (filterCategory >= 0 || shotGunCategory) &&
+            let searchTitle = false;
+
+            checkedDataSearch.map((word) => {
+              const n = childSnapshot.val().itemName.toLowerCase().indexOf(word);
+              if (n >= 0) {
+                searchTitle = true;
+              }
+            });
+
+            if (
+              (filterCategory >= 0 || shotGunCategory) &&
             (filterLocation >= 0 || shotGunLocation) &&
             (filterCondition >= 0 || shotGunCondition) &&
             (filterRating || shotGunRating) &&
             (filterPrice || shotGunPrice) &&
             searchTitle
-          ) {
-            const item = childSnapshot.val();
-            item.key = childSnapshot.key;
-            /* console.log(item); */
-            this.setState((prevState) => ({
-              items: [...prevState.items, item],
-            }));
-          }
+            ) {
+              const item = childSnapshot.val();
+              item.key = childSnapshot.key;
+              /* console.log(item); */
+              this.setState((prevState) => ({
+                items: [ ...prevState.items, item ],
+              }));
+            }
+          });
         });
-      });
   };
   render() {
     return (
@@ -210,30 +210,30 @@ export default class SearchPage extends React.Component {
             className="search-filter-form"
             onSubmit={(e) =>
               this.renderCards(
-                e,
-                document.getElementById("photography & film equipment"),
-                document.getElementById("props & costumes"),
-                document.getElementById("music & sound equipment"),
-                document.getElementById("art supplies"),
-                document.getElementById("others"),
-                document.getElementById("Mitte"),
-                document.getElementById("Charlottenburg"),
-                document.getElementById("Friedrichshain"),
-                document.getElementById("Lichtenberg"),
-                document.getElementById("Kreuzberg"),
-                document.getElementById("new"),
-                document.getElementById("very good"),
-                document.getElementById("good"),
-                document.getElementById("satisfactory"),
-                document.getElementById("5 stars"),
-                document.getElementById("4 stars"),
-                document.getElementById("3 stars"),
-                document.getElementById("2 stars"),
-                document.getElementById("1 star"),
-                document.getElementById("itemPriceMin"),
-                document.getElementById("itemPriceMax"),
-                document.getElementById("freeStuffOnly"),
-                document.getElementById("search")
+                  e,
+                  document.getElementById('photography & film equipment'),
+                  document.getElementById('props & costumes'),
+                  document.getElementById('music & sound equipment'),
+                  document.getElementById('art supplies'),
+                  document.getElementById('others'),
+                  document.getElementById('Mitte'),
+                  document.getElementById('Charlottenburg'),
+                  document.getElementById('Friedrichshain'),
+                  document.getElementById('Lichtenberg'),
+                  document.getElementById('Kreuzberg'),
+                  document.getElementById('new'),
+                  document.getElementById('very good'),
+                  document.getElementById('good'),
+                  document.getElementById('satisfactory'),
+                  document.getElementById('5 stars'),
+                  document.getElementById('4 stars'),
+                  document.getElementById('3 stars'),
+                  document.getElementById('2 stars'),
+                  document.getElementById('1 star'),
+                  document.getElementById('itemPriceMin'),
+                  document.getElementById('itemPriceMax'),
+                  document.getElementById('freeStuffOnly'),
+                  document.getElementById('search'),
               )
             }
           >
@@ -331,7 +331,7 @@ export default class SearchPage extends React.Component {
                   </div>
                   <div className="price-free-bar">
                     <label htmlFor="freeStuffOnly-label">
-                      Free stuff only{" "}
+                      Free stuff only{' '}
                     </label>
                     <input
                       type="checkbox"

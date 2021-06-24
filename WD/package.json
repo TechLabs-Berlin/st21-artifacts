@@ -5,7 +5,9 @@
     "serve": "live-server dist/",
     "build": "yarn copy-assets &&  webpack --mode production",
     "copy-assets": "rm -rf dist && mkdir -p dist && cp -r public/* dist",
-    "dev-server": "yarn copy-assets && webpack serve --mode development --open"
+    "dev-server": "yarn copy-assets && webpack serve --mode development --open",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
   "dependencies": {
     "firebase": "4.2.0",
@@ -23,6 +25,9 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^5.2.6",
+    "eslint": "^7.29.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.24.0",
     "live-server": "^1.2.1",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.1.0",

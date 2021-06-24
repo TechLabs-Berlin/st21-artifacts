@@ -1,6 +1,6 @@
-import * as firebase from "firebase";
-import "firebase/auth";
-import key from "../../../key.js";
+import * as firebase from 'firebase';
+import 'firebase/auth';
+import key from '../../../key.js';
 
 // access to our Firebase: authentiction & real time database
 const firebaseConfig = {
