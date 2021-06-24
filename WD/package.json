@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "live-server dist/",
     "build": "yarn copy-assets &&  webpack --mode production",
-    "copy-assets": "rm -rf dist && mkdir -p dist && cp -r public/* dist",
+    "copy-assets": "rm -rf dist && mkdir dist && cp -r public/* dist",
     "dev-server": "yarn copy-assets && webpack serve --mode development --open",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"

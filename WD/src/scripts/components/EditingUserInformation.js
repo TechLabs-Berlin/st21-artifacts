@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import database from "../firebase/firebase";
-import { useUserInformation } from "../context/user-context/UserContext";
+import React, { useState } from 'react';
+import database from '../firebase/firebase';
+import { useUserInformation } from '../context/user-context/UserContext';
 
 const EditingUserInformation = () => {
   const { userInformation, setUserInformation } = useUserInformation();
-  const [banner, setBanner] = useState(userInformation.banner);
-  const [headline, setHeadline] = useState(userInformation.headline);
-  const [link, setLink] = useState(userInformation.link);
-  const [name, setName] = useState(userInformation.name);
-  const [picture, setPicture] = useState(userInformation.profilePicture);
-  const [description, setDescription] = useState(userInformation.description);
+  const [ banner, setBanner ] = useState(userInformation.banner);
+  const [ headline, setHeadline ] = useState(userInformation.headline);
+  const [ link, setLink ] = useState(userInformation.link);
+  const [ name, setName ] = useState(userInformation.name);
+  const [ picture, setPicture ] = useState(userInformation.profilePicture);
+  const [ description, setDescription ] = useState(userInformation.description);
   const editInformation = (e) => {
     e.preventDefault();
     const newUserInformation = {
@@ -22,31 +22,31 @@ const EditingUserInformation = () => {
       mail: userInformation.mail,
     };
     database
-      .ref(`${userInformation.UID}`)
-      .once("value")
-      .then((snapshot) => {
-        const value = snapshot.val();
-        database
-          .ref(`${userInformation.UID}`)
-          .set({
-            ...newUserInformation,
-            favorites: value.favorites,
-          })
-          .then(() => {
-            newUserInformation.UID = userInformation.UID;
-            setUserInformation({
-              ...userInformation,
-              ...newUserInformation,
-            });
-            console.log("Data is edited");
-          })
-          .catch((e) => {
-            console.log("This failed", e);
-          });
-      })
-      .catch((e) => {
-        console.log("This failed", e);
-      });
+        .ref(`${userInformation.UID}`)
+        .once('value')
+        .then((snapshot) => {
+          const value = snapshot.val();
+          database
+              .ref(`${userInformation.UID}`)
+              .set({
+                ...newUserInformation,
+                favorites: value.favorites,
+              })
+              .then(() => {
+                newUserInformation.UID = userInformation.UID;
+                setUserInformation({
+                  ...userInformation,
+                  ...newUserInformation,
+                });
+                console.log('Data is edited');
+              })
+              .catch((e) => {
+                console.log('This failed', e);
+              });
+        })
+        .catch((e) => {
+          console.log('This failed', e);
+        });
   };
   return (
     <div className="edit-component">
