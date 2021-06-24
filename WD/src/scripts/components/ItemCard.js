@@ -17,7 +17,7 @@ const ItemCard = ({ item, onClick }) => {
           snapshot.forEach((childSnapshot) => {
             if (childSnapshot.val().key === item.key) {
               setIsFavorite(false);
-              const newUserInformation = Object.assign({}, userInformation);
+              const newUserInformation = { ...userInformation };
               newUserInformation.favorites =
                 newUserInformation.favorites.filter(
                   (favItem) => favItem.key !== item.key
@@ -35,7 +35,7 @@ const ItemCard = ({ item, onClick }) => {
         .ref(`${userInformation.UID}/favorites`)
         .push(item)
         .then(() => {
-          const newUserInformation = Object.assign({}, userInformation);
+          const newUserInformation = { ...userInformation };
           newUserInformation.favorites.push(item);
           setUserInformation(newUserInformation);
           setIsFavorite(true);
