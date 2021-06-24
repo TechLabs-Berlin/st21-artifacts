@@ -31,13 +31,11 @@ export const ItemContextProvider = ({ children }) => {
         const itemsCopy = []
         snapshot.forEach((childSnapshot) => {
           if (childSnapshot.val().ownerKey === userInformation.UID) {
-            console.log('aqui')
             const item = childSnapshot.val();
             item.key = childSnapshot.key;
             itemsCopy.push(item)
           }
         });
-        console.log('items copy', itemsCopy)
         setItems(itemsCopy)
       });
       return () => {

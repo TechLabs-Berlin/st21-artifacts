@@ -24,13 +24,18 @@ const EditingUserInformation = () => {
     }
     database
       .ref(`${userInformation.UID}`)
-      .set(newUserInformation)
-      .then(() => {
-        newUserInformation.UID = userInformation.UID;
-        setUserInformation(newUserInformation)
-        console.log("Data is edited");
-      })
-      .catch((e) => {
+      .once("value")
+      .then((snapshot) => {
+        const value = snapshot.val()
+        database.ref(`${userInformation.UID}`).set(Object.assign({}, newUserInformation, { favorites: value.favorites }))
+          .then(() => {
+            newUserInformation.UID = userInformation.UID;
+            setUserInformation(newUserInformation)
+            console.log("Data is edited");
+          }).catch((e) => {
+            console.log("This failed", e);
+          });
+      }).catch((e) => {
         console.log("This failed", e);
       });
   };

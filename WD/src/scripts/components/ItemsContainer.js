@@ -21,7 +21,6 @@ const ItemsContainer = ({ customItems = [], renderFavoriteItems = false, onClick
   if (renderFavoriteItems) {
     return favItems.map((item) => renderItem(item, onClickItem))
   }
-  console.log('veio aqui', items)
   return items.map((item) => renderItem(item, onClickItem))
 }
 

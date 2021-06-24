@@ -15,7 +15,6 @@ export const useAuth = () => {
           .then((snapshot) => {
             if (snapshot.exists()) {
               const userInformation = snapshot.val()
-              console.log('info', userInformation)
               userInformation.UID = user.uid
               userInformation.favorites = Object.values(userInformation.favorites || {});
               setUserInformation(userInformation);
