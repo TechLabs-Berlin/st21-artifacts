@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import database from "../firebase/firebase";
-import { NavLink } from "react-router-dom";
 import { useUserInformation } from "../context/user-context/UserContext";
 
 const EditingUserInformation = () => {
@@ -29,14 +28,16 @@ const EditingUserInformation = () => {
         const value = snapshot.val();
         database
           .ref(`${userInformation.UID}`)
-          .set(
-            Object.assign({}, newUserInformation, {
-              favorites: value.favorites,
-            })
-          )
+          .set({
+            ...newUserInformation,
+            favorites: value.favorites,
+          })
           .then(() => {
             newUserInformation.UID = userInformation.UID;
-            setUserInformation(newUserInformation);
+            setUserInformation({
+              ...userInformation,
+              ...newUserInformation,
+            });
             console.log("Data is edited");
           })
           .catch((e) => {

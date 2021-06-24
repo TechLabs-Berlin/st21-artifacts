@@ -1,8 +1,8 @@
-import React from "react";
-import ItemsContainer from "./ItemsContainer";
+import React from 'react';
+import ItemsContainer from './ItemsContainer';
 
 const PersonalItems = () => (
   <ItemsContainer />
-)
+);
 
-export default PersonalItems
+export default PersonalItems;

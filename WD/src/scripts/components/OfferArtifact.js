@@ -1,175 +1,190 @@
-import React, { useState } from "react";
-import database from "../firebase/firebase";
-import { useUserInformation } from "../context/user-context/UserContext";
+import React, { useState } from 'react';
+import database from '../firebase/firebase';
+import { useUserInformation } from '../context/user-context/UserContext';
 
 const OfferArtifact = () => {
-  const { userInformation } = useUserInformation()
-  const [itemCategory, setItemCategory] = useState("photography & film equipment")
-  const [itemDescription, setItemDescription] = useState("")
-  const [itemPicture, setItemPicture] = useState("")
-  const [itemName, setItemName] = useState("")
-  const [itemPrice, setItemPrice] = useState("0")
-  const [itemCondition, setItemCondition] = useState("new")
-  const [ownerLocation, setOwnerLocation] = useState("Mitte")
+  const { userInformation } = useUserInformation();
+  const [ itemCategory, setItemCategory ] = useState('photography & film equipment');
+  const [ itemDescription, setItemDescription ] = useState('');
+  const [ itemPicture, setItemPicture ] = useState('');
+  const [ itemName, setItemName ] = useState('');
+  const [ itemPrice, setItemPrice ] = useState('0');
+  const [ itemCondition, setItemCondition ] = useState('new');
+  const [ ownerLocation, setOwnerLocation ] = useState('Mitte');
   const offerArtifact = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     database
-      .ref()
-      .child("items")
-      .push({
-        itemCategory,
-        itemCondition,
-        itemDescription,
-        itemFans: "0",
-        itemName,
-        itemPicture,
-        itemPrice,
-        ownerKey: userInformation.UID,
-        ownerLocation,
-        ownerName: userInformation.name,
-        ownerPicture: userInformation.profilePicture,
-        ownerReview: "4.5",
-      })
-      .then(() => {
-        console.log("Item is saved");
-      })
-      .catch((e) => {
-        console.log("This failed", e);
-      });
+        .ref()
+        .child('items')
+        .push({
+          itemCategory,
+          itemCondition,
+          itemDescription,
+          itemFans: '0',
+          itemName,
+          itemPicture,
+          itemPrice,
+          ownerKey: userInformation.UID,
+          ownerLocation,
+          ownerName: userInformation.name,
+          ownerPicture: userInformation.profilePicture,
+          ownerReview: '4.5',
+        })
+        .then(() => {
+          console.log('Item is saved');
+        })
+        .catch((e) => {
+          console.log('This failed', e);
+        });
     location.reload();
-  }
+  };
 
   return (
-      <div className="item-offer-container">
-        <div className="item-offer-header">
-          <img
-            src="https://images.pexels.com/photos/5622421/pexels-photo-5622421.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            className="item-offer-banner"
-            alt="Background picture"
-          />
-          <img
-            src="https://images.pexels.com/photos/2824173/pexels-photo-2824173.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-            className="item-offer-picture"
-            alt="Artifact picture"
-          />
-          <div className="item-offer-headline">
-            <p>Offer an</p>
-            <h3>Artifact</h3>
-          </div>
+    <div className="item-offer-container">
+      <div className="item-offer-header">
+        <img
+          src="https://images.pexels.com/photos/5622421/pexels-photo-5622421.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          className="item-offer-banner"
+          alt="Background picture"
+        />
+        <img
+          src="https://images.pexels.com/photos/2824173/pexels-photo-2824173.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+          className="item-offer-picture"
+          alt="Artifact picture"
+        />
+        <div className="item-offer-headline">
+          <p>Offer an</p>
+          <h3>Artifact</h3>
         </div>
-        <div className="item-offer-sidebar">
-          <h2 className="user-h2">{userInformation.name}</h2>
-          <div className="user-sidebar-contact">
-            <a href={userInformation.mail}>
-              <i className="icofont-mail"></i>
-            </a>
-            <p>Contact me</p>
-          </div>
-          <div className="user-sidebar-review">
-            <h3 className="user-h3">Testemonials</h3>
-            <p>Review me</p>
-          </div>
+      </div>
+      <div className="item-offer-sidebar">
+        <h2 className="user-h2">{userInformation.name}</h2>
+        <div className="user-sidebar-contact">
+          <a href={userInformation.mail}>
+            <i className="icofont-mail"></i>
+          </a>
+          <p>Contact me</p>
         </div>
-        <div className="item-offer-main">
-          <form
-            onSubmit={offerArtifact}
-          >
-            <div className="item-offer-main-headline">
-              <button className="item-offer-main-headline-button">
+        <div className="user-sidebar-review">
+          <h3 className="user-h3">Testemonials</h3>
+          <p>Review me</p>
+        </div>
+      </div>
+      <div className="item-offer-main">
+        <form
+          onSubmit={offerArtifact}
+        >
+          <div className="item-offer-main-headline">
+            <button className="item-offer-main-headline-button">
                 Please fill in:
-              </button>
-            </div>
-            <div className="item-offer-context">
-              <div className="item-edit-flex">
-                <label className="item-edit-label">Category: </label>
-                <select className="item-edit-input" id="itemCategory" onChange={e => setItemCategory(e.target.value)} value={itemCategory}>
-                  <option value="photography & film equipment">
+            </button>
+          </div>
+          <div className="item-offer-context">
+            <div className="item-edit-flex">
+              <label className="item-edit-label">Category: </label>
+              <select
+                className="item-edit-input"
+                id="itemCategory"
+                onChange={(e) => setItemCategory(e.target.value)}
+                value={itemCategory}
+              >
+                <option value="photography & film equipment">
                     photography & film equipment
-                  </option>
-                  <option value="props & costumes">props & costumes</option>
-                  <option value="music & sound equipment">
+                </option>
+                <option value="props & costumes">props & costumes</option>
+                <option value="music & sound equipment">
                     music & sound equipment
-                  </option>
-                  <option value="art supplies">art supplies</option>
-                  <option value="others">others</option>
+                </option>
+                <option value="art supplies">art supplies</option>
+                <option value="others">others</option>
+              </select>
+            </div>
+            <div className="item-edit-flex">
+              <label className="item-edit-label">Artifact name: </label>
+              <input
+                className="item-edit-input"
+                type="text"
+                id="itemName"
+                placeholder="please insert the items name"
+                value={itemName}
+                onChange={(e) => setItemName(e.target.value)}
+              />
+            </div>
+            <div className="item-edit-flex">
+              <label className="item-edit-label">Picture: </label>
+              <input
+                className="item-edit-input"
+                type="url"
+                id="itemPicture"
+                placeholder="please insert a URL for items picture"
+                value={itemPicture}
+                onChange={(e) => setItemPicture(e.target.value)}
+              />
+            </div>
+            <div className="item-edit-flex">
+              <label className="item-edit-label">Description: </label>
+              <input
+                className="item-edit-input"
+                type="text"
+                id="itemDescription"
+                placeholder="please insert a description here"
+                value={itemDescription}
+                onChange={(e) => setItemDescription(e.target.value)}
+              />
+            </div>
+            <div className="item-edit-container">
+              <div className="item-edit-flex">
+                <label className="item-edit-label2">Price: </label>
+                <input
+                  className="item-edit-input2"
+                  type="number"
+                  step="any"
+                  min="0"
+                  placeholder="€"
+                  id="itemPrice"
+                  value={itemPrice}
+                  onChange={(e) => setItemPrice(e.target.value)}
+                />
+              </div>
+              <div className="item-edit-flex">
+                <label className="item-edit-label2">Location: </label>
+                <select
+                  className="item-edit-input2"
+                  id="ownerLocation"
+                  onChange={(e) => setOwnerLocation(e.target.value)}
+                  value={ownerLocation}
+                >
+                  <option value="Mitte">Mitte</option>
+                  <option value="Charlottenburg">Charlottenburg</option>
+                  <option value="Friedrichshain">Friedrichshain</option>
+                  <option value="Lichtenberg">Lichtenberg</option>
+                  <option value="Kreuzberg">Kreuzberg</option>
                 </select>
               </div>
               <div className="item-edit-flex">
-                <label className="item-edit-label">Artifact name: </label>
-                <input
-                  className="item-edit-input"
-                  type="text"
-                  id="itemName"
-                  placeholder="please insert the items name"
-                  value={itemName}
-                  onChange={e => setItemName(e.target.value)}
-                />
+                <label className="item-edit-label2">Condition: </label>
+                <select
+                  className="item-edit-input2"
+                  id="itemCondition"
+                  onChange={(e) => setItemCondition(e.target.value)}
+                  value={itemCondition}
+                >
+                  <option value="new">new</option>
+                  <option value="very good">very good</option>
+                  <option value="good">good</option>
+                  <option value="satisfactory">satisfactory</option>
+                </select>
               </div>
-              <div className="item-edit-flex">
-                <label className="item-edit-label">Picture: </label>
-                <input
-                  className="item-edit-input"
-                  type="url"
-                  id="itemPicture"
-                  placeholder="please insert a URL for items picture"
-                  value={itemPicture}
-                  onChange={e => setItemPicture(e.target.value)}
-                />
-              </div>
-              <div className="item-edit-flex">
-                <label className="item-edit-label">Description: </label>
-                <input
-                  className="item-edit-input"
-                  type="text"
-                  id="itemDescription"
-                  placeholder="please insert a description here"
-                  value={itemDescription}
-                  onChange={e => setItemDescription(e.target.value)}
-                />
-              </div>
-              <div className="item-edit-container">
-                <div className="item-edit-flex">
-                  <label className="item-edit-label2">Price: </label>
-                  <input
-                    className="item-edit-input2"
-                    type="number"
-                    step="any"
-                    min="0"
-                    placeholder="€"
-                    id="itemPrice"
-                    value={itemPrice}
-                    onChange={e => setItemPrice(e.target.value)}
-                  />
-                </div>
-                <div className="item-edit-flex">
-                  <label className="item-edit-label2">Location: </label>
-                  <select className="item-edit-input2" id="ownerLocation" onChange={e => setOwnerLocation(e.target.value)} value={ownerLocation}>
-                    <option value="Mitte">Mitte</option>
-                    <option value="Charlottenburg">Charlottenburg</option>
-                    <option value="Friedrichshain">Friedrichshain</option>
-                    <option value="Lichtenberg">Lichtenberg</option>
-                    <option value="Kreuzberg">Kreuzberg</option>
-                  </select>
-                </div>
-                <div className="item-edit-flex">
-                  <label className="item-edit-label2">Condition: </label>
-                  <select className="item-edit-input2" id="itemCondition" onChange={e => setItemCondition(e.target.value)} value={itemCondition}>
-                    <option value="new">new</option>
-                    <option value="very good">very good</option>
-                    <option value="good">good</option>
-                    <option value="satisfactory">satisfactory</option>
-                  </select>
-                </div>
-              </div>
-              <button type="submit" className="item-offer-submit">
-                Submit
-              </button>
             </div>
-          </form>
-        </div>
+            <button type="submit" className="item-offer-submit">
+                Submit
+            </button>
+          </div>
+        </form>
       </div>
-    );
-}
+    </div>
+  );
+};
 
 export default OfferArtifact;
 
