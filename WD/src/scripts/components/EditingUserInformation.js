@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import database from "../firebase/firebase";
-import { NavLink } from "react-router-dom";
-import { useUserInformation } from "../context/user-context/UserContext";
+import React, { useState } from 'react';
+import database from '../firebase/firebase';
+import { useUserInformation } from '../context/user-context/UserContext';
 
 const EditingUserInformation = () => {
   const { userInformation, setUserInformation } = useUserInformation();
-  const [banner, setBanner] = useState(userInformation.banner);
-  const [headline, setHeadline] = useState(userInformation.headline);
-  const [link, setLink] = useState(userInformation.link);
-  const [name, setName] = useState(userInformation.name);
-  const [picture, setPicture] = useState(userInformation.profilePicture);
-  const [description, setDescription] = useState(userInformation.description);
+  const [ banner, setBanner ] = useState(userInformation.banner);
+  const [ headline, setHeadline ] = useState(userInformation.headline);
+  const [ link, setLink ] = useState(userInformation.link);
+  const [ name, setName ] = useState(userInformation.name);
+  const [ picture, setPicture ] = useState(userInformation.profilePicture);
+  const [ description, setDescription ] = useState(userInformation.description);
   const editInformation = (e) => {
     e.preventDefault();
     const newUserInformation = {
@@ -23,43 +22,29 @@ const EditingUserInformation = () => {
       mail: userInformation.mail,
     };
     database
-      .ref(`${userInformation.UID}`)
-      .once("value")
-      .then((snapshot) => {
-<<<<<<< HEAD
-        const value = snapshot.val()
-        database.ref(`${userInformation.UID}`).set({
-          ...newUserInformation,
-          favorites: value.favorites
-        })
-          .then(() => {
-            newUserInformation.UID = userInformation.UID;
-            setUserInformation({
-              ...userInformation,
-              ...newUserInformation,
-            })
-=======
-        const value = snapshot.val();
-        database
-          .ref(`${userInformation.UID}`)
-          .set(
-            Object.assign({}, newUserInformation, {
-              favorites: value.favorites,
-            })
-          )
-          .then(() => {
-            newUserInformation.UID = userInformation.UID;
-            setUserInformation(newUserInformation);
->>>>>>> 4ec94b89f018bbecb5d89ce9fd6da8513972d54c
-            console.log("Data is edited");
+        .ref(`${userInformation.UID}`)
+        .once('value')
+        .then((snapshot) => {
+          const value = snapshot.val();
+          database.ref(`${userInformation.UID}`).set({
+            ...newUserInformation,
+            favorites: value.favorites,
           })
-          .catch((e) => {
-            console.log("This failed", e);
-          });
-      })
-      .catch((e) => {
-        console.log("This failed", e);
-      });
+              .then(() => {
+                newUserInformation.UID = userInformation.UID;
+                setUserInformation({
+                  ...userInformation,
+                  ...newUserInformation,
+                });
+                console.log('Data is edited');
+              })
+              .catch((e) => {
+                console.log('This failed', e);
+              });
+        })
+        .catch((e) => {
+          console.log('This failed', e);
+        });
   };
   return (
     <div>

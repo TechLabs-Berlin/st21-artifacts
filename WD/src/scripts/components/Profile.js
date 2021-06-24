@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import EditingUserInformation from "./EditingUserInformation";
-import AboutMe from "./AboutMe";
-import { useUserInformation } from "../context/user-context/UserContext";
-import FavoriteItems from "./FavoriteItems";
-import PersonalItems from "./PersonalItems";
+import React, { useState } from 'react';
+import EditingUserInformation from './EditingUserInformation';
+import AboutMe from './AboutMe';
+import { useUserInformation } from '../context/user-context/UserContext';
+import FavoriteItems from './FavoriteItems';
+import PersonalItems from './PersonalItems';
 
 const TABS = {
-  ABOUT: "aboutMe",
-  ARTIFACTS: "artifactsServices",
-  FAVORITES: "favorites",
-  EDIT: "editProfile",
+  ABOUT: 'aboutMe',
+  ARTIFACTS: 'artifactsServices',
+  FAVORITES: 'favorites',
+  EDIT: 'editProfile',
 };
 
 const TABS_TO_COMPONENTS = {
@@ -20,7 +20,7 @@ const TABS_TO_COMPONENTS = {
 };
 
 const Profile = () => {
-  const [currentTab, setCurrentTab] = useState(TABS.ABOUT);
+  const [ currentTab, setCurrentTab ] = useState(TABS.ABOUT);
   const { userInformation } = useUserInformation();
   const Component = TABS_TO_COMPONENTS[currentTab];
   return (
@@ -37,7 +37,7 @@ const Profile = () => {
           alt="Profile picture"
         />
         <div className="user-headline">
-          <a href={userInformation.link} target="_blank">
+          <a href={userInformation.link} target="_blank" rel="noreferrer">
             <p>Click here for more information about me</p>
           </a>
           <h3>{userInformation.headline}</h3>

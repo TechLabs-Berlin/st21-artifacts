@@ -1,14 +1,14 @@
-import React from "react";
-import { Redirect, Router, Route, Switch } from "react-router-dom";
-import { createBrowserHistory as createHistory } from "history";
-import Header from "../components/Header";
-import LandingPage from "../components/LandingPage";
-import NotFoundPage from "../components/NotFoundPage";
-import SearchPage from "../components/SearchPage";
-import Profile from "../components/Profile";
-import OfferArtifact from "../components/OfferArtifact";
-import { useIsLoggedIn, UserContextProvider } from "../context/user-context/UserContext";
-import { ItemContextProvider } from "../context/item-context/ItemContext";
+import React from 'react';
+import { Redirect, Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory as createHistory } from 'history';
+import Header from '../components/Header';
+import LandingPage from '../components/LandingPage';
+import NotFoundPage from '../components/NotFoundPage';
+import SearchPage from '../components/SearchPage';
+import Profile from '../components/Profile';
+import OfferArtifact from '../components/OfferArtifact';
+import { useIsLoggedIn, UserContextProvider } from '../context/user-context/UserContext';
+import { ItemContextProvider } from '../context/item-context/ItemContext';
 
 // dynamic routing with :id
 
@@ -18,7 +18,7 @@ export const history = createHistory();
 // ... in front of rest deleted ... compared to video, maybe put though of props not possible
 // https://ui.dev/react-router-v4-protected-routes-authentication/
 const PrivateRoute = ({ component: Component, rest }) => {
-  const isLoggedIn = useIsLoggedIn()
+  const isLoggedIn = useIsLoggedIn();
   if (!isLoggedIn) {
     // alert('You shoud login first');
     return (
@@ -28,8 +28,8 @@ const PrivateRoute = ({ component: Component, rest }) => {
   return (<Route
     {...rest}
     component={Component}
-  />)
-}
+  />);
+};
 
 // definition of routing
 const AppRouter = () => (
