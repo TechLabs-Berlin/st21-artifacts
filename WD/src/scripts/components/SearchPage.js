@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCard from "./ItemCard";
+import ItemsContainer from './ItemsContainer'
 import database from "../firebase/firebase";
 export default class SearchPage extends React.Component {
   constructor(props) {
@@ -259,7 +259,7 @@ export default class SearchPage extends React.Component {
                       name="itemCategory"
                       value="photography & film equipment"
                     ></input>
-                    <label for="photography & film equipment">
+                    <label htmlFor="photography & film equipment">
                       photography & film equipment
                     </label>
                   </div>
@@ -270,7 +270,7 @@ export default class SearchPage extends React.Component {
                       name="itemCategory"
                       value="props & costumes"
                     ></input>
-                    <label for="props & costumes">props & costumes</label>
+                    <label htmlFor="props & costumes">props & costumes</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -279,7 +279,7 @@ export default class SearchPage extends React.Component {
                       name="itemCategory"
                       value="music & sound equipment"
                     ></input>
-                    <label for="music & sound equipment">
+                    <label htmlFor="music & sound equipment">
                       music & sound equipment
                     </label>
                   </div>
@@ -290,7 +290,7 @@ export default class SearchPage extends React.Component {
                       name="itemCategory"
                       value="art supplies"
                     ></input>
-                    <label for="art supplies">art supplies</label>
+                    <label htmlFor="art supplies">art supplies</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -299,7 +299,7 @@ export default class SearchPage extends React.Component {
                       name="itemCategory"
                       value="others"
                     ></input>
-                    <label for="others">others</label>
+                    <label htmlFor="others">others</label>
                   </div>
                 </div>
               </div>
@@ -332,7 +332,7 @@ export default class SearchPage extends React.Component {
                     <p>max</p>
                   </div>
                   <div className="price-free-bar">
-                    <label for="freeStuffOnly-label">Free stuff only </label>
+                    <label htmlFor="freeStuffOnly-label">Free stuff only </label>
                     <input
                       type="checkbox"
                       id="freeStuffOnly"
@@ -352,7 +352,7 @@ export default class SearchPage extends React.Component {
                       name="ownerLocation"
                       value="Mitte"
                     ></input>
-                    <label for="Mitte">Mitte</label>
+                    <label htmlFor="Mitte">Mitte</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -361,7 +361,7 @@ export default class SearchPage extends React.Component {
                       name="ownerLocation"
                       value="Charlottenburg"
                     ></input>
-                    <label for="Charlottenburg">Charlottenburg</label>
+                    <label htmlFor="Charlottenburg">Charlottenburg</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -370,7 +370,7 @@ export default class SearchPage extends React.Component {
                       name="ownerLocation"
                       value="Friedrichshain"
                     ></input>
-                    <label for="Friedrichshain">Friedrichshain</label>
+                    <label htmlFor="Friedrichshain">Friedrichshain</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -379,7 +379,7 @@ export default class SearchPage extends React.Component {
                       name="ownerLocation"
                       value="Lichtenberg"
                     ></input>
-                    <label for="Lichtenberg">Lichtenberg</label>
+                    <label htmlFor="Lichtenberg">Lichtenberg</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -388,7 +388,7 @@ export default class SearchPage extends React.Component {
                       name="ownerLocation"
                       value="Kreuzberg"
                     ></input>
-                    <label for="Kreuzberg">Kreuzberg</label>
+                    <label htmlFor="Kreuzberg">Kreuzberg</label>
                   </div>
                 </div>
               </div>
@@ -402,7 +402,7 @@ export default class SearchPage extends React.Component {
                       name="itemCondition"
                       value="new"
                     ></input>
-                    <label for="new">new</label>
+                    <label htmlFor="new">new</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -411,7 +411,7 @@ export default class SearchPage extends React.Component {
                       name="itemCondition"
                       value="very good"
                     ></input>
-                    <label for="very good">very good</label>
+                    <label htmlFor="very good">very good</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -420,7 +420,7 @@ export default class SearchPage extends React.Component {
                       name="itemCondition"
                       value="good"
                     ></input>
-                    <label for="good">good</label>
+                    <label htmlFor="good">good</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -429,7 +429,7 @@ export default class SearchPage extends React.Component {
                       name="itemCondition"
                       value="satisfactory"
                     ></input>
-                    <label for="satisfactory">satisfactory</label>
+                    <label htmlFor="satisfactory">satisfactory</label>
                   </div>
                 </div>
               </div>
@@ -443,7 +443,7 @@ export default class SearchPage extends React.Component {
                       name="ownerReview"
                       value="5"
                     ></input>
-                    <label for="5 stars">5 stars</label>
+                    <label htmlFor="5 stars">5 stars</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -452,7 +452,7 @@ export default class SearchPage extends React.Component {
                       name="ownerReview"
                       value="4"
                     ></input>
-                    <label for="4 stars">4 stars or higher</label>
+                    <label htmlFor="4 stars">4 stars or higher</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -461,7 +461,7 @@ export default class SearchPage extends React.Component {
                       name="ownerReview"
                       value="3"
                     ></input>
-                    <label for="3 stars">3 stars or higher</label>
+                    <label htmlFor="3 stars">3 stars or higher</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -470,7 +470,7 @@ export default class SearchPage extends React.Component {
                       name="ownerReview"
                       value="2"
                     ></input>
-                    <label for="2 stars">2 stars or higher</label>
+                    <label htmlFor="2 stars">2 stars or higher</label>
                   </div>
                   <div className="one-filter-input">
                     <input
@@ -479,7 +479,7 @@ export default class SearchPage extends React.Component {
                       name="ownerReview"
                       value="1"
                     ></input>
-                    <label for="1 star">1 star or higher</label>
+                    <label htmlFor="1 star">1 star or higher</label>
                   </div>
                 </div>
               </div>
@@ -496,18 +496,7 @@ export default class SearchPage extends React.Component {
         </div>
         <div className="search-results-scroll">
           <div className="search-page-results">
-            {this.state.items.map((item) => (
-              <button onClick={this.presentPopover(item)}><ItemCard
-                itemFans={item.itemFans}
-                itemKey={item.key}
-                itemName={item.itemName}
-                itemPicture={item.itemPicture}
-                itemPrice={item.itemPrice}
-                ownerName={item.ownerName}
-                ownerPicture={item.ownerPicture}
-                ownerReview={item.ownerReview}
-              /></button>
-            ))}
+            <ItemsContainer customItems={this.state.items} onClickItem={this.presentPopover} />
           </div>
         </div>
       </div>
