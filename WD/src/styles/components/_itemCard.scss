@@ -59,6 +59,16 @@
 /* .card-body > i {
 } */
 
+.item-delete-button {
+  border-radius: 100%;
+  color: red;
+  font-size: 20px;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-weight: bold;
+}
+
 .item-heart-button {
   border-radius: 100%;
   position: absolute;

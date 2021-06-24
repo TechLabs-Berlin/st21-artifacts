@@ -6,9 +6,14 @@ export default class ItemCard extends React.Component {
     super(props);
     this.state = {
       isFavorite: userInformation.favorites.indexOf(this.props.itemKey) >= 0,
+      isMine: userInformation.UID == this.props.ownerKey,
     };
     this.handleFavorites = this.handleFavorites.bind(this);
+    this.handleDeletion = this.handleDeletion.bind(this);
   }
+  handleDeletion = () => {
+    database.ref(`items/${this.props.itemKey}`).remove();
+  };
   handleFavorites = () => {
     if (this.state.isFavorite) {
       const index = userInformation.favorites.indexOf(this.props.itemKey);
@@ -50,6 +55,14 @@ export default class ItemCard extends React.Component {
         </div>
         <div className="card-body">
           <img src={this.props.itemPicture} />
+          {this.state.isMine && (
+            <button
+              onClick={this.handleDeletion}
+              className="item-delete-button"
+            >
+              X
+            </button>
+          )}
           {!this.state.isFavorite && (
             <button
               onClick={this.handleFavorites}

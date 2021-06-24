@@ -143,6 +143,7 @@ export default class Profile extends React.Component {
                     itemKey={item.key}
                     itemPicture={item.itemPicture}
                     itemPrice={item.itemPrice}
+                    ownerKey={item.ownerKey}
                     ownerName={item.ownerName}
                     ownerPicture={item.ownerPicture}
                     ownerReview={item.ownerReview}

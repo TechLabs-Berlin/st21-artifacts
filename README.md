@@ -1,6 +1,4 @@
-[See README-Syntax here] (https://guides.github.com/features/mastering-markdown/)
+# st21-artifacts - How to run Artiacts
 
-# st21-artifacts
-
-Here is space for the instructions on how to host Artifacts on a local host.
+Here is space for the instructions on how to host Artifacts on e.g. a local host.
 Update follows soon ...
