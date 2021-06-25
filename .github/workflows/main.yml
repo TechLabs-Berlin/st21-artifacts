@@ -13,8 +13,6 @@ jobs:
         uses: actions/checkout@master
       - name: Generates key js file
         run: echo ${{ secrets.FIREBASE_KEY }} | base64 -d > ./WD/key.js
-      - name: Validates key js file existence
-        run: cd WD && ls
       - name: Install dependencies
         uses: borales/actions-yarn@v2.3.0
         with:
@@ -40,6 +38,8 @@ jobs:
         with:
           name: dist
           path: dist
+      - name: Copy firebase files to root
+        run: cp WD/firebase.json . && cp WD/.firebaserc .
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
