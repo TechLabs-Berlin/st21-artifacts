@@ -11,16 +11,12 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Go to WD folder
-        run: cd WD
-      - name: Install Dependencies
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: install
+      - name: Installs yarn
+        run: npm i -g yarn --force
+      - name: Installs dependencies
+        run: cd WD && yarn
       - name: Build
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+        run: yarn build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
