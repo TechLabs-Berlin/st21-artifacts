@@ -71,13 +71,9 @@ const OfferArtifact = () => {
         </div>
       </div>
       <div className="item-offer-main">
-        <form
-          onSubmit={offerArtifact}
-        >
+        <form onSubmit={offerArtifact}>
           <div className="item-offer-main-headline">
-            <button className="item-offer-main-headline-button">
-                Please fill in:
-            </button>
+            <h3>Please fill in:</h3>
           </div>
           <div className="item-offer-context">
             <div className="item-edit-flex">
@@ -89,11 +85,11 @@ const OfferArtifact = () => {
                 value={itemCategory}
               >
                 <option value="photography & film equipment">
-                    photography & film equipment
+                  photography & film equipment
                 </option>
                 <option value="props & costumes">props & costumes</option>
                 <option value="music & sound equipment">
-                    music & sound equipment
+                  music & sound equipment
                 </option>
                 <option value="art supplies">art supplies</option>
                 <option value="others">others</option>
@@ -177,7 +173,7 @@ const OfferArtifact = () => {
               </div>
             </div>
             <button type="submit" className="item-offer-submit">
-                Submit
+              Submit
             </button>
           </div>
         </form>
