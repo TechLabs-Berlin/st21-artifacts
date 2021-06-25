@@ -2,6 +2,7 @@
   "name": "artifacts",
   "license": "MIT",
   "scripts": {
+    "deploy-to-firebase": "yarn build && npx firebase deploy",
     "serve": "live-server dist/",
     "build": "yarn copy-assets &&  webpack --mode production",
     "copy-assets": "rm -rf dist && mkdir dist && cp -r public/* dist",

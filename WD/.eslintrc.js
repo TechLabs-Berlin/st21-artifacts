@@ -19,9 +19,9 @@ module.exports = {
   ],
   'rules': {
     'react/prop-types': 0,
-    'object-curly-spacing': [2, 'always'],
-    'array-bracket-spacing': [2, 'always'],
+    'object-curly-spacing': [ 2, 'always' ],
+    'array-bracket-spacing': [ 2, 'always' ],
     'require-jsdoc': 0,
-    'max-len': [2, { 'code': 130, 'tabWidth': 4, 'ignoreUrls': true }],
+    'max-len': [ 2, { 'code': 130, 'tabWidth': 4, 'ignoreUrls': true } ],
   },
 };
