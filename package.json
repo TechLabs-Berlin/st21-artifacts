@@ -1,0 +1,22 @@
+{
+  "name": "st21-artifacts",
+  "version": "1.0.0",
+  "description": "Artifacts",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "install-dependencies": "cd WD && yarn",
+    "build": "cd WD && yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechLabs-Berlin/st21-artifacts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechLabs-Berlin/st21-artifacts/issues"
+  },
+  "homepage": "https://github.com/TechLabs-Berlin/st21-artifacts#readme"
+}
