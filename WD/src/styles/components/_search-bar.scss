@@ -1,5 +1,6 @@
 .search-bar {
   align-items: center;
+  background: none;
   display: flex;
   flex-grow: 4;
   justify-content: space-between;
@@ -8,8 +9,10 @@
 }
 
 .search-bar-button {
-  background: $background;
+  background: $header;
   border: none;
+  color: $color;
+  font-size: smaller;
   /*   margin: 0 40px; */
   padding: 10px 25px;
   text-align: center;
@@ -23,9 +26,4 @@
 .search-bar-button:focus {
   background-color: $highlight;
   border-radius: 40px;
-}
-
-.search-bar-I {
-  margin: 0;
-  padding: 0;
 }

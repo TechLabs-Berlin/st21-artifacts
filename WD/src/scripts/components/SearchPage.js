@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemsContainer from './ItemsContainer';
 import database from '../firebase/firebase';
+
 export default class SearchPage extends React.Component {
   constructor(props) {
     super(props);
@@ -258,7 +259,7 @@ export default class SearchPage extends React.Component {
                       value="photography & film equipment"
                     ></input>
                     <label htmlFor="photography & film equipment">
-                      photography & film equipment
+                      photography & film equ.
                     </label>
                   </div>
                   <div className="one-filter-input">
@@ -485,7 +486,7 @@ export default class SearchPage extends React.Component {
               </div>
             </div>
             <div className="search-button-container">
-              <button className="search-button">Artifacts</button>
+              <button className="search-button">Find</button>
               <input
                 className="clear-button"
                 type="reset"

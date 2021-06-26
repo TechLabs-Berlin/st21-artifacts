@@ -53,6 +53,7 @@ const Profile = () => {
         </div>
         <div className="user-sidebar-review">
           <h3 className="user-h3">Testemonials</h3>
+          {<i className="icofont-star"></i>}
         </div>
       </div>
       <div className="user-main">

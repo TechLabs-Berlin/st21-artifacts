@@ -2,7 +2,7 @@
   border: none;
   margin: 10px auto 0 auto;
   padding: 0px;
-  /* width: 94%; */
+  width: 83%;
 }
 
 .search-page-results {
@@ -24,26 +24,26 @@
 
 .search-button {
   background: $highlight;
-  border: 2px solid $lines;
+  border: 1px solid $lines;
   border-radius: 100%;
-  font-size: 20px;
-  height: 100px;
-  margin: 0 5px 10px 0;
+  color: $color;
+  font-size: 15px;
+  height: 75px;
+  margin: 0 5px 5px 0;
   text-align: center;
-  width: 100px;
+  width: 75px;
 }
 
 .search-button:hover {
-  border: 2px dotted $lines;
-  font-size: 25px;
-  height: 100px;
-  width: 100px;
+  border: 1px dotted $lines;
+  font-size: 20px;
 }
 
 .clear-button {
   background: $background;
   border: 1px solid $lines;
   border-radius: 100%;
+    color: $color;
   font-size: 15px;
   height: 75px;
   margin: 0 5px;
@@ -60,6 +60,7 @@
 
 .all-filter-container {
   display: flex;
+
   justify-content: center;
 }
 
@@ -78,23 +79,26 @@
 }
 
 .one-filter-container {
+  font-size: 15px;
   margin: 0 0.5% 10px 0.5%;
   min-width: 19%;
 }
 
 .all-filter-input {
-  border: 1px solid $lines;
+  background: $header;
+  //border: 1px solid $lines;
   border-radius: 15px;
-  height: 150px;
+  height: 130px;
   padding: 15px 10px 10px 10px;
 }
 
 .all-price-input {
+  background: $header;
   display: flex;
-  border: 1px solid $lines;
+  //border: 1px solid $lines;
   border-radius: 15px;
   flex-direction: column;
-  height: 150px;
+  height: 135px;
   padding: 15px 10px 10px 10px;
 }
 
@@ -112,9 +116,12 @@
 }
 
 .one-filter-headline {
-  border: 1px solid $lines;
+  //border: 1px solid $lines;
+  background: $highlight;
   border-radius: 15px;
+  color: $background;
   font-size: 15px;
+  margin: 10px 0;
   padding: 10px 0;
   text-align: center;
 }
@@ -128,7 +135,9 @@
 }
 
 .price-bar > input {
+  border: 1px solid $lines;
   border-radius: 10px;
+  color: $color;
   padding: 5px 0;
   text-align: center;
   width: 25%;
@@ -145,7 +154,7 @@
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  padding: 0 55px 30px 20px;
+  padding: 0 40px 30px 15px;
   margin: 0;
 }
 

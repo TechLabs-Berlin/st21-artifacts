@@ -53,6 +53,11 @@ url("./fonts/icofont.woff") format("woff");
   content: "\ed12";
 }
 
+.icofont-star:before
+{
+  content: "\f000";
+}
+
 .icofont-xs
 {
   font-size: .5em;

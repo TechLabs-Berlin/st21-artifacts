@@ -1,9 +1,13 @@
+* {
+  font: $font;
+}
+
 body {
   background: $background;
   color: $color;
   font-family: $font;
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
 }
 
 button {

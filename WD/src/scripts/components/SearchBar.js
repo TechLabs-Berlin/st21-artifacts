@@ -25,7 +25,6 @@ const SearchBar = () => {
       >
         <button className="search-bar-button">offer Artifacts</button>
       </NavLink>
-      <h2 className="search-bar-I">I</h2>
       <NavLink to="" activeClassName="is-active" className="search-bar-nav">
         <button
           onClick={handleOfferService}

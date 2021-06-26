@@ -1,48 +1,59 @@
-.landing-page {
-  border: 1px solid $lines;
-  border-top: none;
-  color: White;
-  padding: 10px;
+.landing-header {
+  margin: 15px 0;
+  text-align: center;
 }
 
 .container-actions {
-  margin: auto;
-  width: 80%;
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .action {
-  box-sizing: border-box;
-  float: left;
-  width: 100%;
-  padding: 15px;
+  background: none;
+  border: none;
+  margin: 5px;
+  padding: 0;
+  height: 276px;
+  width: 397px;
+
 }
 
-.action-content {
-  box-sizing: border-box;
-  width: 100%;
-  padding-top: 66%;
-  position: relative;
-  color: black;
-  background-color: white;
+.landing-picture-linked:hover {
+  filter: contrast(130%)
+
 }
 
-.action-content a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+.landing-picture {
+  border-radius: 40px;
+  height: 276px;
+  width: 397px;
+
+}
+
+.landing-picture-linked {
+  border-radius: 40px;
+  height: 276px;
+  width: 397px;
+
+}
+
+.landing-overlay {
+  background:$background;
+  border-radius: 10px;
+  color: $color;
+  font: $font;
   font-size: 20pt;
-  color: black;
+  opacity: 75%;
+  position: relative;
+  text-align: center;
+  bottom: 50px;
+  width: 380px;
+  margin: 0 auto;
 }
 
 .boldItalic {
   font-weight: bold;
   font-style: italic;
-}
-
-@media only screen and (min-width: 768px) {
-  .action {
-    width: 50%;
-  }
 }

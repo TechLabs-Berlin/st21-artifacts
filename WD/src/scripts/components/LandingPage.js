@@ -1,51 +1,52 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const LandingPage = () => (
-  <div className="landing-page">
-    <div className="container-actions">
-      <div className="action">
-        <div className="action-content">
-          <NavLink
-            to="/search"
-            activeClassName="is-active"
-          >
-            find an <span className="boldItalic">Artifact</span>
-          </NavLink>
+const LandingPage = () => {
+  return (
+    <div className="landing-page">
+      <h3 className="landing-header">Welcome to Artifacts</h3>
+      <div className="container-actions">
+        <NavLink to="/search" className="action">
+          <img
+            className="landing-picture-linked"
+            src="https://st3.depositphotos.com/14231584/32620/i/450/depositphotos_326202520-stock-photo-flatley-camera-laptop-phone-minimalist.jpg"
+          />
+          <div className="landing-overlay">
+            Find <span className="boldItalic">Artifacts</span>
+          </div>
+        </NavLink>
+        <div className="action">
+          <img
+            className="landing-picture"
+            src="https://image.freepik.com/free-photo/abstract-geometric-shape-with-minimal-style-pastel-color-use-cosmetic-products-presentations-3d-rendering-illustration_61337-216.jpg"
+          />
+          <div className="landing-overlay">
+            Find <span className="boldItalic">Services</span>
+          </div>
         </div>
       </div>
-      <div className="action">
-        <div className="action-content">
-          <NavLink
-            to="/"
-            activeClassName="is-active"
-          >
-            find a <span className="boldItalic">service / collaborator</span>
-          </NavLink>
-        </div>
-      </div>
-      <div className="action">
-        <div className="action-content">
-          <NavLink
-            to="/offerArtifact"
-            activeClassName="is-active"
-          >
-            offer an <span className="boldItalic">Artifact</span>
-          </NavLink>
-        </div>
-      </div>
-      <div className="action">
-        <div className="action-content">
-          <NavLink
-            to="/"
-            activeClassName="is-active"
-          >
-            offer a <span className="boldItalic">service / collaborator</span>
-          </NavLink>
+      <div className="container-actions">
+        <NavLink to="/offerArtifact" className="action">
+          <img
+            className="landing-picture-linked"
+            src="https://cdn.pixabay.com/photo/2018/05/28/12/10/headphones-3435888_1280.jpg"
+          />
+          <div className="landing-overlay">
+            Offer <span className="boldItalic">Artifacts</span>
+          </div>
+        </NavLink>
+        <div className="action">
+          <img
+            className="landing-picture"
+            src="https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2018/05/5-2.jpg"
+          />
+          <div className="landing-overlay">
+            Offer <span className="boldItalic">Services</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default LandingPage;
