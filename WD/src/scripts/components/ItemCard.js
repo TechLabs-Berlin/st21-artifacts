@@ -60,7 +60,10 @@ const ItemCard = ({ item, onClick }) => {
           <img src={item.ownerPicture} />
           <h5>{item.ownerName}</h5>
         </div>
-        <p>{item.ownerReview}</p>
+        <div className="review-container">
+          <p>{item.ownerReview}</p>
+          <i className="icofont-star icofont-star-static"></i>
+        </div>
       </div>
       <div className="card-body">
         <img src={item.itemPicture} />
@@ -70,7 +73,7 @@ const ItemCard = ({ item, onClick }) => {
             isFavorite ? 'item-heart-button-active' : 'item-heart-button'
           }
         >
-          <i className="icofont-heart"></i>
+          <i className="icofont-heart icofont-heart-static"></i>
         </button>
         {isMine && (
           <button onClick={handleDeletion} className="item-delete-button">
@@ -83,8 +86,8 @@ const ItemCard = ({ item, onClick }) => {
         <div>
           <p>{item.itemPrice}€</p>
           <div>
-            <i className="icofont-heart"></i>
             <p>{item.itemFans}</p>
+            <i className="icofont-heart icofont-heart-static"></i>
           </div>
         </div>
       </div>

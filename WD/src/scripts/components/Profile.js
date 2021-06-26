@@ -44,16 +44,21 @@ const Profile = () => {
         </div>
       </div>
       <div className="user-sidebar">
-        <h2 className="user-h2">{userInformation.name}</h2>
+        <div className="user-sidebar-container">
+          <h2 className="user-h2">{userInformation.name}</h2>
+          <div className="user-sidebar-review">
+            {<i className="icofont-star icofont-star-color"></i>}
+            {<i className="icofont-star icofont-star-color"></i>}
+            {<i className="icofont-star icofont-star-color"></i>}
+            {<i className="icofont-star icofont-star-color"></i>}
+            {<i className="icofont-star icofont-star-grey"></i>}
+          </div>
+        </div>
         <div className="user-sidebar-contact">
           <a href={userInformation.mail}>
             <i className="icofont-mail"></i>
           </a>
           <p>Contact me</p>
-        </div>
-        <div className="user-sidebar-review">
-          <h3 className="user-h3">Testemonials</h3>
-          {<i className="icofont-star"></i>}
         </div>
       </div>
       <div className="user-main">

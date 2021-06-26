@@ -20,8 +20,7 @@ export const useAuth = () => {
                 setUserInformation(userInformation);
               } else {
                 const defaultUserInformation = {
-                  banner:
-                  'https://images.pexels.com/photos/3953119/pexels-photo-3953119.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+                  banner: 'https://wallpapercave.com/wp/wp6168519.jpg',
                   description: 'No further information.',
                   headline: 'default',
                   link: 'https://www.google.de',
@@ -29,7 +28,8 @@ export const useAuth = () => {
                   name: user.displayName,
                   favorites: {},
                   profilePicture:
-                  user.photoURL|| 'https://images.pexels.com/photos/5326900/pexels-photo-5326900.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+                    user.photoURL ||
+                    'https://www.thoughtco.com/thmb/2wU-Ux_HMu2fKMgGIbiQ__GVTrc=/768x0/filters:no_upscale([…]-yayoi-kusama-142104772-e1f7601789b54b8f9d8c4dcd6be40a6d.jpg',
                 };
                 database
                     .ref(`${user.uid}`)
