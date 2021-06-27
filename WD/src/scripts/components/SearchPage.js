@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import ItemsContainer from './ItemsContainer';
 import database from '../firebase/firebase';
+import ItemPopover from './ItemPopover';
 
 const SearchPage = () => {
   const [ items, setItems ] = useState([]);
-  const presentPopover = () => {
-  };
+  const [ popover, setPopover ] = useState(null);
+  
   const renderCards = (
       e,
       photo,
@@ -483,7 +484,19 @@ const SearchPage = () => {
       </div>
       <div className="search-results-scroll">
         <div className="search-page-results">
-          <ItemsContainer customItems={items} onClickItem={presentPopover} />
+          <ItemsContainer customItems={items} onClickItem={setPopover} />
+        </div>
+        <div>
+          {popover && <ItemPopover 
+            clearPopover={() => { setPopover(null) }}
+            itemName={popover.itemName}
+            itemDescription={popover.itemDescription}
+            itemPrice={popover.itemPrice}
+            itemPicture={popover.itemPicture}
+            itemAvailability={popover.itemAvailability}
+            ownerReview={popover.ownerReview}
+            ownerLocation={popover.ownerLocation}
+          />}
         </div>
       </div>
     </div>

@@ -1,3 +1,15 @@
+.item-popover-background{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    // filter: blur(8px);
+    // -webkit-filter: blur(8px);
+}
+
 .item-popover{
     position: fixed;
     top: 50%;
