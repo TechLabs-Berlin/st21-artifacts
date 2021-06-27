@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ItemsContainer from './ItemsContainer';
 import database from '../firebase/firebase';
+import ItemPopover from './ItemPopover';
 
 const SearchPage = () => {
   const [ searchItems, setSearchItems ] = useState([]);
+  const [ popover, setPopover ] = useState(null);
   const [ photo, setPhoto ] = useState({ checked: false, id: 'photography & film equipment' });
   const [ costumes, setCostumes ] = useState({ checked: false, id: 'props & costumes' });
   const [ music, setMusic ] = useState({ checked: false, id: 'music & sound equipment' });
@@ -27,8 +29,7 @@ const SearchPage = () => {
   const [ priceMax, setPriceMax ] = useState('2000');
   const [ freeStuff, setFreeStuff ] = useState({ checked: false, id: 'freeStuffOnly' });
   const [ search, setSearch ] = useState('');
-  const presentPopover = () => {
-  };
+
   const renderCards = (e) => {
     e.preventDefault();
     const checkedDataCategory = [
@@ -503,7 +504,21 @@ const SearchPage = () => {
       </div>
       <div className="search-results-scroll">
         <div className="search-page-results">
-          <ItemsContainer customItems={searchItems} onClickItem={presentPopover} />
+          <ItemsContainer customItems={searchItems} onClickItem={setPopover} />
+        </div>
+        <div>
+          {popover && <ItemPopover
+            clearPopover={() => {
+              setPopover(null);
+            }}
+            itemName={popover.itemName}
+            itemDescription={popover.itemDescription}
+            itemPrice={popover.itemPrice}
+            itemPicture={popover.itemPicture}
+            itemAvailability={popover.itemAvailability}
+            ownerReview={popover.ownerReview}
+            ownerLocation={popover.ownerLocation}
+          />}
         </div>
       </div>
     </div>
