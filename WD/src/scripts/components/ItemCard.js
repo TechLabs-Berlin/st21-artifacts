@@ -45,6 +45,7 @@ const ItemCard = ({ item, onClick }) => {
 
   const handleDeletion = () => {
     database.ref(`items/${item.key}`).remove();
+    handleFavorites();
   };
 
   const onClickItem = useCallback(() => {

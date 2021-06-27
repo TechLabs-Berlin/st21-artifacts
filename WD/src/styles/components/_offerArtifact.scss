@@ -1,48 +1,24 @@
 .item-offer-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 300px 1fr;
-  margin: 20px auto 10px auto;
+  margin: 10px auto 10px auto;
   width: 83%
 }
 
 .item-offer-header {
-  // background: blue;
-  grid-column: 1 / -1;
-  grid-row: 1 / 2;
-  display: grid;
-  grid-template-columns: 50px 250px 1fr;
-  grid-template-rows: 110px 90px 70px;
+  margin: 0;
 }
 
 .item-offer-banner {
   border-radius: 10px;
-  grid-column: 1 / -1;
-  grid-row: 1 / 3;
   height: 200px;
   object-fit: cover;
   width: 100%;
 }
 
-.item-offer-picture {
-  border-radius: 100%;
-  grid-column: 2;
-  grid-row: 2 / -1;
-  height: 200px;
-  object-fit: cover;
-  width: 200px;
-  /*   z-index: 1; */
-}
-
 .item-offer-headline {
-  grid-column: 3 / -1;
-  grid-row: 3 / -1;
-  /*   height: 70px; */
+  margin: 20px 0;
 }
 
 .item-offer-headline > p {
-  color: $color;
-  font: $font;
   margin: 5px 0;
 }
 
@@ -51,67 +27,25 @@
   padding: 0;
 }
 
-.item-offer-sidebar {
-  grid-column: 1 / 2;
-  grid-row: 2 / -1;
-  padding: 70px 0 0 50px;
-}
-
-.item-offer-main {
-  grid-column: 2 / -1;
-  grid-row: 2 / -1;
-}
-
-.item-offer-main-headline {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.item-offer-main-headline-button {
-  background: $background;
-  border: 3px solid $lines;
+.item-offer-submit {
+  background: $highlight;
+  border: none;;
   border-radius: 20px;
   color: $color;
   font-weight: 800;
   font-size: 15px;
   height: 45px;
-  margin: 0 0 15px 0;
+  margin: 30px 0 5px 0;
   width: 140px;
 }
 
-.item-offer-submit {
-  background: $background;
-  border: 3px solid $lines;
-  border-radius: 20px;
-  color: $color;
-  font: $font;
-  font-weight: 800;
-  font-size: 15px;
-  height: 35px;
-  margin: 20px 4px 0 0;
-  width: 100px;
-}
-
 .item-offer-submit:hover {
-  background: black;
-  color: white;
-}
-
-.item-offer-category {
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 15px 0;
-}
-
-.item-offer-category > div > input {
-  background-color: $highlight;
-  border: 1px dotted $lines;
-  margin: 0 5px;
+  background:$lines;
+  color: $background;
 }
 
 .item-edit-input {
-  background: $highlight;
+  background: $card;
   border: none;
   font: $font;
   font-style: italic;
@@ -120,23 +54,17 @@
 }
 
 .item-edit-input2 {
-  background: $highlight;
+  background: $card;
   border: none;
   font: $font;
   font-style: italic;
-  margin: 0 0 0 5px;
-  text-align: center;
-  /*  width: 85%; */
-}
-
-.item-edit-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0 0 0;
+  margin: 1px 0 1px 5px;
+  text-align: left;
+   width: 50%;
 }
 
 .item-edit-flex {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
 }

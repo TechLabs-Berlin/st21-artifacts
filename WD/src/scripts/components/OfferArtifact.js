@@ -43,38 +43,17 @@ const OfferArtifact = () => {
     <div className="item-offer-container">
       <div className="item-offer-header">
         <img
-          src="https://images.pexels.com/photos/5622421/pexels-photo-5622421.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          src="https://wallpapercave.com/wp/wp6168519.jpg"
           className="item-offer-banner"
           alt="Background picture"
-        />
-        <img
-          src="https://images.pexels.com/photos/2824173/pexels-photo-2824173.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-          className="item-offer-picture"
-          alt="Artifact picture"
         />
         <div className="item-offer-headline">
           <p>Offer an</p>
           <h3>Artifact</h3>
         </div>
       </div>
-      <div className="item-offer-sidebar">
-        <h2 className="user-h2">{userInformation.name}</h2>
-        <div className="user-sidebar-contact">
-          <a href={userInformation.mail}>
-            <i className="icofont-mail"></i>
-          </a>
-          <p>Contact me</p>
-        </div>
-        <div className="user-sidebar-review">
-          <h3 className="user-h3">Testemonials</h3>
-          <p>Review me</p>
-        </div>
-      </div>
       <div className="item-offer-main">
         <form onSubmit={offerArtifact}>
-          <div className="item-offer-main-headline">
-            <h3>Please fill in:</h3>
-          </div>
           <div className="item-offer-context">
             <div className="item-edit-flex">
               <label className="item-edit-label">Category: </label>
@@ -119,7 +98,7 @@ const OfferArtifact = () => {
             </div>
             <div className="item-edit-flex">
               <label className="item-edit-label">Description: </label>
-              <input
+              <textarea
                 className="item-edit-input"
                 type="text"
                 id="itemDescription"

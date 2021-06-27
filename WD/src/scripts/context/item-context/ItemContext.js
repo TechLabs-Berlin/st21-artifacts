@@ -9,6 +9,11 @@ export const useItems = () => {
   return items;
 };
 
+export const useAllItems = () => {
+  const { allItems } = useContext(ItemContext);
+  return allItems;
+};
+
 export const useFavoriteItems = () => {
   const { favItems } = useContext(ItemContext);
   return favItems;
@@ -17,6 +22,7 @@ export const useFavoriteItems = () => {
 export const ItemContextProvider = ({ children }) => {
   const [ favItems, setFavItems ] = useState([]);
   const [ items, setItems ] = useState([]);
+  const [ allItems, setAllItems ] = useState([]);
   const { userInformation } = useUserInformation();
   useEffect(() => {
     if (userInformation.UID) {
@@ -29,7 +35,11 @@ export const ItemContextProvider = ({ children }) => {
       const itemsRef = database.ref('items');
       const itemsListener = itemsRef.on('value', (snapshot) => {
         const itemsCopy = [];
+        const allItemsCopy = [];
         snapshot.forEach((childSnapshot) => {
+          const item = childSnapshot.val();
+          item.key = childSnapshot.key;
+          allItemsCopy.push(item);
           if (childSnapshot.val().ownerKey === userInformation.UID) {
             const item = childSnapshot.val();
             item.key = childSnapshot.key;
@@ -37,6 +47,7 @@ export const ItemContextProvider = ({ children }) => {
           }
         });
         setItems(itemsCopy);
+        setAllItems(allItemsCopy);
       });
       return () => {
         itemsRef.off('value', itemsListener);
@@ -47,6 +58,7 @@ export const ItemContextProvider = ({ children }) => {
   const data = {
     favItems,
     items,
+    allItems,
   };
   return <ItemContext.Provider value={data}>{children}</ItemContext.Provider>;
 };

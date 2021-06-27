@@ -9,7 +9,7 @@ const LandingPage = () => {
         <NavLink to="/search" className="action">
           <img
             className="landing-picture-linked"
-            src="https://thumbs.dreamstime.com/b/minimal-camera-isolated-pastel-pink-background-photography-concept-d-rendering-184683455.jpg"
+            src="https://i.pinimg.com/564x/53/7b/15/537b15cb6e0115e90dc8c55987b1db48.jpg"
           />
           <div className="landing-overlay">
             Find <span className="boldItalic">Artifacts</span>
