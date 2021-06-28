@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ItemsContainer from './ItemsContainer';
-import database from '../firebase/firebase';
 import ItemPopover from './ItemPopover';
 import { useAllItems } from '../context/item-context/ItemContext';
 
