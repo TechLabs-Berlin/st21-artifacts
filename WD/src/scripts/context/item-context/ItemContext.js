@@ -47,6 +47,7 @@ export const ItemContextProvider = ({ children }) => {
           }
         });
         setItems(itemsCopy);
+        console.log('allitems', allItemsCopy);
         setAllItems(allItemsCopy);
       });
       return () => {

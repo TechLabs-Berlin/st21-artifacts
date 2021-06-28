@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemsContainer from './ItemsContainer';
 import database from '../firebase/firebase';
 import ItemPopover from './ItemPopover';
+import { useAllItems } from '../context/item-context/ItemContext';
 
 const SearchPage = () => {
   const [ searchItems, setSearchItems ] = useState([]);
+  const allItems = useAllItems();
   const [ popover, setPopover ] = useState(null);
   const [ photo, setPhoto ] = useState({ checked: false, id: 'photography & film equipment' });
   const [ costumes, setCostumes ] = useState({ checked: false, id: 'props & costumes' });
@@ -30,7 +32,13 @@ const SearchPage = () => {
   const [ freeStuff, setFreeStuff ] = useState({ checked: false, id: 'freeStuffOnly' });
   const [ search, setSearch ] = useState('');
 
-  const renderCards = (e) => {
+  // Adding all items to search items to be rendered in first mount
+  useEffect(() => {
+    console.log('items', allItems);
+    setSearchItems(allItems);
+  }, []);
+
+  const filterCards = (e) => {
     e.preventDefault();
     const checkedDataCategory = [
       photo.checked && photo.id,
@@ -38,24 +46,9 @@ const SearchPage = () => {
       music.checked && music.id,
       art.checked && art.id,
       others.checked && others.id,
-    ];
+    ].filter((value) => value); // filtering only non-empty values in array
 
-    console.log(checkedDataCategory);
-
-    let x1 = 0;
-    let shotGunCategory = false;
-    checkedDataCategory.map((n) => {
-      if (!!n == true) {
-        x1 = x1 + 1;
-      }
-    });
-    if (x1 > 0) {
-      x1 = 0;
-    } else {
-      shotGunCategory = true;
-    }
-
-    console.log(shotGunCategory);
+    const shotGunCategory = checkedDataCategory.length === 0;
 
     const checkedDataLocation = [
       mitte.checked && mitte.id,
@@ -63,48 +56,19 @@ const SearchPage = () => {
       friedrichshain.checked && friedrichshain.id,
       lichtenberg.checked && lichtenberg.id,
       kreuzberg.checked && kreuzberg.id,
-    ];
+    ].filter((value) => value); // filtering only non-empty values in array
 
-    console.log(checkedDataLocation);
-
-    let x2 = 0;
-    let shotGunLocation = false;
-    checkedDataLocation.map((n) => {
-      if (!!n == true) {
-        x2 = x2 + 1;
-      }
-    });
-    if (x2 > 0) {
-      x2 = 0;
-    } else {
-      shotGunLocation = true;
-    }
-
-    console.log(shotGunLocation);
+    const shotGunLocation = checkedDataLocation.length === 0;
 
     const checkedDataCondition = [
       newCond.checked && newCond.id,
       veryGood.checked && veryGood.id,
       good.checked && good.id,
       satisfactory.checked && satisfactory.id,
-    ];
+    ].filter((value) => value); // filtering only non-empty values in array
 
-    console.log(checkedDataCondition);
+    const shotGunCondition = checkedDataCondition.length === 0;
 
-    let x3 = 0;
-    let shotGunCondition = false;
-    checkedDataCondition.map((n) => {
-      if (!!n == true) {
-        x3 = x3 + 1;
-      }
-    });
-    if (x3 > 0) {
-      x3 = 0;
-    } else {
-      shotGunCondition = true;
-    }
-
-    console.log(shotGunCondition);
 
     const checkedDataRating = [
       parseFloat(star5.checked && star5.id),
@@ -112,33 +76,13 @@ const SearchPage = () => {
       parseFloat(star3.checked && star3.id),
       parseFloat(star2.checked && star2.id),
       parseFloat(star1.checked && star1.id),
-    ];
+    ].filter((data) => !isNaN(data)); // filtering only non-NaN values in array
 
-    console.log(checkedDataRating);
-
-    let x4 = 0;
-    let shotGunRating = false;
-    checkedDataRating.map((n) => {
-      if (!!n == true) {
-        x4 = x4 + 1;
-      }
-    });
-
-    if (x4 > 0) {
-      x4 = 0;
-    } else {
-      shotGunRating = true;
-    }
-
-    console.log(shotGunRating);
+    const shotGunRating = checkedDataRating.length === 0;
 
     let checkedDataPriceMin = 0;
     let checkedDataPriceMax = 2000;
     let shotGunPrice = false;
-
-    console.log(!!(freeStuff.id && freeStuff.checked));
-    console.log(!!priceMin);
-    console.log(!!priceMax);
 
     if (!!(freeStuff.checked && freeStuff.id) === true) {
       checkedDataPriceMin = 0;
@@ -150,78 +94,45 @@ const SearchPage = () => {
       shotGunPrice = true;
     }
 
-    const checkedDataSearch = search.toLowerCase().split(' ');
-    console.log(checkedDataSearch);
+    const checkedDataSearch = search.trim().length === 0 ? [] : search.toLowerCase().split(' ');
 
-    const searchItems = [];
-    database
-        .ref('items')
-        .once('value')
-        .then((snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const filterCategory = checkedDataCategory.indexOf(
-                childSnapshot.val().itemCategory,
-            );
-            const filterLocation = checkedDataLocation.indexOf(
-                childSnapshot.val().ownerLocation,
-            );
-            const filterCondition = checkedDataCondition.indexOf(
-                childSnapshot.val().itemCondition,
-            );
+    const filteredItems = allItems.filter((item) => {
+      const filterCategory = shotGunCategory || checkedDataCategory.includes(
+          item.itemCategory,
+      );
+      const filterLocation = shotGunLocation || checkedDataLocation.includes(
+          item.ownerLocation,
+      );
+      const filterCondition = shotGunCondition || checkedDataCondition.includes(
+          item.itemCondition,
+      );
 
-            let filterRating = false;
+      const filterRating = shotGunRating || checkedDataRating.some((star) => parseFloat(item.ownerReview) >= star);
 
-            checkedDataRating.map((star) => {
-              if (parseFloat(childSnapshot.val().ownerReview) >= star) {
-                filterRating = true;
-              }
-            });
+      const filterPrice = shotGunPrice || (
+        item.itemPrice >= checkedDataPriceMin &&
+        item.itemPrice <= checkedDataPriceMax
+      );
 
-            let filterPrice = false;
-
-            if (
-              childSnapshot.val().itemPrice >= checkedDataPriceMin &&
-            childSnapshot.val().itemPrice <= checkedDataPriceMax
-            ) {
-              filterPrice = true;
-            } else {
-              filterPrice = false;
-            }
-
-            let searchTitle = false;
-
-            checkedDataSearch.map((word) => {
-              const n = childSnapshot.val().itemName.toLowerCase().indexOf(word);
-              if (n >= 0) {
-                searchTitle = true;
-              }
-            });
-
-            if (
-              (filterCategory >= 0 || shotGunCategory) &&
-            (filterLocation >= 0 || shotGunLocation) &&
-            (filterCondition >= 0 || shotGunCondition) &&
-            (filterRating || shotGunRating) &&
-            (filterPrice || shotGunPrice) &&
-            searchTitle
-            ) {
-              const item = childSnapshot.val();
-              item.key = childSnapshot.key;
-              /* console.log(item); */
-              searchItems.push(item);
-              console.log(searchItems);
-            }
-          });
-          setSearchItems(searchItems);
-          console.log(searchItems);
-        });
+      const searchTitle = checkedDataSearch.length === 0 ||
+        checkedDataSearch.some((word) => item.itemName.toLowerCase().indexOf(word));
+      return (
+        filterCategory &&
+      filterLocation &&
+      filterCondition &&
+      filterRating &&
+      filterPrice &&
+      searchTitle
+      );
+    });
+    setSearchItems(filteredItems);
   };
   return (
     <div className="search-page">
       <div className="search-filter-bar">
         <form
           className="search-filter-form"
-          onSubmit={renderCards}
+          onSubmit={filterCards}
         >
           <div className="search-container">
             <input

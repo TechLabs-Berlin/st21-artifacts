@@ -8,7 +8,8 @@ const ItemCard = ({ item, onClick }) => {
       userInformation.favorites.some((favItem) => item.key === favItem.key),
   );
   const isMine = userInformation.UID == item.ownerKey;
-  const handleFavorites = () => {
+  const handleFavorites = (e) => {
+    e.stopPropagation();
     if (isFavorite) {
       database
           .ref(`${userInformation.UID}/favorites`)
@@ -43,7 +44,8 @@ const ItemCard = ({ item, onClick }) => {
     }
   };
 
-  const handleDeletion = () => {
+  const handleDeletion = (e) => {
+    e.stopPropagation();
     database.ref(`items/${item.key}`).remove();
     handleFavorites();
   };
