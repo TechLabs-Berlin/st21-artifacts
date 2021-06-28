@@ -35,7 +35,7 @@ const SearchPage = () => {
   useEffect(() => {
     console.log('items', allItems);
     setSearchItems(allItems);
-  }, []);
+  }, [ allItems ]);
 
   const filterCards = (e) => {
     e.preventDefault();
