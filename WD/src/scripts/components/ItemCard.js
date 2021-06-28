@@ -45,7 +45,6 @@ const ItemCard = ({ item, onClick }) => {
 
   const handleDeletion = () => {
     database.ref(`items/${item.key}`).remove();
-    handleFavorites();
   };
 
   const onClickItem = useCallback(() => {
@@ -68,14 +67,14 @@ const ItemCard = ({ item, onClick }) => {
       </div>
       <div className="card-body">
         <img src={item.itemPicture} />
-        <button
+        {!isMine && <button
           onClick={handleFavorites}
           className={
             isFavorite ? 'item-heart-button-active' : 'item-heart-button'
           }
         >
           <i className="icofont-heart icofont-heart-static"></i>
-        </button>
+        </button>}
         {isMine && (
           <button onClick={handleDeletion} className="item-delete-button">
             X
