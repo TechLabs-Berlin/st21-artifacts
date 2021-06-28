@@ -114,7 +114,7 @@ const SearchPage = () => {
       );
 
       const searchTitle = checkedDataSearch.length === 0 ||
-        checkedDataSearch.some((word) => item.itemName.toLowerCase().indexOf(word));
+        checkedDataSearch.some((word) => item.itemName.toLowerCase().includes(word));
       return (
         filterCategory &&
       filterLocation &&
@@ -142,7 +142,7 @@ const SearchPage = () => {
               className="search-input"
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-            ></input>
+            />
           </div>
           <div className="all-filter-container">
             <div className="one-filter-container">
@@ -407,7 +407,9 @@ const SearchPage = () => {
           <div className="search-button-container">
             <button className="search-button">Find</button>
             <input className="clear-button" type="reset" value="Clear" onClick={() => {
-              setPriceMax('2000'); setPriceMin('0');
+              setPriceMax('2000');
+              setPriceMin('0');
+              setSearch('');
             }}></input>
           </div>
         </form>
