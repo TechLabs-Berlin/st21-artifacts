@@ -26,23 +26,43 @@ const EditingUserInformation = () => {
         .once('value')
         .then((snapshot) => {
           const value = snapshot.val();
-          database
-              .ref(`${userInformation.UID}`)
-              .set({
-                ...newUserInformation,
-                favorites: value.favorites,
-              })
-              .then(() => {
-                newUserInformation.UID = userInformation.UID;
-                setUserInformation({
-                  ...userInformation,
+          const fav = value.favorites;
+          if (!!fav) {
+            database
+                .ref(`${userInformation.UID}`)
+                .set({
                   ...newUserInformation,
+                  favorites: value.favorites,
+                })
+                .then(() => {
+                  newUserInformation.UID = userInformation.UID;
+                  setUserInformation({
+                    ...userInformation,
+                    ...newUserInformation,
+                  });
+                  console.log('Data is edited');
+                })
+                .catch((e) => {
+                  console.log('This failed', e);
                 });
-                console.log('Data is edited');
-              })
-              .catch((e) => {
-                console.log('This failed', e);
-              });
+          } else {
+            database
+                .ref(`${userInformation.UID}`)
+                .set({
+                  ...newUserInformation,
+                })
+                .then(() => {
+                  newUserInformation.UID = userInformation.UID;
+                  setUserInformation({
+                    ...userInformation,
+                    ...newUserInformation,
+                  });
+                  console.log('Data is edited');
+                })
+                .catch((e) => {
+                  console.log('This failed', e);
+                });
+          }
         })
         .catch((e) => {
           console.log('This failed', e);
