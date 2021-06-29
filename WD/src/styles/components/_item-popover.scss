@@ -1,3 +1,7 @@
+header  .item-offerer{
+    background-color: none;
+    color: white;
+}
 .item-popover-background{
     position: fixed;
     background-color: rgba(0, 0, 0, 0.4);
@@ -17,7 +21,7 @@
     transform: translate(-50%, -50%);
     width: 70%;
     height: 70%;
-    background-color: pink;
+    background-color: white;
     z-index: 100;
     box-sizing: border-box;
     border-radius: 15px;
@@ -40,7 +44,7 @@
     top: 0;
     left: 62%;
     position: absolute;
-    background-color: lightblue;
+    background-color: rgb(205, 234, 192);
     display: inline-block;
     padding: 10px;
     box-sizing: border-box;
@@ -57,4 +61,23 @@
     background-position: center;
     background-size: cover;    
     border-radius: 15px;
+}
+
+.contact-owner{
+    color:rgb(7, 59, 76);
+    background-color: #FDEB8E;
+    border-radius: 15px;
+    border-color: #FDEB8E;
+    border-style: solid;
+    width: 328px;
+    height: 62px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: bold;
+    left: 50%;
+}
+
+.profile-pic{
+    width: 60px;
+    height: 60px;
 }
