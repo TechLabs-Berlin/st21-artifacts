@@ -8,10 +8,10 @@ const ItemPopover = (props) => (
     <div className="item-popover">
       <div className="item-popover-left-side">
         <header className="item-offerer">
-          <img className="profile-pic" src={props.ownerPicture}>{props.ownerName}</img> 
+          <img className="profile-pic" src={props.ownerPicture}>{props.ownerName}</img>
           <h1>{props.itemName}</h1>
         </header>
-        
+
         <div className="item-popover-image-container" style={{
           backgroundImage: 'url(' + props.itemPicture + ')',
         }} />
@@ -26,8 +26,8 @@ const ItemPopover = (props) => (
         {(props.itemAvailability == 'true') ?
                   <p className="green">Available</p> :
                   <p className="red">Not available</p>}
-        <p>📍 {props.itemLocation}</p>   
-        <div>   
+        <p>📍 {props.itemLocation}</p>
+        <div>
           <NavLink to="/ContactOwner" className="contact-owner">Contact owner</NavLink>
         </div>
       </div>
