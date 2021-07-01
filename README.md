@@ -9,10 +9,10 @@ This repo is part of the Tech Labs Berlin summer 2021 Project Phase.
 
 ## Take a look at Artifacts
 !!!
-(https://artifacts-effcb.web.app/)
-_Please log in with a existing Googlemail account_
+_Please log in with a existing Googlemail account:_ https://artifacts-effcb.web.app/
 
-If you like to have a introduction to Artifacts, watch our [video] (tbd)
+
+If you like to have a introduction to Artifacts, watch our video: tbd
 ## Project status
 This repo is part of the Tech Labs Berlin summer 2021 Project Phase. The project ends with submission on 11th of Juli 2021.
 No further activities are planned for the future.

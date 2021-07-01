@@ -1,6 +1,18 @@
 .landing-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-header > h3 {
   margin: 15px 0;
   text-align: center;
+}
+
+.headline-Artifacts {
+  height: 30px;
+  margin: 0 0 0 5px;
+  padding: 0;
 }
 
 .container-actions {
@@ -56,4 +68,8 @@
 .boldItalic {
   font-weight: bold;
   font-style: italic;
+}
+
+a {
+  text-decoration: none;
 }

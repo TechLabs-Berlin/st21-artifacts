@@ -65,7 +65,7 @@ const Profile = () => {
         <div className="user-main-bar">
           <button onClick={() => setCurrentTab(TABS.ABOUT)}>About me</button>
           <button onClick={() => setCurrentTab(TABS.ARTIFACTS)}>
-            Artifacts & services
+            Items & Services
           </button>
           <button onClick={() => setCurrentTab(TABS.FAVORITES)}>
             Favorites

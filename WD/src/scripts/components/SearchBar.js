@@ -16,14 +16,14 @@ const SearchBar = () => {
         activeClassName="is-active"
         className="search-bar-nav"
       >
-        <button className="search-bar-button">find Artifacts</button>
+        <button className="search-bar-button">find items</button>
       </NavLink>
       <NavLink
         to="/offerArtifact"
         activeClassName="is-active"
         className="search-bar-nav"
       >
-        <button className="search-bar-button">offer Artifacts</button>
+        <button className="search-bar-button">offer items</button>
       </NavLink>
       <NavLink to="" activeClassName="is-active" className="search-bar-nav">
         <button

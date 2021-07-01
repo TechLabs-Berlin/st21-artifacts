@@ -1,30 +1,41 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/scripts/app.js",
+  entry: './src/scripts/app.js',
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
-        loader: "babel-loader",
+        loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/,
       },
       {
         test: /\.s?css$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
       },
     ],
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     hot: true,
     overlay: true,
-    open: true
+    open: true,
   },
 };

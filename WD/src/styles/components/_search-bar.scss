@@ -2,10 +2,10 @@
   align-items: center;
   background: none;
   display: flex;
-  flex-grow: 4;
-  justify-content: space-between;
+  justify-content: center;
   margin: 5px;
   padding: 0;
+  width: 70%;
 }
 
 .search-bar-button {
@@ -13,9 +13,10 @@
   border: none;
   color: $color;
   font-size: smaller;
-  /*   margin: 0 40px; */
-  padding: 10px 25px;
+  margin: 0 30px;
+  padding: 10px 15px;
   text-align: center;
+  width: 150px;
 }
 
 .search-bar-button:hover {

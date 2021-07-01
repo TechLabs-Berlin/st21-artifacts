@@ -35,11 +35,15 @@ const SearchPage = () => {
   useEffect(() => {
     if (searchItems.length === 0) {
       setSearchItems(allItems);
+    } else {
+      filterCards();
     }
   }, [ allItems ]);
 
   const filterCards = (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const checkedDataCategory = [
       photo.checked && photo.id,
       costumes.checked && costumes.id,

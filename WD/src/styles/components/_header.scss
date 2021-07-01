@@ -20,12 +20,11 @@ header {
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  flex-grow: 1;
+  width: 15%;
 }
 
 .container-header {
   align-items: center;
-  /* border: 1px solid $lines; */
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -33,17 +32,21 @@ header {
   width: 83%;
 }
 
-.container-header > h1 {
-  flex-grow: 1;
-  font-size: 25px;
-  font-style: italic;
+.header-Artifacts {
+  height: 45px;
   margin: 0 0 0 5px;
   padding: 0;
 }
 
+.header-Artifacts:hover {
+  
+}
+
 .home-header {
-  color: inherit;
-  text-decoration: inherit;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  width: 15%;
 }
 
 i {
@@ -54,13 +57,5 @@ i {
 }
 
 i:hover {
-  color: $highlight;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
   color: $highlight;
 }
