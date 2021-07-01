@@ -7,22 +7,16 @@ In addition to functionalities such as user login via an existing Googlemail acc
 
 This repo is part of the Tech Labs Berlin summer 2021 Project Phase.
 
-## Take a look at Artifacts
-!!!
+## Take a look at Artifacts = How to run the prototype
 _Please log in with a existing Googlemail account:_ https://artifacts-effcb.web.app/
 
-
-If you like to have a introduction to Artifacts, watch our video: tbd
 ## Project status
 This repo is part of the Tech Labs Berlin summer 2021 Project Phase. The project ends with submission on 11th of Juli 2021.
 No further activities are planned for the future.
-## Description
-!!!
-- What is it about?
-- What can it do? Features?
-- Pictures
 
-Find detailed information on the UX/UI part of the project in the UX-folders README. 
+## Description
+* If you like to have a introduction to and a description on Artifacts, watch our video: _tbd_
+* Find detailed information on the **UX/UI part** of the project in the UX-folder and the UX README. 
 
 ## Tech Stack
 * React with Hooks
@@ -37,17 +31,22 @@ Find detailed information on the UX/UI part of the project in the UX-folders REA
 * Firebase Authentication
 * Firebase Hosting
 ## Installation
-!!!
-- How to run it with the dev-server
-- own keys = database is needed
-- lint text
+* first you have to set up your project Firebase Realtime Database and
+* save the key.js in the WD-folder (see example - key.js)
+* run _yarn install_ on the WD folder to install all necessary packages
+
+* run the dev-server with _yarn dev-server_
+* hint: run _yarn lint:fix_ to make your code pretty :)
 
 ## What´s next?
-!!!
-Not included in the MVP, but always part of the concept, is the extension of Artifacts with collaborations and services from artist to artist.
-
-**More possible features:**
-* fill in from final presentation
+We had many ideas but too less time for e.g.:
+* _Find & Offer Services_ analogous _Find & Offer Items_
+* Messenger for communication between users
+* Show availability and Location/Map/Around Me
+* Show other users profile
+* Dynamic rating of other users
+* Dynamic number of fans per item
+* ...
 
 ## Authors and acknowledgment
 Many thanks to all team members and especially to our wonderful mentor as well as the whole Tech Lab crew.
