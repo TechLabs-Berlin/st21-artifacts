@@ -33,8 +33,9 @@ const SearchPage = () => {
 
   // Adding all items to search items to be rendered in first mount
   useEffect(() => {
-    console.log('items', allItems);
-    setSearchItems(allItems);
+    if (searchItems.length === 0) {
+      setSearchItems(allItems);
+    }
   }, [ allItems ]);
 
   const filterCards = (e) => {
