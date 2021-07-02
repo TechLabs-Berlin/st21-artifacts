@@ -1,7 +1,4 @@
-# Artifacts
-
 ![Test](landingPage.PNG)
-<img src="landingPage.PNG" />
 
 ## Overview
 **Artifacts** - born from an idea to provide the Berlin artist scene with a web app to make borrowing artists equipment easy and accessible using its own currency, the product concept has quickly developed into a platform for buying and selling second-hand artist supplies thanks to critical user research and survey. Artifacts allows users to post, search, find and manage items, called Artifacts, and contact the current owners.
