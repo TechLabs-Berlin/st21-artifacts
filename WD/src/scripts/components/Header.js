@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import SearchBar from '../components/SearchBar';
 import { useIsLoggedIn } from '../context/user-context/UserContext';
+import MobileNavBar from './MobileNavBar';
 
 const Header = () => {
   const isLoggedIn = useIsLoggedIn();
@@ -31,6 +32,7 @@ const Header = () => {
           />
         </NavLink>
         <SearchBar />
+        <MobileNavBar />
         <div className="container-buttons-header">
           {isLoggedIn ? (
             <button onClick={startLogout} className="button-header">
@@ -51,6 +53,3 @@ const Header = () => {
 };
 
 export default Header;
-/*             <NavLink to="/messenger" activeClassName="is-active">
-              <i className="icofont-mail"></i>
-            </NavLink> */

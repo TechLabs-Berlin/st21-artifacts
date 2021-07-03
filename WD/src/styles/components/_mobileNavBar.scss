@@ -1,0 +1,43 @@
+.mobile-nav-bar {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .mobile-nav-bar {
+    display: block;
+  }
+}
+
+.burgerIcon {
+  margin: 0;
+  padding: 0;
+} 
+
+.fa-bars {
+  color: $lines;
+  padding: 0 20px;
+}
+ 
+.burger-links {
+  background-color: $header;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+}
+
+.nav-bar-link {
+    margin: 10px 0 ;
+    text-align: center;
+}
+
+.nav-bar-link > a {
+    color: $color;
+}
+
+.nav-bar-link > a:hover {
+    color: $highlight;
+}

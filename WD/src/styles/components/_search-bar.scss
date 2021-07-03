@@ -2,10 +2,16 @@
   align-items: center;
   background: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 5px;
   padding: 0;
-  width: 70%;
+  width: 60%;
+}
+
+@media only screen and (max-width: 900px) {
+  .search-bar {
+    display: none;
+  }
 }
 
 .search-bar-button {
@@ -13,10 +19,9 @@
   border: none;
   color: $color;
   font-size: smaller;
-  margin: 0 30px;
-  padding: 10px 15px;
+  padding: 10px 0;
   text-align: center;
-  width: 150px;
+  width: 125px;
 }
 
 .search-bar-button:hover {
