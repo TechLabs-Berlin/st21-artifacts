@@ -63,20 +63,22 @@ const ItemCard = ({ item, onClick }) => {
           <h5>{item.ownerName}</h5>
         </div>
         <div className="review-container">
-          <p>{item.ownerReview}</p>
-          <i className="icofont-star icofont-star-static"></i>
+          {'★'.repeat(Math.round(parseFloat(item.ownerReview))) +
+              '☆'.repeat(5 - Math.round(parseFloat(item.ownerReview)))}
         </div>
       </div>
       <div className="card-body">
         <img src={item.itemPicture} />
-        {!isMine && <button
-          onClick={handleFavorites}
-          className={
-            isFavorite ? 'item-heart-button-active' : 'item-heart-button'
-          }
-        >
-          <i className="icofont-heart icofont-heart-static"></i>
-        </button>}
+        {!isMine && (
+          <button
+            onClick={handleFavorites}
+            className={
+              isFavorite ? 'item-heart-button-active' : 'item-heart-button'
+            }
+          >
+            <i className="icofont-heart icofont-heart-static"></i>
+          </button>
+        )}
         {isMine && (
           <button onClick={handleDeletion} className="item-delete-button">
             X

@@ -28,7 +28,7 @@ const OfferArtifact = () => {
           ownerLocation,
           ownerName: userInformation.name,
           ownerPicture: userInformation.profilePicture,
-          ownerReview: '4.5',
+          ownerReview: userInformation.review,
         })
         .then(() => {
           console.log('Item is saved');

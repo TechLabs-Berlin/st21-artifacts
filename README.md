@@ -8,7 +8,7 @@ In addition to functionalities such as user login via an existing Googlemail acc
 This repo is part of the Tech Labs Berlin summer 2021 Project Phase.
 
 ## Take a look at Artifacts = How to run the prototype
-_Please log in with a existing Googlemail account:_ https://artifacts-effcb.web.app/
+Please log in with an existing Google account: https://artifacts-effcb.web.app/
 
 ## Project status
 This repo is part of the Tech Labs Berlin summer 2021 Project Phase. The project ends with submission on 11th of Juli 2021.
@@ -49,7 +49,7 @@ We had many ideas but too less time for e.g.:
 * ...
 
 ## Authors and acknowledgment
-Many thanks to all team members and especially to our wonderful mentor as well as the whole Tech Lab crew.
+Many thanks to all Tech Labs team members and to our wonderful mentor as well as the whole Tech Lab community.
 Thank you for having us.
 
 * mentored by: Renan Bandeira

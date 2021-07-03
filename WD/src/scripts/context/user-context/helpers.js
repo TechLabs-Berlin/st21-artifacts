@@ -30,6 +30,7 @@ export const useAuth = () => {
                   profilePicture:
                     user.photoURL ||
                     'https://www.thoughtco.com/thmb/2wU-Ux_HMu2fKMgGIbiQ__GVTrc=/768x0/filters:no_upscale([…]-yayoi-kusama-142104772-e1f7601789b54b8f9d8c4dcd6be40a6d.jpg',
+                  review: Math.round(Math.random() * 5),
                 };
                 database
                     .ref(`${user.uid}`)
