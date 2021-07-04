@@ -46,6 +46,7 @@ We had many ideas but too less time for e.g.:
 * Show other users profile
 * Dynamic rating of other users
 * Dynamic number of fans per item
+* Updating item information with update of user information (name, picture, rating)
 * ...
 
 ## Authors and acknowledgment
