@@ -17,3 +17,4 @@ export const UserContextProvider = ({ children }) => {
   const data = useAuth();
   return <UserContext.Provider value={data}>{children}</UserContext.Provider>;
 };
+

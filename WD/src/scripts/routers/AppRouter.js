@@ -7,6 +7,8 @@ import NotFoundPage from '../components/NotFoundPage';
 import SearchPage from '../components/SearchPage';
 import Profile from '../components/Profile';
 import OfferArtifact from '../components/OfferArtifact';
+import ContactOwner from '../components/ContactOwner';
+//import ContactOwner from '../components/ContactOwner';
 import { useIsLoggedIn, UserContextProvider } from '../context/user-context/UserContext';
 import { ItemContextProvider } from '../context/item-context/ItemContext';
 
@@ -43,6 +45,8 @@ const AppRouter = () => (
             <PrivateRoute path="/search" component={SearchPage} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/offerArtifact" component={OfferArtifact} />
+            <PrivateRoute path="/contactOwner" component={ContactOwner} />
+            
             <Route component={NotFoundPage} />
           </Switch>
         </div>

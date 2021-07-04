@@ -1,6 +1,24 @@
-header  .item-offerer{
-    background-color: none;
-    color: white;
+.item-popover-offerer-pic-container{
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.item-popover-offerer-name{
+    margin: 0px;
+    display: inline-block;
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: 200;
+    margin: 0 0 0 5px;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.item-popover-offerer{
+    color: black;
+    display: inline-block;
 }
 .item-popover-background{
     position: fixed;
@@ -36,6 +54,12 @@ header  .item-offerer{
     display: inline-block;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.item-popover-left-side > h1 {
+    margin: 5px 0;
+    font-size: 26px;
+    font-weight: bolder;
 }
 
 .item-popover-right-side{

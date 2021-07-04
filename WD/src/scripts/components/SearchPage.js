@@ -427,9 +427,11 @@ const SearchPage = () => {
             itemDescription={popover.itemDescription}
             itemPrice={popover.itemPrice}
             itemPicture={popover.itemPicture}
+            itemCondition={popover.itemCondition}
             itemAvailability={popover.itemAvailability}
             ownerReview={popover.ownerReview}
             ownerLocation={popover.ownerLocation}
+            ownerKey={popover.ownerKey}
           />}
         </div>
       </div>

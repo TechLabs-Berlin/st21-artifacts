@@ -1,17 +1,30 @@
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-// import ItemCard from './ItemCard';
-// import database from '../firebase/firebase';
+import ContactForm from './ContactForm';
+import database from '../firebase/firebase';
 
-const ItemPopover = (props) => (
+
+const ItemPopover = (props) => {
+  const [ otherUserInformation, setOtherUserInformation ] = useState({});
+  const handleOtherUserInformation = (id) => {
+    database.ref(`${id}`).once('value').then((snapshot) => {
+      const userInformation = snapshot.val();
+      userInformation.UID = id;
+      setOtherUserInformation(userInformation);
+    });
+  };
+  handleOtherUserInformation(props.ownerKey);
+
+  return (
   <div className="item-popover-background" onClick={props.clearPopover}>
-    <div className="item-popover">
+    <div className="item-popover" onClick={(event) => { event.stopPropagation()}}>
       <div className="item-popover-left-side">
-        <header className="item-offerer">
-          <img className="profile-pic" src={props.ownerPicture}>{props.ownerName}</img> 
-          <h1>{props.itemName}</h1>
-        </header>
-        
+        <div className="item-popover-offerer">
+          <div className="item-popover-offerer-pic-container" style={{backgroundImage: 'url(' +otherUserInformation.profilePicture + ')', }} />
+          <p className="item-popover-offerer-name">{otherUserInformation.name}</p>
+        </div>
+        <h1>{props.itemName}</h1>
         <div className="item-popover-image-container" style={{
           backgroundImage: 'url(' + props.itemPicture + ')',
         }} />
@@ -26,13 +39,15 @@ const ItemPopover = (props) => (
         {(props.itemAvailability == 'true') ?
                   <p className="green">Available</p> :
                   <p className="red">Not available</p>}
-        <p>📍 {props.itemLocation}</p>   
-        <div>   
-          <NavLink to="/ContactOwner" className="contact-owner">Contact owner</NavLink>
+        <p>📍 {props.ownerLocation}</p>
+        <p> Condition: {props.itemCondition}</p>
+        <ContactForm ownerInformation={otherUserInformation}/>   
+        <div>  
+          <NavLink to="/contactOwner" className="contact-owner">Request to buy</NavLink>
         </div>
       </div>
     </div>
   </div>
-);
-
+)
+}
 export default ItemPopover;
