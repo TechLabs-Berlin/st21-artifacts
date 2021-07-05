@@ -435,6 +435,7 @@ const SearchPage = () => {
             itemAvailability={popover.itemAvailability}
             ownerReview={popover.ownerReview}
             ownerLocation={popover.ownerLocation}
+            ownerKey={popover.ownerKey}
           />}
         </div>
       </div>

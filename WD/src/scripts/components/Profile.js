@@ -52,7 +52,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="user-sidebar-contact">
-          <a href={userInformation.mail}>
+          <a href={`mailto:${userInformation.mail}`}>
             <i className="icofont-mail"></i>
           </a>
           <p>Contact me</p>

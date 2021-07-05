@@ -24,7 +24,7 @@ export const useAuth = () => {
                   description: 'No further information.',
                   headline: 'default',
                   link: 'https://www.google.de',
-                  mail: `mailto:${user.email}`,
+                  mail: user.email,
                   name: user.displayName,
                   favorites: {},
                   profilePicture:
