@@ -42,19 +42,50 @@ const OfferArtifact = () => {
   return (
     <div className="item-offer-container">
       <div className="item-offer-header">
-        <img
-          src="https://wallpapercave.com/wp/wp6168519.jpg"
-          className="item-offer-banner"
-          alt="Background picture"
-        />
         <div className="item-offer-headline">
-          <p>Offer an</p>
-          <h3>Item</h3>
+          <p>Offer Item</p>
+          <h3>Artifact</h3>
         </div>
       </div>
-      <div className="item-offer-main">
-        <form onSubmit={offerArtifact}>
+      <form onSubmit={offerArtifact}>
+        <div className="item-offer-main">
+          <div className="section">
+            <div className="main-sec">
+              <div className="squares">
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+                <div className="box">
+                  <i className="fas fa-briefcase breifcase"></i>
+                </div>
+              </div>
+            </div>
+            <div className="description">
+              <textarea
+                type="text"
+                id="itemDescription"
+                className="discription-box"
+                placeholder="Tell us about your item here. Write about size condition and use."
+                value={itemDescription}
+                onChange={(e) => setItemDescription(e.target.value)}
+              />
+            </div>
+          </div>
+
           <div className="item-offer-context">
+            <h3>INFORMATION</h3>
             <div className="item-edit-flex">
               <label className="item-edit-label">Category: </label>
               <select
@@ -94,17 +125,6 @@ const OfferArtifact = () => {
                 placeholder="please insert a URL for items picture"
                 value={itemPicture}
                 onChange={(e) => setItemPicture(e.target.value)}
-              />
-            </div>
-            <div className="item-edit-flex">
-              <label className="item-edit-label">Description: </label>
-              <textarea
-                className="item-edit-input"
-                type="text"
-                id="itemDescription"
-                placeholder="please insert a description here"
-                value={itemDescription}
-                onChange={(e) => setItemDescription(e.target.value)}
               />
             </div>
             <div className="item-edit-container">
@@ -155,8 +175,8 @@ const OfferArtifact = () => {
               Submit
             </button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };

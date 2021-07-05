@@ -16,6 +16,8 @@
 
 .item-offer-headline {
   margin: 20px 0;
+  display: flex;
+  justify-content: space-between; 
 }
 
 .item-offer-headline > p {
@@ -25,6 +27,18 @@
 .item-offer-headline > h3 {
   margin: 0;
   padding: 0;
+}
+
+.item-offer-main{
+margin-top: 10vh;
+}
+
+.item-offer-context{
+  margin-top: 8vh;
+}
+
+::placeholder{
+  text-align: center;
 }
 
 .item-offer-submit {
@@ -39,6 +53,49 @@
   width: 140px;
 }
 
+.squares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 5vh;
+  position: relative;
+  right: 4vw;
+}
+
+.main-sec {
+  width: 50vw;
+  height: 50vh;
+}
+
+.box {
+  border: 1px solid black;
+  width: 15px;
+  height: 15px;
+  padding: 70px;
+  border-radius: 5px;
+  margin-left: 5vw;
+  text-align: centerc;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.breifcase {
+  font-size: 50px;
+  font-weight: 200;
+  position: relative;
+  left: -1rem;
+  bottom: 2rem;
+}
+
+.discription-box {
+  width: 40vw;
+  height: 54vh;
+  border: 1px solid black;
+}
+
+
 .item-offer-submit:hover {
   background:$lines;
   color: $background;
@@ -50,7 +107,7 @@
   font: $font;
   font-style: italic;
   margin: 1px 0;
-  width: 85%;
+  width: 50%;
 }
 
 .item-edit-input2 {
@@ -59,8 +116,8 @@
   font: $font;
   font-style: italic;
   margin: 1px 0 1px 5px;
-  text-align: left;
-   width: 50%;
+  text-align: center;
+   width: 20%;
 }
 
 .item-edit-flex {
