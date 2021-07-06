@@ -1,0 +1,11 @@
+.not-found {
+  margin: 0 auto;  
+  text-align: center;
+  width: 83%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .not-found {
+    width: 99%;
+  }
+}
