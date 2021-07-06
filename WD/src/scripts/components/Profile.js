@@ -47,11 +47,8 @@ const Profile = () => {
         <div className="user-sidebar-container">
           <h2 className="user-h2">{userInformation.name}</h2>
           <div className="user-sidebar-review">
-            {<i className="icofont-star icofont-star-color"></i>}
-            {<i className="icofont-star icofont-star-color"></i>}
-            {<i className="icofont-star icofont-star-color"></i>}
-            {<i className="icofont-star icofont-star-color"></i>}
-            {<i className="icofont-star icofont-star-grey"></i>}
+            {'★'.repeat(Math.round(parseFloat(userInformation.review))) +
+              '☆'.repeat(5 - Math.round(parseFloat(userInformation.review)))}
           </div>
         </div>
         <div className="user-sidebar-contact">
@@ -65,7 +62,7 @@ const Profile = () => {
         <div className="user-main-bar">
           <button onClick={() => setCurrentTab(TABS.ABOUT)}>About me</button>
           <button onClick={() => setCurrentTab(TABS.ARTIFACTS)}>
-            Artifacts & services
+            Items & Services
           </button>
           <button onClick={() => setCurrentTab(TABS.FAVORITES)}>
             Favorites

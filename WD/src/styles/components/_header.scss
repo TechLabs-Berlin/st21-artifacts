@@ -1,5 +1,8 @@
 header {
   background: $header;
+  position:sticky;
+  top:0;
+  z-index: 100;
 }
 
 .button-header {
@@ -9,6 +12,7 @@ header {
   color: $color;
   height: 30px;
   margin: 5px;
+  text-align: center;
   width: 65px;
 }
 
@@ -20,12 +24,11 @@ header {
   align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  flex-grow: 1;
+  width: 15%;
 }
 
 .container-header {
   align-items: center;
-  /* border: 1px solid $lines; */
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -33,17 +36,28 @@ header {
   width: 83%;
 }
 
-.container-header > h1 {
-  flex-grow: 1;
-  font-size: 25px;
-  font-style: italic;
+@media only screen and (max-width: 1200px) {
+  .container-header {
+    width: 99%;
+  }
+}
+
+.header-Artifacts {
+  height: 45px;
   margin: 0 0 0 5px;
   padding: 0;
 }
 
+.header-Artifacts:hover {
+  border: 5px dotted $highlight;
+  border-radius: 100%;
+}
+
 .home-header {
-  color: inherit;
-  text-decoration: inherit;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  width: 15%;
 }
 
 i {
@@ -54,13 +68,5 @@ i {
 }
 
 i:hover {
-  color: $highlight;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
   color: $highlight;
 }

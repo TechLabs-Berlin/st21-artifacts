@@ -20,6 +20,7 @@ const EditingUserInformation = () => {
       name,
       profilePicture: picture,
       mail: userInformation.mail,
+      review: userInformation.review,
     };
     database
         .ref(`${userInformation.UID}`)

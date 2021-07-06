@@ -33,12 +33,17 @@ const SearchPage = () => {
 
   // Adding all items to search items to be rendered in first mount
   useEffect(() => {
-    console.log('items', allItems);
-    setSearchItems(allItems);
+    if (searchItems.length === 0) {
+      setSearchItems(allItems);
+    } else {
+      filterCards();
+    }
   }, [ allItems ]);
 
   const filterCards = (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const checkedDataCategory = [
       photo.checked && photo.id,
       costumes.checked && costumes.id,
@@ -157,7 +162,7 @@ const SearchPage = () => {
                     onChange={(event) => setPhoto(event.target)}
                   ></input>
                   <label htmlFor="photography & film equipment">
-                    photography & film equ.
+                    photography & film
                   </label>
                 </div>
                 <div className="one-filter-input">
@@ -179,7 +184,7 @@ const SearchPage = () => {
                     onChange={(event) => setMusic(event.target)}
                   ></input>
                   <label htmlFor="music & sound equipment">
-                    music & sound equipment
+                    music & sound
                   </label>
                 </div>
                 <div className="one-filter-input">

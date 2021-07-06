@@ -28,7 +28,7 @@ const OfferArtifact = () => {
           ownerLocation,
           ownerName: userInformation.name,
           ownerPicture: userInformation.profilePicture,
-          ownerReview: '4.5',
+          ownerReview: userInformation.review,
         })
         .then(() => {
           console.log('Item is saved');
@@ -49,7 +49,7 @@ const OfferArtifact = () => {
         />
         <div className="item-offer-headline">
           <p>Offer an</p>
-          <h3>Artifact</h3>
+          <h3>Item</h3>
         </div>
       </div>
       <div className="item-offer-main">
@@ -75,7 +75,7 @@ const OfferArtifact = () => {
               </select>
             </div>
             <div className="item-edit-flex">
-              <label className="item-edit-label">Artifact name: </label>
+              <label className="item-edit-label">Items name: </label>
               <input
                 className="item-edit-input"
                 type="text"

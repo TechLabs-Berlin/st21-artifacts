@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import SearchBar from '../components/SearchBar';
 import { useIsLoggedIn } from '../context/user-context/UserContext';
+import MobileNavBar from './MobileNavBar';
 
 const Header = () => {
   const isLoggedIn = useIsLoggedIn();
@@ -19,28 +20,29 @@ const Header = () => {
   return (
     <header>
       <div className="container-header">
-        <h1>
-          <NavLink
-            className="home-header"
-            to="/"
-            activeClassName="is-active"
-            exact={true}
-          >
-              Artifacts
-          </NavLink>
-        </h1>
+        <NavLink
+          className="home-header"
+          to="/"
+          activeClassName="is-active"
+          exact={true}
+        >
+          <img
+            src={require('../../../public/images/artifacts logo.svg')}
+            className="header-Artifacts"
+          />
+        </NavLink>
         <SearchBar />
+        <MobileNavBar />
         <div className="container-buttons-header">
           {isLoggedIn ? (
-              <button onClick={startLogout} className="button-header">
-                Logout
-              </button>
-            ) :
-            (
-              <button onClick={startLogin} className="button-header">
-                Login
-              </button>
-            )}
+            <button onClick={startLogout} className="button-header">
+              Logout
+            </button>
+          ) : (
+            <button onClick={startLogin} className="button-header">
+              Login
+            </button>
+          )}
           <NavLink to="/profile" activeClassName="is-active">
             <i className="icofont-ui-user"></i>
           </NavLink>
@@ -51,6 +53,3 @@ const Header = () => {
 };
 
 export default Header;
-/*             <NavLink to="/messenger" activeClassName="is-active">
-              <i className="icofont-mail"></i>
-            </NavLink> */

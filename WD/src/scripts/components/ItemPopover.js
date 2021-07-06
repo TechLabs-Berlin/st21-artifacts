@@ -44,6 +44,7 @@ const ItemPopover = (props) => {
         <ContactForm ownerInformation={otherUserInformation}/>   
         <div>  
           <NavLink to="/contactOwner" className="contact-owner">Request to buy</NavLink>
+
         </div>
       </div>
     </div>

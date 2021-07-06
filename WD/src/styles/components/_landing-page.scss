@@ -1,6 +1,23 @@
+.landing-page {
+  margin: 0 auto;
+  width: 83%;
+}
+
 .landing-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-header > h3 {
   margin: 15px 0;
   text-align: center;
+}
+
+.headline-Artifacts {
+  height: 30px;
+  margin: 0 0 0 5px;
+  padding: 0;
 }
 
 .container-actions {
@@ -56,4 +73,35 @@
 .boldItalic {
   font-weight: bold;
   font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .landing-page {
+    width: 99%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container-actions {
+    align-items: center;
+    flex-direction: column;
+  }
+  .action {
+  margin: 5px 0;
+  width: 370px;
+
+}
+  .landing-picture-linked {
+    width: 370px;
+  }
+    .landing-picture {
+    width: 370px;
+  }
+  .landing-overlay {
+  width: 350px;
+}
 }

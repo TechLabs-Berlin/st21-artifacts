@@ -1,9 +1,15 @@
 .user-container {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 26% 74%;
   grid-template-rows: 270px 1fr;
   margin: 10px auto 0px auto;
   width: 83%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .user-container {
+    width: 99%;
+  }
 }
 
 .user-header {
@@ -47,7 +53,9 @@
 }
 
 .user-sidebar-container {
+  align-items: center;
   display:flex;
+  margin: 0 0 10px 0;
 }
 
 .user-sidebar-contact {
@@ -85,7 +93,7 @@
   font-weight: 800;
   font-size: 15px;
   height: 45px;
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   width: 140px;
 }
 
@@ -100,7 +108,7 @@
 }
 
 .user-h2 {
-  margin: 0 10px 10px 0;
+  margin: 0 10px 0 0;
 }
 
 .user-h3 {
@@ -161,11 +169,7 @@
 }
 
 .list-artifacts-services {
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: wrap;
   height: 300px;
-  justify-content: flex-start;
   overflow-y: scroll;
 }
 
@@ -174,7 +178,7 @@
   display: flex;
   flex-wrap: wrap;
   height: 300px;
-  justify-content: flex-start;
+  justify-content: center;
   overflow-y: scroll;
 }
 
@@ -203,4 +207,25 @@
 
 .icofont-star-color:hover {
   color:$color;
+}
+
+@media only screen and (max-width: 875px) {
+  .user-header {
+  grid-template-columns: 10px 210px 1fr;
+  grid-template-rows: 10px 90px 70px;
+}
+  .user-banner {
+    height: 100px;
+  }
+  .user-container {
+    display: flex;
+    flex-direction: column;
+}
+.user-sidebar {
+  padding: 50px 0 0 20px;
+}
+  .user-main {
+    margin: 10px auto 0 auto;
+    width: 99%;
+  }
 }
