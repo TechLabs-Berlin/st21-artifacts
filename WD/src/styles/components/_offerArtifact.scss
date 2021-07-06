@@ -1,48 +1,88 @@
 .item-offer-container {
-  margin: 10px auto 10px auto;
+  margin: 0 auto;
   width: 83%
 }
 
-.item-offer-header {
-  margin: 0;
+@media only screen and (max-width: 1200px) {
+  .item-offer-container {
+    width: 99%;
+  }
 }
 
-.item-offer-banner {
-  border-radius: 10px;
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.item-offer-headline {
-  margin: 20px 0;
+.section {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
+  margin: 0 10px;
 }
 
-.item-offer-headline > p {
-  margin: 5px 0;
+.information {
+  margin: 20px 10px;
 }
 
-.item-offer-headline > h3 {
-  margin: 0;
-  padding: 0;
+.main-sec {
+  width: 45%;
 }
 
-.item-offer-main{
-margin-top: 10vh;
+.squares {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
-.item-offer-context{
-  margin-top: 8vh;
+.box {
+  align-items: center;
+  border: 2px solid $offer;
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  height: 130px;
+  border-radius: 10px;
 }
 
-::placeholder{
+.briefcase {
+  font-size: 50px;
+  font-weight: 200;
+  color: $offer;
+}
+
+.description-box {
+  width: 97%;
+  height: 250px;
+  border: 2px solid $offer;
+  border-radius: 10px;
   text-align: center;
+  font-family: $font;
+  padding: 10px 10px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .section {
+    flex-direction: column;
+  }
+  .main-sec {
+    width: 100%;
+  }
+  .squares {
+    display: grid;
+    grid-template-columns: 115px 115px 115px 1fr;
+  }
+  .box {
+    width: 105px;
+    height: 80px;
+  }
+  .description-box {
+    width: 95%;
+  }
+}
+
+.submit-offer {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .item-offer-submit {
-  background: $highlight;
+  background: $header;
   border: none;;
   border-radius: 20px;
   color: $color;
@@ -51,50 +91,8 @@ margin-top: 10vh;
   height: 45px;
   margin: 30px 0 5px 0;
   width: 140px;
+  right: 0;
 }
-
-.squares {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-row-gap: 5vh;
-  position: relative;
-  right: 4vw;
-}
-
-.main-sec {
-  width: 50vw;
-  height: 50vh;
-}
-
-.box {
-  border: 1px solid black;
-  width: 15px;
-  height: 15px;
-  padding: 70px;
-  border-radius: 5px;
-  margin-left: 5vw;
-  text-align: centerc;
-}
-
-.section {
-  display: flex;
-  justify-content: space-around;
-}
-
-.breifcase {
-  font-size: 50px;
-  font-weight: 200;
-  position: relative;
-  left: -1rem;
-  bottom: 2rem;
-}
-
-.discription-box {
-  width: 40vw;
-  height: 54vh;
-  border: 1px solid black;
-}
-
 
 .item-offer-submit:hover {
   background:$lines;
@@ -102,22 +100,13 @@ margin-top: 10vh;
 }
 
 .item-edit-input {
-  background: $card;
+  background: $offer;
   border: none;
   font: $font;
   font-style: italic;
   margin: 1px 0;
-  width: 50%;
-}
-
-.item-edit-input2 {
-  background: $card;
-  border: none;
-  font: $font;
-  font-style: italic;
-  margin: 1px 0 1px 5px;
-  text-align: center;
-   width: 20%;
+  width: 80%;
+  text-align: right;
 }
 
 .item-edit-flex {

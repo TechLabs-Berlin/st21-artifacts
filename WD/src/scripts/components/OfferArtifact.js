@@ -41,72 +41,50 @@ const OfferArtifact = () => {
 
   return (
     <div className="item-offer-container">
-      <div className="item-offer-header">
-        <div className="item-offer-headline">
-          <p>Offer Item</p>
-          <h3>Artifact</h3>
-        </div>
-      </div>
       <form onSubmit={offerArtifact}>
-        <div className="item-offer-main">
-          <div className="section">
-            <div className="main-sec">
-              <div className="squares">
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
-                <div className="box">
-                  <i className="fas fa-briefcase breifcase"></i>
-                </div>
+        <div className="section">
+          <div className="main-sec">
+            <h2>List an item</h2>
+            <div className="squares">
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
+              </div>
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
+              </div>
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
               </div>
             </div>
-            <div className="description">
-              <textarea
-                type="text"
-                id="itemDescription"
-                className="discription-box"
-                placeholder="Tell us about your item here. Write about size condition and use."
-                value={itemDescription}
-                onChange={(e) => setItemDescription(e.target.value)}
-              />
+            <div className="squares">
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
+              </div>
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
+              </div>
+              <div className="box">
+                <i className="fas fa-briefcase briefcase"></i>
+              </div>
             </div>
           </div>
-
-          <div className="item-offer-context">
-            <h3>INFORMATION</h3>
+          <div className="main-sec">
+            <h2>Description</h2>
+            <textarea
+              type="text"
+              id="itemDescription"
+              className="description-box"
+              placeholder="Tell us about your item here. Write about size condition and use."
+              value={itemDescription}
+              onChange={(e) => setItemDescription(e.target.value)}
+            />
+          </div>
+        </div>
+        <h2 className="information">Information</h2>
+        <div className="section">
+          <div className="main-sec">
             <div className="item-edit-flex">
-              <label className="item-edit-label">Category: </label>
-              <select
-                className="item-edit-input"
-                id="itemCategory"
-                onChange={(e) => setItemCategory(e.target.value)}
-                value={itemCategory}
-              >
-                <option value="photography & film equipment">
-                  photography & film equipment
-                </option>
-                <option value="props & costumes">props & costumes</option>
-                <option value="music & sound equipment">
-                  music & sound equipment
-                </option>
-                <option value="art supplies">art supplies</option>
-                <option value="others">others</option>
-              </select>
-            </div>
-            <div className="item-edit-flex">
-              <label className="item-edit-label">Items name: </label>
+              <label className="item-edit-label">Name: </label>
               <input
                 className="item-edit-input"
                 type="text"
@@ -127,24 +105,45 @@ const OfferArtifact = () => {
                 onChange={(e) => setItemPicture(e.target.value)}
               />
             </div>
+            <div className="item-edit-flex">
+              <label className="item-edit-label2">Price: </label>
+              <input
+                className="item-edit-input"
+                type="number"
+                step="any"
+                min="0"
+                placeholder="€"
+                id="itemPrice"
+                value={itemPrice}
+                onChange={(e) => setItemPrice(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="main-sec">
             <div className="item-edit-container">
               <div className="item-edit-flex">
-                <label className="item-edit-label2">Price: </label>
-                <input
-                  className="item-edit-input2"
-                  type="number"
-                  step="any"
-                  min="0"
-                  placeholder="€"
-                  id="itemPrice"
-                  value={itemPrice}
-                  onChange={(e) => setItemPrice(e.target.value)}
-                />
+                <label className="item-edit-label">Category: </label>
+                <select
+                  className="item-edit-input"
+                  id="itemCategory"
+                  onChange={(e) => setItemCategory(e.target.value)}
+                  value={itemCategory}
+                >
+                  <option value="photography & film equipment">
+                    photography & film equipment
+                  </option>
+                  <option value="props & costumes">props & costumes</option>
+                  <option value="music & sound equipment">
+                    music & sound equipment
+                  </option>
+                  <option value="art supplies">art supplies</option>
+                  <option value="others">others</option>
+                </select>
               </div>
               <div className="item-edit-flex">
-                <label className="item-edit-label2">Location: </label>
+                <label className="item-edit-label">Location: </label>
                 <select
-                  className="item-edit-input2"
+                  className="item-edit-input"
                   id="ownerLocation"
                   onChange={(e) => setOwnerLocation(e.target.value)}
                   value={ownerLocation}
@@ -157,9 +156,9 @@ const OfferArtifact = () => {
                 </select>
               </div>
               <div className="item-edit-flex">
-                <label className="item-edit-label2">Condition: </label>
+                <label className="item-edit-label">Condition: </label>
                 <select
-                  className="item-edit-input2"
+                  className="item-edit-input"
                   id="itemCondition"
                   onChange={(e) => setItemCondition(e.target.value)}
                   value={itemCondition}
@@ -171,10 +170,12 @@ const OfferArtifact = () => {
                 </select>
               </div>
             </div>
-            <button type="submit" className="item-offer-submit">
-              Submit
-            </button>
           </div>
+        </div>
+        <div className="submit-offer">
+          <button type="submit" className="item-offer-submit">
+            Save
+          </button>
         </div>
       </form>
     </div>
