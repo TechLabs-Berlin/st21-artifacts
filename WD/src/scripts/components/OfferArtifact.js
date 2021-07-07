@@ -106,7 +106,7 @@ const OfferArtifact = () => {
               />
             </div>
             <div className="item-edit-flex">
-              <label className="item-edit-label2">Price: </label>
+              <label className="item-edit-label">Price: </label>
               <input
                 className="item-edit-input"
                 type="number"

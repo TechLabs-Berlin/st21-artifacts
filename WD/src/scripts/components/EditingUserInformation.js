@@ -126,7 +126,7 @@ const EditingUserInformation = () => {
         <div className="user-edit-flex">
           <label className="user-edit-label">About Me: </label>
           <textarea
-            className="user-edit-input"
+            className="user-edit-input-textarea"
             type="text"
             id="description"
             onChange={(event) => setDescription(event.target.value)}

@@ -7,28 +7,55 @@ const SearchPage = () => {
   const [ searchItems, setSearchItems ] = useState([]);
   const allItems = useAllItems();
   const [ popover, setPopover ] = useState(null);
-  const [ photo, setPhoto ] = useState({ checked: false, id: 'photography & film equipment' });
-  const [ costumes, setCostumes ] = useState({ checked: false, id: 'props & costumes' });
-  const [ music, setMusic ] = useState({ checked: false, id: 'music & sound equipment' });
+  const [ photo, setPhoto ] = useState({
+    checked: false,
+    id: 'photography & film equipment',
+  });
+  const [ costumes, setCostumes ] = useState({
+    checked: false,
+    id: 'props & costumes',
+  });
+  const [ music, setMusic ] = useState({
+    checked: false,
+    id: 'music & sound equipment',
+  });
   const [ art, setArt ] = useState({ checked: false, id: 'art supplies' });
   const [ others, setOthers ] = useState({ checked: false, id: 'others' });
   const [ mitte, setMitte ] = useState({ checked: false, id: 'Mitte' });
-  const [ charlottenburg, setCharlottenburg ] = useState({ checked: false, id: 'Charlottenburg' });
-  const [ friedrichshain, setFriedrichshain ] = useState({ checked: false, id: 'Friedrichshain' });
-  const [ lichtenberg, setLichtenberg ] = useState({ checked: false, id: 'Lichtenberg' });
-  const [ kreuzberg, setKreuzberg ] = useState({ checked: false, id: 'Kreuzberg' });
+  const [ charlottenburg, setCharlottenburg ] = useState({
+    checked: false,
+    id: 'Charlottenburg',
+  });
+  const [ friedrichshain, setFriedrichshain ] = useState({
+    checked: false,
+    id: 'Friedrichshain',
+  });
+  const [ lichtenberg, setLichtenberg ] = useState({
+    checked: false,
+    id: 'Lichtenberg',
+  });
+  const [ kreuzberg, setKreuzberg ] = useState({
+    checked: false,
+    id: 'Kreuzberg',
+  });
   const [ newCond, setNewCond ] = useState({ checked: false, id: 'new' });
   const [ veryGood, setVeryGood ] = useState({ checked: false, id: 'very good' });
   const [ good, setGood ] = useState({ checked: false, id: 'good' });
-  const [ satisfactory, setSatisfactory ] = useState({ checked: false, id: 'satisfactory' });
+  const [ satisfactory, setSatisfactory ] = useState({
+    checked: false,
+    id: 'satisfactory',
+  });
   const [ star5, setStar5 ] = useState({ checked: false, id: '5' });
   const [ star4, setStar4 ] = useState({ checked: false, id: '4' });
   const [ star3, setStar3 ] = useState({ checked: false, id: '3' });
   const [ star2, setStar2 ] = useState({ checked: false, id: '2' });
-  const [ star1, setStar1 ] = useState({ checked: false, id: '1' }); ;
+  const [ star1, setStar1 ] = useState({ checked: false, id: '1' });
   const [ priceMin, setPriceMin ] = useState('0');
   const [ priceMax, setPriceMax ] = useState('2000');
-  const [ freeStuff, setFreeStuff ] = useState({ checked: false, id: 'freeStuffOnly' });
+  const [ freeStuff, setFreeStuff ] = useState({
+    checked: false,
+    id: 'freeStuffOnly',
+  });
   const [ search, setSearch ] = useState('');
 
   // Adding all items to search items to be rendered in first mount
@@ -39,6 +66,31 @@ const SearchPage = () => {
       filterCards();
     }
   }, [ allItems ]);
+
+  // Get the button:
+  const topButton = document.getElementById('bring-to-top');
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {
+    scrollFunction();
+  };
+
+  const scrollFunction = () => {
+    if (
+      document.body.scrollTop > 60 ||
+      document.documentElement.scrollTop > 60
+    ) {
+      topButton.style.display = 'block';
+    } else {
+      topButton.style.display = 'none';
+    }
+  };
+
+  // When the user clicks on the button, scroll to the top of the document
+  const handleTop = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  };
 
   const filterCards = (e) => {
     if (e) {
@@ -73,7 +125,6 @@ const SearchPage = () => {
 
     const shotGunCondition = checkedDataCondition.length === 0;
 
-
     const checkedDataRating = [
       parseFloat(star5.checked && star5.id),
       parseFloat(star4.checked && star4.id),
@@ -98,35 +149,38 @@ const SearchPage = () => {
       shotGunPrice = true;
     }
 
-    const checkedDataSearch = search.trim().length === 0 ? [] : search.toLowerCase().split(' ');
+    const checkedDataSearch =
+      search.trim().length === 0 ? [] : search.toLowerCase().split(' ');
 
     const filteredItems = allItems.filter((item) => {
-      const filterCategory = shotGunCategory || checkedDataCategory.includes(
-          item.itemCategory,
-      );
-      const filterLocation = shotGunLocation || checkedDataLocation.includes(
-          item.ownerLocation,
-      );
-      const filterCondition = shotGunCondition || checkedDataCondition.includes(
-          item.itemCondition,
-      );
+      const filterCategory =
+        shotGunCategory || checkedDataCategory.includes(item.itemCategory);
+      const filterLocation =
+        shotGunLocation || checkedDataLocation.includes(item.ownerLocation);
+      const filterCondition =
+        shotGunCondition || checkedDataCondition.includes(item.itemCondition);
 
-      const filterRating = shotGunRating || checkedDataRating.some((star) => parseFloat(item.ownerReview) >= star);
+      const filterRating =
+        shotGunRating ||
+        checkedDataRating.some((star) => parseFloat(item.ownerReview) >= star);
 
-      const filterPrice = shotGunPrice || (
-        item.itemPrice >= checkedDataPriceMin &&
-        item.itemPrice <= checkedDataPriceMax
-      );
+      const filterPrice =
+        shotGunPrice ||
+        (item.itemPrice >= checkedDataPriceMin &&
+          item.itemPrice <= checkedDataPriceMax);
 
-      const searchTitle = checkedDataSearch.length === 0 ||
-        checkedDataSearch.some((word) => item.itemName.toLowerCase().includes(word));
+      const searchTitle =
+        checkedDataSearch.length === 0 ||
+        checkedDataSearch.some((word) =>
+          item.itemName.toLowerCase().includes(word),
+        );
       return (
         filterCategory &&
-      filterLocation &&
-      filterCondition &&
-      filterRating &&
-      filterPrice &&
-      searchTitle
+        filterLocation &&
+        filterCondition &&
+        filterRating &&
+        filterPrice &&
+        searchTitle
       );
     });
     setSearchItems(filteredItems);
@@ -134,10 +188,7 @@ const SearchPage = () => {
   return (
     <div className="search-page">
       <div className="search-filter-bar">
-        <form
-          className="search-filter-form"
-          onSubmit={filterCards}
-        >
+        <form className="search-filter-form" onSubmit={filterCards}>
           <div className="search-container">
             <input
               type="text"
@@ -183,9 +234,7 @@ const SearchPage = () => {
                     value={music}
                     onChange={(event) => setMusic(event.target)}
                   ></input>
-                  <label htmlFor="music & sound equipment">
-                    music & sound
-                  </label>
+                  <label htmlFor="music & sound equipment">music & sound</label>
                 </div>
                 <div className="one-filter-input">
                   <input
@@ -411,33 +460,43 @@ const SearchPage = () => {
           </div>
           <div className="search-button-container">
             <button className="search-button">Find</button>
-            <input className="clear-button" type="reset" value="Clear" onClick={() => {
-              setPriceMax('2000');
-              setPriceMin('0');
-              setSearch('');
-            }}></input>
+            <input
+              className="clear-button"
+              type="reset"
+              value="Clear"
+              onClick={() => {
+                setPriceMax('2000');
+                setPriceMin('0');
+                setSearch('');
+              }}
+            ></input>
           </div>
         </form>
       </div>
       <div className="search-results-scroll">
+        <button onClick={handleTop} id="bring-to-top" className="bring-to-top">
+          Beam me up!
+        </button>
         <div className="search-page-results">
           <ItemsContainer customItems={searchItems} onClickItem={setPopover} />
         </div>
         <div>
-          {popover && <ItemPopover
-            clearPopover={() => {
-              setPopover(null);
-            }}
-            itemName={popover.itemName}
-            itemDescription={popover.itemDescription}
-            itemPrice={popover.itemPrice}
-            itemPicture={popover.itemPicture}
-            itemCondition={popover.itemCondition}
-            itemAvailability={popover.itemAvailability}
-            ownerReview={popover.ownerReview}
-            ownerLocation={popover.ownerLocation}
-            ownerKey={popover.ownerKey}
-          />}
+          {popover && (
+            <ItemPopover
+              clearPopover={() => {
+                setPopover(null);
+              }}
+              itemName={popover.itemName}
+              itemDescription={popover.itemDescription}
+              itemPrice={popover.itemPrice}
+              itemPicture={popover.itemPicture}
+              itemCondition={popover.itemCondition}
+              itemAvailability={popover.itemAvailability}
+              ownerReview={popover.ownerReview}
+              ownerLocation={popover.ownerLocation}
+              ownerKey={popover.ownerKey}
+            />
+          )}
         </div>
       </div>
     </div>

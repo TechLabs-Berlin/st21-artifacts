@@ -31,14 +31,14 @@
     cursor: pointer;
 }
 
-textarea{
+.message-to-send{
     font-family: 'Montserrat';
     text-align: left;
     outline: none;
     color:rgb(7, 59, 76);
 }
 
-::placeholder{
+.message-to-send::placeholder{
     text-align: left;
     font-style: italic;
     color: rgb(194, 194, 194);

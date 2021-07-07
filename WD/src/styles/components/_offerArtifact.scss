@@ -106,7 +106,13 @@
   font-style: italic;
   margin: 1px 0;
   width: 80%;
-  text-align: right;
+  text-align: left;
+}
+
+.item-edit-input::placeholder {
+  font: $font;
+  font-style: italic;
+  text-align: left;
 }
 
 .item-edit-flex {

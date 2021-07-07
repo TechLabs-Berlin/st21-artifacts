@@ -133,6 +133,16 @@
   width: 85%;
 }
 
+.user-edit-input-textarea {
+  background: $card;
+  border: none;
+  font: $font;
+  font-style: italic;
+  height: 80px;
+  margin: 1px 0;
+  width: 85%;
+}
+
 .user-edit-button {
   background: $profile;
   border: none;

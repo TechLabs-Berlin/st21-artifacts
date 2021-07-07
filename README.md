@@ -45,6 +45,7 @@ We had many ideas but too less time for e.g.:
 * Show availability and Location/Map/Around Me
 * Show other users profile
 * Dynamic rating of other users
+* picture upload and storage
 * Dynamic number of fans per item
 * Updating item information with update of user information (name, picture, rating)
 * ...
