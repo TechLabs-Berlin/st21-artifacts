@@ -85,6 +85,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  outline: none;
 }
 
 .search-container > input {
@@ -181,4 +182,8 @@
 
 .freeStuffOnly-label {
   padding: 0 5px 0 0;
+}
+
+.search-input{
+  outline: none;
 }

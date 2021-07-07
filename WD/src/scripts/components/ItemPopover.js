@@ -23,6 +23,8 @@ const ItemPopover = (props) => {
         <div className="item-popover-offerer">
           <div className="item-popover-offerer-pic-container" style={{backgroundImage: 'url(' +otherUserInformation.profilePicture + ')', }} />
           <p className="item-popover-offerer-name">{otherUserInformation.name}</p>
+          <p className="review-owner">{'★'.repeat(Math.round(parseFloat(props.ownerReview))) +
+                  '☆'.repeat(5 - Math.round(parseFloat(props.ownerReview)))}</p>
         </div>
         <h1>{props.itemName}</h1>
         <div className="item-popover-image-container" style={{
@@ -31,21 +33,12 @@ const ItemPopover = (props) => {
       </div>
       <div className="item-popover-right-side">
         <h2>About this item</h2>
-        <p>Price: {props.itemPrice}</p>
-        <p>{'★'.repeat(Math.round(parseFloat(props.ownerReview))) +
-                  '☆'.repeat(5 - Math.round(parseFloat(props.ownerReview)))}</p>
-        <h3>Description</h3>
+        <p>📍 Berlin, {props.ownerLocation}</p>
+        <p><b>Price:</b> €{props.itemPrice}</p>
+        <p> <b>Condition:</b> {props.itemCondition}</p>
+        <p><b>Description:</b></p>
         <p>{props.itemDescription}</p>
-        {(props.itemAvailability == 'true') ?
-                  <p className="green">Available</p> :
-                  <p className="red">Not available</p>}
-        <p>📍 {props.ownerLocation}</p>
-        <p> Condition: {props.itemCondition}</p>
-        <ContactForm ownerInformation={otherUserInformation}/>   
-        <div>  
-          <NavLink to="/contactOwner" className="contact-owner">Request to buy</NavLink>
-
-        </div>
+        <ContactForm ownerInformation={otherUserInformation}/>
       </div>
     </div>
   </div>

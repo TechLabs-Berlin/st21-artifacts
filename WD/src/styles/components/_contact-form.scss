@@ -1,0 +1,50 @@
+.message-to-owner{
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.message-to-send{
+    border-radius: 15px;
+    border: 0;
+    width: 100%;
+    height: 82px;
+    box-sizing: border-box;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    margin-top: 15px;
+}
+
+.contact-owner{
+    color:rgb(7, 59, 76);
+    background-color: #CDEAC0;
+    border-radius: 15px;
+    border-color: #CDEAC0;
+    border-style: solid;
+    width: 100%;
+    height: 32px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-weight: bold;
+    left: 50%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+textarea{
+    font-family: 'Montserrat';
+    text-align: left;
+    outline: none;
+    color:rgb(7, 59, 76);
+}
+
+::placeholder{
+    text-align: left;
+    font-style: italic;
+    color: rgb(194, 194, 194);
+}
+.contact-owner:hover{
+    background-color:#FF928B;
+    border-color:#FF928B;
+    color: white;
+}

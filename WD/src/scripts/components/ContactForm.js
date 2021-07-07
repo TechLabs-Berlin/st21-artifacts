@@ -27,12 +27,11 @@ import { useUserInformation } from '../context/user-context/UserContext';
   
 
   return (
-    <form className="contact-form" onSubmit={sendEmail}>
-      <label>Message</label>
-      <textarea name="message_to_send" value={message} onChange={ (e) => setMessage(e.target.value)}  />
-      <input type="submit" value="Send" />
+    <form className="contact-form" onSubmit={sendEmail}>  
+      <div>
+        <textarea className="message-to-send" name="message_to_send" placeholder={"Write " + props.ownerInformation.name + " a message..."} value={message} onChange={ (e) => setMessage(e.target.value)}  /> 
+      </div>
+      <input type="submit" value="Send" className="contact-owner"/>
     </form>
   );
 }
-
-  

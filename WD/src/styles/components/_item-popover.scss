@@ -68,7 +68,7 @@
     top: 0;
     left: 62%;
     position: absolute;
-    background-color: rgb(205, 234, 192);
+    background-color: rgba(205, 234, 192, 0.4);
     display: inline-block;
     padding: 10px;
     box-sizing: border-box;
@@ -87,21 +87,19 @@
     border-radius: 15px;
 }
 
-.contact-owner{
-    color:rgb(7, 59, 76);
-    background-color: #FDEB8E;
-    border-radius: 15px;
-    border-color: #FDEB8E;
-    border-style: solid;
-    width: 328px;
-    height: 62px;
-    box-sizing: border-box;
-    font-size: 15px;
-    font-weight: bold;
-    left: 50%;
-}
 
 .profile-pic{
     width: 60px;
     height: 60px;
+}
+
+.review-owner{
+    display: inline-block;
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: 200;
+    margin: 0 0 0 5px;
+    padding-left: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
