@@ -10,13 +10,9 @@ import OfferArtifact from '../components/OfferArtifact';
 import { useIsLoggedIn, UserContextProvider } from '../context/user-context/UserContext';
 import { ItemContextProvider } from '../context/item-context/ItemContext';
 
-// dynamic routing with :id
-
 export const history = createHistory();
 
 // definition of routing that forbids access if not logged in
-// ... in front of rest deleted ... compared to video, maybe put though of props not possible
-// https://ui.dev/react-router-v4-protected-routes-authentication/
 const PrivateRoute = ({ component: Component, rest }) => {
   const isLoggedIn = useIsLoggedIn();
   if (!isLoggedIn) {
@@ -43,7 +39,6 @@ const AppRouter = () => (
             <PrivateRoute path="/search" component={SearchPage} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/offerArtifact" component={OfferArtifact} />
-            
             <Route component={NotFoundPage} />
           </Switch>
         </div>

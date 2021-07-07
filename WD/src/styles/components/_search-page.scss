@@ -11,10 +11,10 @@
   justify-content: center;
 }
 
-.search-results-scroll {
+/* .search-results-scroll {
   height: 300px;
   overflow-y: scroll;
-}
+} */
 
 .search-button-container {
   align-items: center;
@@ -63,6 +63,28 @@
   justify-content: center;
 }
 
+.bring-to-top {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: $highlight; /* Set a background color */
+  color: $color; /* Text color */
+  padding: 5px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+  box-shadow: 7px 7px 5px $color;
+}
+
+.bring-to-top:hover {
+  background-color: $color; 
+  color: $background;
+  box-shadow: 7px 7px 5px $highlight;
+}
+
 @media only screen and (max-width: 1200px) {
   .search-page {
     width: 99%;
@@ -76,9 +98,9 @@
   .one-filter-container {
     width: 200px;
   }
-  .search-results-scroll {
+/*   .search-results-scroll {
     height:500px;
-  }
+  } */
 }
 
 .search-container {
