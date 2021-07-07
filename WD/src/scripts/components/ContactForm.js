@@ -15,7 +15,7 @@ import { useUserInformation } from '../context/user-context/UserContext';
         from_name: userInformation.name,
         message_to_send: message,
         reply_to: userInformation.mail,
-        to_email: props.ownerInformation.mail.split(':')[1],
+        to_email: props.ownerInformation.mail,
         to_name: props.ownerInformation.name
       }, 'user_9AIsWEje6EriowiE0uOR8')
         .then((result) => {
