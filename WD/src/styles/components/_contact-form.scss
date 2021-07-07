@@ -48,3 +48,17 @@
     border-color:#FF928B;
     color: white;
 }
+
+.contact-owner:disabled{
+    background-color: #b2c9a8;
+    border-color: #b2c9a8;
+    color:rgba(7, 59, 76, 0.425);
+    cursor: not-allowed;
+}
+
+.message-sent-feedback{
+    background-color: #CDEAC0;
+    border-color: rgb(7, 59, 76);
+    margin: 15px; 
+    border: 15px solid #CDEAC0;
+}
