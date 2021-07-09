@@ -1,0 +1,9 @@
+**Artifacts** - Born from an idea to provide the Berlin creative and art scene with a web app to make borrowing artists equipment easy and accessible using its own currency, the product concept has quickly developed into a platform for buying and selling second-hand items, as well as giving and obtaining them for free, thanks to critical user research and survey. Artifacts allows users to post, search and manage items and to contact the current owners.
+
+In addition to functionalities such as user login via an existing Google account, an extensive search mask for finding items and an editable user profile, Artifacts also allows users to create and delete their own items and save favorites. With the connection to a Google Firebase Realtime Database the information is stored securely and can be retrieved at a later session.
+
+Not included in the MVP, but always part of the concept, is the extension of Artifacts with the ability for artists to build their networks and collaborate with each other. In the spirit of the Circular Economy based on sharing, Artifacts works towards sustainability, both financially and creatively, for the art scene, which took a blow from the Covid-19 crisis.
+
+During the project, our team of 3 UX/UI designers and 3 frontend developers actively applied and deepened their knowledge, acquired during the TechLabs Academic Phase. Using common tools from both disciplines (UX/UI: e.g. Figma, Invision; WD: e.g. React, Google Firebase), the project team developed a functioning, responsive and user-friendly prototype.
+
+We are happy to bring an interdisciplinary project of this scope to life within the 10-weeks Project Phase, while having fun and respect for each other's needs. Thank you for having us!
