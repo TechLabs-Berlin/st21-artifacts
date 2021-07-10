@@ -8,14 +8,14 @@ In addition to functionalities such as user login via an existing Google account
 This repo is part of the TechLabs Berlin summer 2021 Project Phase.
 
 ## Take a look at Artifacts
-Please log in with an existing Google account: https://artifacts-effcb.web.app/
+Please visit [Artifacts](https://artifacts-effcb.web.app/) and log in with an existing Google account.
 
 ## Project status
 This repo is part of the TechLabs Berlin summer 2021 Project Phase. The project ends with submission on 11th of Juli 2021.
 No further activities are planned for the future.
 
 ## Description
-* If you like to have an introduction to and a description on Artifacts, watch our video: https://youtu.be/p2EWyoVflWI
+* If you like to have an introduction to and a description on Artifacts, watch our [video](https://youtu.be/p2EWyoVflWI).
 * Find detailed information on the **UX/UI part** of the project in the UX folder and the UX README. 
 
 ## Tech Stack
@@ -62,10 +62,10 @@ Thank you for having us.
 * mentored by: Renan Bandeira
 
 * Eunice Abieyuwa Igbinedion (WD)
-* Kati (Ekaterina Atanasova) (WD)
+* Kati (Ekaterina Atanasova) (UX)
 * Luciana Serna Wills (WD)
 * Pika Stih (UX)
-* Stefanie Zastrow (WD): _SteffiZ-0-0_
+* Stefanie Zastrow (WD): [SteffiZ-0-0](https://github.com/SteffiZ-0-0)
 * Terence Li (UX)
 
 ## License
