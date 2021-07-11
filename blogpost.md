@@ -61,22 +61,22 @@ To sum up, the UX team has learned a lot during the past 10 weeks from research 
 
 &nbsp;
 
-**Coding** - As soon as the Project Phase began, the active work on the project for the web dev team also started. Thanks to the advice of our mentor, the Tech Stack was quickly clarified and we agreed to test our freshly acquired knowledge regarding React and SCSS directly in the project. The first hurdle we had to overcome was the issue of data storage and database. Since our web dev team consisted of three Techies who followed the front end path and we therefore had to tackle the project without a back end Techie, this was quite a challenge. Again, however, we were able to rely on the expert advice of our mentor and decided to use Google Firebase for authentication with existing Google accounts, data storage and hosting.
+**Coding** - As soon as the Project Phase began, the active work on the project for the web dev team also started. Thanks to the advice of our mentor, the Tech Stack was quickly clarified and we agreed to test our freshly acquired knowledge regarding React and SCSS directly in the project. The first hurdle we had to overcome was the issue of data storage and database. Since our web dev team consisted of three Techies who followed the front end path and we therefore had to tackle the project without a back end Techie, we had to figure out ways of make the back end work. However this meant a lot of learnings for us, and again we were able to rely on the expert advice of our mentor and decided to use Google Firebase for data storage, hosting and the authentication with existing Google accounts.
 
-After the initial set up of the repo, we went straight to creating the first components and making them accessible via React Router. In parallel, enabling the authentication and CRUD functionalities in interaction with the database was a core focus of our first weeks in the project. At the beginning, we focused mainly on the functionalities of Artifacts in order to have the core features implemented quickly and to give the UX team time to work on wireframes. Using initial sketches, we set up the landing page, the search mechanism and item cards, the header, the user profile and the form for entering new items.
+After the initial set up of the repo, we went straight into creating the first components and making them accessible via the React Router. In parallel, enabling the authentication and the CRUD functionalities interactions with the database was a core focus of our first weeks. At the beginning, we focused mainly on the functionalities of Artifacts in order to have the core features implemented quickly and to give the UX team time to work on wireframes. Using initial sketches, we set up the landing page, the search mechanism and item cards, the header, the user profile and the form for entering new items.
 
-As time went on, we slowly realized that we could not implement the MVP, as initially defined, in the given time without sacrificing quality in the product (and our lifes beside the project 😉). In order to secure our goal of providing a prototype that is harmonious in itself and also works without errors in the offered functionalities, features had to be eliminated. We therefore continued to focus on Artifacts as an exchange platform for items and postponed the
+We slowly realized that given the time left it won't be possible to implement the MVP as defined in the first week, without sacrificing quality in the product (and our lifes beside the project 😉). In order to secure our goal of providing a prototype that is harmonious and also works without errors in the offered functionalities, some features of the MVP had to be left out. We therefore continued to focus on Artifacts as an exchange platform for items and postponed the
 * extension to services to Release 2.0, followed by
-* the user rating,
-* the dynamic display of fans per item,
-* the messenger functionality,
-* the functionality to show someones profile
-* the feature to upload and store pictures (not just URL) and
+* user rating,
+* dynamic display of fans per item,
+* messenger functionality,
+* functionality to show someones profile
+* feature to upload and store pictures (not just URL) and
 * other features to make the website more dynamic.
 
-With the provision of the wireframes by the UX team, we were able to begin with the restyling of the pages from the second half of the Project Phase on. In parallel, further functionalities, such as the popup with detailed information about the items, were implemented and major and minor errors and bugs were fixed.
+With the final wireframes the UX team provided during the fourth week, we began to implement the restyling of the pages. In parallel, further functionalities were implemented, like the pop over with detailed information about the item clicked and the messaging between users via e-mail.
 
-Thanks to the continuous deployment of the main branch of our Github repo via Github workflows to Google Firebase, we were able to quickly add different sample items to the database in the last two weeks of the Project Phase, so that we could frequently test the behavior and the search algorithm and identify bugs. The last weeks of the Project Phase therefore mainly included bug fixes, restyling and finalizing the last functionalities.
+Thanks to the continuous deployment to Google Firebase of our Github main branch via Github workflows, we were able to comfortable add different sample items to the database during the last two weeks of the Project Phase, so that we could frequently test the behavior and the search algorithm and identify bugs. We can say the last weeks of the Project Phase included mainly bug fixes, restyling and finalizing the last functionalities.
 
 Please visit us on [Artifacts](https://artifacts-effcb.web.app/).
 
