@@ -62,7 +62,7 @@ Thank you for having us.
 * mentored by: Renan Bandeira
 
 * Eunice Abieyuwa Igbinedion (WD)
-* Kati (Ekaterina Atanasova) (UX)
+* Kati (Ekaterina Atanasova) (UX): [ekaterina22](https://github.com/ekaterina22)
 * Luciana Serna Wills (WD)
 * Pika Stih (UX)
 * Stefanie Zastrow (WD): [SteffiZ-0-0](https://github.com/SteffiZ-0-0)
