@@ -16,7 +16,7 @@ Here are some of our first sketches of the core functionalities that we started 
 This is where you can see all our final wireframes of the core pages we designed and implemented, as well as our user personas and style guide for the pages. 
 
 * [wireframes, personas and style guide](https://www.figma.com/file/jtk0TxRCG1RomCqNXJ0UCH/artifacts?node-id=12%3A1)
-* [style guide](https://docs.google.com/spreadsheets/d/1gONGSG5pJXhsCugrjvga7DNO4OPIo_amNz64YmqqQQ0/edit#gid=785450853)
+* [brainstorming stye guide & landing page](https://docs.google.com/spreadsheets/d/1gONGSG5pJXhsCugrjvga7DNO4OPIo_amNz64YmqqQQ0/edit#gid=785450853)
 
 ## User stories
 

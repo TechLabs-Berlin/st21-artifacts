@@ -41,7 +41,7 @@ We decided to go for a neat, simple and cheerful design, which incorporates past
 >_More information:_
 > * Please check out our [initial drafts](https://artifacts.invisionapp.com/freehand/artifacts-LyGhP5BNl) on the Invision page 
 > * Here is [our project](https://www.figma.com/file/jtk0TxRCG1RomCqNXJ0UCH/artifacts?node-id=0%3A1) on Figma
-> * A glimpse to our [style guide](https://docs.google.com/spreadsheets/d/1gONGSG5pJXhsCugrjvga7DNO4OPIo_amNz64YmqqQQ0/edit#gid=785450853)
+> * A glimpse to our [brainstorming stye guide & landing page](https://docs.google.com/spreadsheets/d/1gONGSG5pJXhsCugrjvga7DNO4OPIo_amNz64YmqqQQ0/edit#gid=785450853)
 > * Check out the [user flows](https://www.figma.com/file/L7tdneL92346KJGOx4Pgut/User-Flows?node-id=0%3A1)
 
 &nbsp;
