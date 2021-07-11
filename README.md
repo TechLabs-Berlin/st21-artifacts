@@ -59,14 +59,14 @@ We had many ideas but too less time for e.g.:
 Many thanks to all TechLabs team members and to our wonderful mentor as well as the whole TechLab community.
 Thank you for having us.
 
-* mentored by: Renan Bandeira
+* mentored by Renan Bandeira: [renanbandeira](https://github.com/renanbandeira)
 
-* Eunice Abieyuwa Igbinedion (WD)
+* Eunice Abieyuwa Igbinedion (WD): [Eunnylans](https://github.com/Eunnylans)
 * Kati (Ekaterina Atanasova) (UX): [ekaterina22](https://github.com/ekaterina22)
-* Luciana Serna Wills (WD)
-* Pika Stih (UX)
+* Luciana Serna (WD): [sernawills](https://github.com/sernawills)
+* Pika Stih (UX): [pikastih](https://github.com/pikastih)
 * Stefanie Zastrow (WD): [SteffiZ-0-0](https://github.com/SteffiZ-0-0)
-* Terence Li (UX)
+* Terence Li (UX): [terenlih](https://github.com/terenlih)
 
 ## License
 * MIT
